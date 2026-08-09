@@ -53,11 +53,12 @@ alla visita successiva.
   automaticamente con `prefers-reduced-motion`.
 - Responsive fino a mobile, menu a scomparsa, skip-link e focus visibile.
 
-## Cosa devi caricare tu / What you still need to upload
+## Immagini / Images
 
-Le foto allegate in chat vanno messe a mano in `assets/img/` — istruzioni e nomi
-file esatti in [`assets/img/README.md`](assets/img/README.md). Il sito funziona
-già senza, ma con il ritratto reale è tutta un'altra cosa.
+Logo, ritratto, icona e anteprima social sono in `assets/img/` — dimensioni e
+provenienza in [`assets/img/README.md`](assets/img/README.md). Restano
+ricostruite solo `logo-ml.svg` (ripiego se il PNG manca) e `favicon.svg`, che
+per essere sostituita vuole una versione quadrata del marchio.
 
 ## Testi da rivedere / Copy to review
 
