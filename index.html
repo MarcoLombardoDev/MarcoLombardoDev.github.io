@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marco Lombardo</title>
+<meta name="description" content="Marco Lombardo — personal site / sito personale.">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#0a0a0c">
+
+<link rel="alternate" hreflang="en" href="https://marcolombardodev.github.io/en/">
+<link rel="alternate" hreflang="it" href="https://marcolombardodev.github.io/it/">
+<link rel="alternate" hreflang="x-default" href="https://marcolombardodev.github.io/">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+<noscript><meta http-equiv="refresh" content="0; url=en/"></noscript>
+
+<style>
+  :root { color-scheme: dark; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    display: grid;
+    place-items: center;
+    gap: 28px;
+    background: radial-gradient(120% 90% at 50% 35%, #45464e 0%, #26272d 34%, #131418 66%, #0a0a0c 100%);
+    color: #f4f4f6;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    text-align: center;
+    padding: 32px;
+    box-sizing: border-box;
+  }
+  svg { width: 120px; height: 80px; }
+  p { color: #a5a6b0; margin: 0; font-size: 15px; letter-spacing: .04em; }
+  .choose { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .choose a {
+    display: inline-block;
+    padding: 13px 26px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,.18);
+    background: rgba(255,255,255,.05);
+    color: #f4f4f6;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    transition: background .2s, border-color .2s, transform .2s;
+  }
+  .choose a:hover { background: rgba(232,17,45,.18); border-color: #e8112d; transform: translateY(-2px); }
+</style>
+</head>
+
+<body>
+  <svg viewBox="0 0 240 160" role="img" aria-label="Marco Lombardo">
+    <g transform="skewX(-8) translate(10 0)" fill="none" stroke="#e8112d" stroke-width="21" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 132C26 92 40 52 56 52c14 0 10 40 6 80 8-40 22-80 38-80 14 0 8 44 4 80"/>
+      <path d="M104 132c14-36 46-112 72-112 20 0 14 40-14 76-22 28-30 42-16 44 16 2 46-22 68-48"/>
+    </g>
+  </svg>
+
+  <p>Marco Lombardo</p>
+
+  <!-- Shown only if the automatic redirect does not run (no JS, or an unexpected error). -->
+  <div class="choose">
+    <a href="it/" hreflang="it" lang="it">Continua in italiano</a>
+    <a href="en/" hreflang="en">Continue in English</a>
+  </div>
+
+<script>
+/* Language router.
+   Priority: 1) ?lang= in the URL  2) the language chosen previously
+             3) the browser language  4) English as the default. */
+(function () {
+  "use strict";
+
+  var SUPPORTED = { it: "it/", en: "en/" };
+  var STORAGE_KEY = "ml-lang";
+  var choice = null;
+
+  // 1. explicit override: /?lang=it
+  var q = /[?&]lang=([a-zA-Z-]+)/.exec(window.location.search);
+  if (q) {
+    var forced = q[1].slice(0, 2).toLowerCase();
+    if (SUPPORTED[forced]) {
+      choice = forced;
+      try { localStorage.setItem(STORAGE_KEY, forced); } catch (e) {}
+    }
+  }
+
+  // 2. previously chosen language
+  if (!choice) {
+    try {
+      var saved = localStorage.getItem(STORAGE_KEY);
+      if (saved && SUPPORTED[saved]) choice = saved;
+    } catch (e) {}
+  }
+
+  // 3. browser language: Italian goes to /it/, anything else to /en/
+  if (!choice) {
+    var list = navigator.languages && navigator.languages.length
+      ? navigator.languages
+      : [navigator.language || navigator.userLanguage || "en"];
+    var primary = String(list[0] || "en").slice(0, 2).toLowerCase();
+    choice = primary === "it" ? "it" : "en";
+  }
+
+  window.location.replace(SUPPORTED[choice] || "en/");
+})();
+</script>
+</body>
+</html>
