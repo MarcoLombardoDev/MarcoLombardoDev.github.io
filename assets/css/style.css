@@ -590,16 +590,6 @@ p:last-child {
   box-shadow: var(--shadow);
 }
 
-.hero-badge .logo-img {
-  width: auto;
-  height: 18px;
-}
-
-.hero-badge .logo-svg {
-  width: 26px;
-  height: 18px;
-}
-
 /* --------------------------------------------------------------------------
    Marquee
    -------------------------------------------------------------------------- */
