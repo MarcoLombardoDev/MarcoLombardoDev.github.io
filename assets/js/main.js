@@ -130,6 +130,17 @@
     if (portrait.complete && portrait.naturalWidth === 0) markMissing();
   }
 
+  /* ------------------------------------------------------ Logo graceful fallback
+     Every instance shares one source, so a single failure covers them all. */
+  var logo = document.querySelector(".logo-img");
+  if (logo) {
+    var markLogoMissing = function () {
+      document.documentElement.classList.add("no-logo-file");
+    };
+    logo.addEventListener("error", markLogoMissing);
+    if (logo.complete && logo.naturalWidth === 0) markLogoMissing();
+  }
+
   /* ------------------------------------------------------------------- Year */
   document.querySelectorAll("[data-year]").forEach(function (el) {
     el.textContent = String(new Date().getFullYear());

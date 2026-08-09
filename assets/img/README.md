@@ -10,6 +10,7 @@ gracefully if they are missing.
 
 | File | Cosa metterci / What to put here | Formato consigliato |
 |---|---|---|
+| `logo-ml.png` | Il logo `ml` originale. Compare in header, badge dell'hero, footer e pagina di scelta lingua. | PNG con **sfondo trasparente**, ≥ 600 px di larghezza |
 | `marco-portrait.jpg` | Il ritratto (giacca grigia, dolcevita nero). Compare nel cerchio rosso dell'hero. | JPG quadrato, ≥ 760×760 px, < 300 KB |
 | `marco-avatar.png` | La versione tonda con bordo rosso. Usata come icona iOS/Android. | PNG quadrato 512×512 px |
 | `og-cover.jpg` | Anteprima per LinkedIn/WhatsApp/X. Puoi usare il banner con logo `ml`. | JPG 1200×630 px |
@@ -24,9 +25,9 @@ Non serve toccare il codice: i percorsi sono già referenziati in
 ## Asset già inclusi / Assets already in the repo
 
 - `logo-ml.svg` — il monogramma `ml` ricostruito in SVG vettoriale con il rosso
-  del brand (`#e8112d`), usato in header, hero badge e footer.
-- `favicon.svg` — favicon con lo stesso monogramma su fondo nero.
-
-Se hai il file originale del logo (AI/SVG/PNG), sostituisci pure `logo-ml.svg`:
-la ricostruzione è un'approssimazione fedele nei colori e nel tratto, non il
-file originale.
+  del brand (`#e8112d`). **Non è il logo originale**: è un'approssimazione, e
+  serve solo da ripiego finché `logo-ml.png` non è stato caricato. Se manca il
+  PNG, le pagine mostrano questa versione vettoriale invece di un'immagine rotta.
+- `favicon.svg` — favicon con lo stesso monogramma su fondo nero. Anche questa è
+  la ricostruzione: per sostituirla serve una versione **quadrata** del logo,
+  che il file `logo-ml.png` (largo e basso) non può fare bene.
