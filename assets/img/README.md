@@ -1,33 +1,37 @@
 # Immagini / Images
 
-Le immagini che hai allegato in chat non possono essere scritte su disco da qui:
-vanno caricate a mano in questa cartella. Il sito è già predisposto per usarle e
-funziona anche senza (in assenza della foto compare il monogramma `ml`).
+Le immagini in uso sono tutte qui e sono derivate da tre originali caricati a
+mano (il logo, il ritratto e la versione tonda). Gli originali non sono rimasti
+nella cartella — il sito non li usava e pesavano oltre 4 MB — ma restano nella
+storia del repository, al commit che li ha introdotti.
 
-The images attached in chat cannot be written to disk from the agent session:
-upload them into this folder. The site already points at these paths and degrades
-gracefully if they are missing.
+The images in use are all here, derived from three originals uploaded by hand.
+The originals are not kept in the folder — unused by the site and over 4 MB —
+but they remain in the repository history.
 
-| File | Cosa metterci / What to put here | Formato consigliato |
+| File | Dove compare / Where it appears | Formato |
 |---|---|---|
-| `logo-ml.png` | Il logo `ml` originale. Compare in header, badge dell'hero, footer e pagina di scelta lingua. | PNG con **sfondo trasparente**, ≥ 600 px di larghezza |
-| `marco-portrait.jpg` | Il ritratto (giacca grigia, dolcevita nero). Compare nel cerchio rosso dell'hero. | JPG quadrato, ≥ 760×760 px, < 300 KB |
-| `marco-avatar.png` | La versione tonda con bordo rosso. Usata come icona iOS/Android. | PNG quadrato 512×512 px |
-| `og-cover.jpg` | Anteprima per LinkedIn/WhatsApp/X. Puoi usare il banner con logo `ml`. | JPG 1200×630 px |
-| `banner.jpg` *(opzionale)* | Il banner LinkedIn originale, se vuoi tenerlo nel repo. | JPG 2000×500 px |
+| `logo-ml.png` | Header, badge dell'hero, footer, pagina di scelta lingua. | PNG 720×360, sfondo trasparente |
+| `marco-portrait.jpg` | Il cerchio rosso dell'hero. | JPG 800×993 |
+| `marco-avatar.png` | Icona iOS/Android (`apple-touch-icon`). | PNG 512×512, angoli riempiti di `#0a0a0c` |
+| `og-cover.jpg` | Anteprima per LinkedIn/WhatsApp/X (`og:image`). | JPG 1200×630 |
 
-## Dopo il caricamento / After uploading
+## Se sostituisci un file / Replacing a file
 
-Non serve toccare il codice: i percorsi sono già referenziati in
-`en/index.html` e `it/index.html`. Se rinomini un file, aggiorna l'attributo
-`src` corrispondente.
+Tieni lo stesso nome e non serve toccare il codice: i percorsi sono già
+referenziati in `index.html`, `it/index.html` e `en/index.html`. Le dimensioni
+sopra sono il doppio di quelle a cui i file vengono mostrati, così restano
+nitidi sugli schermi retina senza pesare più del necessario.
 
-## Asset già inclusi / Assets already in the repo
+`og-cover.jpg` è una composizione costruita a partire dal logo e dal ritratto,
+volutamente senza testo oltre al nome, così lo stesso file serve sia `/it/` sia
+`/en/`. Se ne vuoi una diversa, basta sovrascriverlo mantenendo 1200×630.
 
-- `logo-ml.svg` — il monogramma `ml` ricostruito in SVG vettoriale con il rosso
-  del brand (`#e8112d`). **Non è il logo originale**: è un'approssimazione, e
-  serve solo da ripiego finché `logo-ml.png` non è stato caricato. Se manca il
-  PNG, le pagine mostrano questa versione vettoriale invece di un'immagine rotta.
-- `favicon.svg` — favicon con lo stesso monogramma su fondo nero. Anche questa è
-  la ricostruzione: per sostituirla serve una versione **quadrata** del logo,
-  che il file `logo-ml.png` (largo e basso) non può fare bene.
+## Ricostruzioni ancora presenti / Reconstructions still in the repo
+
+- `logo-ml.svg` — il monogramma `ml` ridisegnato in SVG. **Non è il logo
+  originale**: è un'approssimazione che fa da ripiego. Se `logo-ml.png` sparisce,
+  le pagine mostrano questa versione invece di un'immagine rotta.
+- `favicon.svg` — favicon con lo stesso monogramma ridisegnato su fondo nero.
+  Per sostituirla con il logo vero serve una versione **quadrata** del marchio:
+  `logo-ml.png` è largo il doppio dell'altezza e ritagliato non si legge.
