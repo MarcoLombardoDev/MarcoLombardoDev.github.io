@@ -145,4 +145,43 @@
   document.querySelectorAll("[data-year]").forEach(function (el) {
     el.textContent = String(new Date().getFullYear());
   });
+
+  /* ------------------------------------------------------------ Cookie notice
+     Informational only — this site has nothing to opt in or out of, so the
+     single button just acknowledges and remembers not to show it again. */
+  var COOKIE_ACK_KEY = "ml-cookie-ack";
+  var notice = document.querySelector("[data-cookie-notice]");
+  if (notice) {
+    var acknowledged = false;
+    try {
+      acknowledged = localStorage.getItem(COOKIE_ACK_KEY) === "1";
+    } catch (e) {
+      /* private mode — show the notice every visit rather than fail */
+    }
+    var syncBodySpace = function () {
+      document.body.style.paddingBottom = notice.offsetHeight + "px";
+    };
+
+    if (!acknowledged) {
+      requestAnimationFrame(function () {
+        notice.classList.add("is-visible");
+        syncBodySpace();
+      });
+      window.addEventListener("resize", syncBodySpace);
+    }
+
+    var ackButton = notice.querySelector("[data-cookie-ack]");
+    if (ackButton) {
+      ackButton.addEventListener("click", function () {
+        notice.classList.remove("is-visible");
+        document.body.style.paddingBottom = "";
+        window.removeEventListener("resize", syncBodySpace);
+        try {
+          localStorage.setItem(COOKIE_ACK_KEY, "1");
+        } catch (e) {
+          /* private mode — nothing to persist, notice just hides for this visit */
+        }
+      });
+    }
+  }
 })();
