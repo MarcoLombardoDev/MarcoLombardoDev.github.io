@@ -33,4 +33,100 @@
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
+  <url>
+    <loc>https://marcolombardodev.github.io/it/progetti/libri/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://marcolombardodev.github.io/it/progetti/libri/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marcolombardodev.github.io/en/projects/books/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://marcolombardodev.github.io/it/progetti/libri/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://marcolombardodev.github.io/en/projects/books/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marcolombardodev.github.io/en/projects/books/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://marcolombardodev.github.io/it/progetti/libri/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://marcolombardodev.github.io/it/progetti/libri/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://marcolombardodev.github.io/it/progetti/repetita/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://marcolombardodev.github.io/it/progetti/repetita/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marcolombardodev.github.io/en/projects/repetita/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://marcolombardodev.github.io/it/progetti/repetita/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://marcolombardodev.github.io/en/projects/repetita/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marcolombardodev.github.io/en/projects/repetita/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://marcolombardodev.github.io/it/progetti/repetita/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://marcolombardodev.github.io/it/progetti/repetita/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://marcolombardodev.github.io/it/progetti/okkupa/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://marcolombardodev.github.io/it/progetti/okkupa/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marcolombardodev.github.io/en/projects/okkupa/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://marcolombardodev.github.io/it/progetti/okkupa/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://marcolombardodev.github.io/en/projects/okkupa/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marcolombardodev.github.io/en/projects/okkupa/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://marcolombardodev.github.io/it/progetti/okkupa/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://marcolombardodev.github.io/it/progetti/okkupa/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://marcolombardodev.github.io/it/progetti/argus/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://marcolombardodev.github.io/it/progetti/argus/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marcolombardodev.github.io/en/projects/argus/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://marcolombardodev.github.io/it/progetti/argus/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://marcolombardodev.github.io/en/projects/argus/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marcolombardodev.github.io/en/projects/argus/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://marcolombardodev.github.io/it/progetti/argus/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://marcolombardodev.github.io/it/progetti/argus/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://marcolombardodev.github.io/it/progetti/iris/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://marcolombardodev.github.io/it/progetti/iris/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marcolombardodev.github.io/en/projects/iris/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://marcolombardodev.github.io/it/progetti/iris/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://marcolombardodev.github.io/en/projects/iris/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marcolombardodev.github.io/en/projects/iris/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://marcolombardodev.github.io/it/progetti/iris/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://marcolombardodev.github.io/it/progetti/iris/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://marcolombardodev.github.io/it/progetti/proteus/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://marcolombardodev.github.io/it/progetti/proteus/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marcolombardodev.github.io/en/projects/proteus/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://marcolombardodev.github.io/it/progetti/proteus/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://marcolombardodev.github.io/en/projects/proteus/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marcolombardodev.github.io/en/projects/proteus/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://marcolombardodev.github.io/it/progetti/proteus/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://marcolombardodev.github.io/it/progetti/proteus/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>
