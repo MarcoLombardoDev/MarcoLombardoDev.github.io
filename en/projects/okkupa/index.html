@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Okkupa — Marco Lombardo</title>
-<meta name="description" content="Okkupa organizes the booking of company spaces and resources: desks, meeting rooms, shared assets. A single app lets people join multiple organization">
+<meta name="description" content="Okkupa models an organization the way its physical space actually works: a site splits into areas, an area holds resource types — desks, meeting rooms">
 <meta name="author" content="Marco Lombardo">
 <meta name="theme-color" content="#0a0a0c">
 
@@ -14,7 +14,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Okkupa — Marco Lombardo">
-<meta property="og:description" content="Okkupa organizes the booking of company spaces and resources: desks, meeting rooms, shared assets. A single app lets people join multiple organization">
+<meta property="og:description" content="Okkupa models an organization the way its physical space actually works: a site splits into areas, an area holds resource types — desks, meeting rooms">
 <meta property="og:image" content="https://marcolombardodev.github.io/assets/img/og-cover.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -80,45 +80,66 @@
 
       <div class="about-grid reveal" data-delay="80">
         <div class="about-body">
-        <p>Okkupa organizes the booking of company spaces and resources: desks, meeting rooms, shared assets. A single app lets people join multiple organizations — even ones other than their own employer — and use the resources in shared physical spaces.</p>
+        <p>Okkupa models an organization the way its physical space actually works: a site splits into areas, an area holds resource types — desks, meeting rooms, parking spots — and each type groups the individual bookable resources. The same structure serves a small coworking space and a multi-site company without switching tools.</p>
 
-        <p>For a company, Okkupa digitizes offices, areas and shared assets, cuts down booking conflicts, and gives teams and collaborators a fast, intuitive experience: usage rules and booking policies, few-tap booking, monitoring dashboards, and a log and audit trail of every action.</p>
+        <p>A user can belong to several organizations from the same account — useful for consultants and multi-site operators — and sees resources on a map, not just a calendar. Check-in can be mandatory, with automatic release if it doesn't happen, and each area can carry its own hours and maximum booking length.</p>
+
+        <p>On the admin side, an access-control module verifies identity by QR code or short code and logs every event; a dashboard shows occupancy and trends in real time, while a separate audit view makes every major system event searchable and exportable.</p>
         </div>
 
         <ul class="fact-list">
           <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8 20h8M12 17v3"/></svg>
             <div>
               <div class="k">Platform</div>
-              <div class="v">Mobile app</div>
-            </div>
-          </li>
-
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 20v-2a4 4 0 0 0-3-3.87"/><path d="M3 20v-2a4 4 0 0 1 4-4h3a4 4 0 0 1 4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-            <div>
-              <div class="k">For</div>
-              <div class="v">Companies, teams, coworking</div>
+              <div class="v">Web app + native Android app</div>
             </div>
           </li>
 
           <li>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11"/><path d="M4.5 6h.01M4.5 12h.01M4.5 18h.01"/></svg>
             <div>
-              <div class="k">Features</div>
-              <div class="v">Booking, rules, dashboards</div>
+              <div class="k">Model</div>
+              <div class="v">Organization → sites → areas → resources</div>
             </div>
           </li>
 
           <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.7 5.5 6 .9-4.3 4.2 1 6L12 16.8 6.6 19.6l1-6L3.3 9.4l6-.9z"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14v3M17 20h4"/></svg>
             <div>
-              <div class="k">Scale</div>
-              <div class="v">From small teams to enterprise</div>
+              <div class="k">Access control</div>
+              <div class="v">QR code or short-code verification</div>
+            </div>
+          </li>
+
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 20v-2a4 4 0 0 0-3-3.87"/><path d="M3 20v-2a4 4 0 0 1 4-4h3a4 4 0 0 1 4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            <div>
+              <div class="k">Roles</div>
+              <div class="v">Superadmin, admin, operator, user</div>
             </div>
           </li>
         </ul>
       </div>
+
+      <div class="section-head reveal" data-delay="120" style="margin-top: 56px; margin-bottom: 28px">
+        <span class="section-tag">What you can do</span>
+      </div>
+
+      <ul class="feature-list reveal" data-delay="160">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg><span>Organizes sites, areas and resources on a map of the space, not just a calendar</span></li>
+
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg><span>Lets people join multiple organizations and switch between them from one account</span></li>
+
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg><span>Controls physical access by QR code or short code, recognizing the user instantly</span></li>
+
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg><span>Enforces time-slot and maximum-duration rules, with check-in and automatic release</span></li>
+
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg><span>Distinguishes roles between superadmin, administrator, operator and user</span></li>
+
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg><span>Keeps a real-time dashboard and an exportable audit trail of every event</span></li>
+      </ul>
+
     </div>
   </section>
 
