@@ -36,7 +36,7 @@
   .reveal.in{opacity:1;transform:none}
 
   /* ---------- hero ---------- */
-  .hero{position:relative;overflow:hidden;padding:96px 0 76px;
+  .hero{position:relative;overflow:hidden;padding:172px 0 76px;
     background:radial-gradient(120% 90% at 62% 30%,#45464e 0%,#26272d 34%,#131418 66%,var(--ink) 100%)}
   .hero::before,.hero::after{content:"";position:absolute;top:0;bottom:0;width:18px;
     background:linear-gradient(180deg,var(--red-deep),var(--red),var(--red-deep));z-index:2}
@@ -69,11 +69,11 @@
     letter-spacing:.09em;text-transform:uppercase;font-weight:700;flex-wrap:wrap}
   .hero-social .rule{height:1px;width:40px;background:var(--line-strong)}
   .social-row{display:flex;gap:10px}
-  .social-row a{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:12px;
+  .social-row a{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;
     border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--muted);
-    text-transform:none;letter-spacing:0;font-size:13px;font-weight:700;
     transition:transform .25s var(--ease),color .2s,border-color .2s,background .2s}
   .social-row a:hover{transform:translateY(-3px);color:#fff;border-color:var(--red);background:rgba(232,17,45,.16)}
+  .social-row svg{width:19px;height:19px}
 
   .hero-portrait{position:relative;justify-self:center;width:min(300px,100%);aspect-ratio:1/1}
   .ring{position:absolute;inset:0;border-radius:50%;padding:10px;box-shadow:var(--shadow-red);
@@ -94,13 +94,48 @@
     .hero-portrait{order:-1;width:min(240px,66%);margin:0 auto 32px}
   }
 
-  /* ---------- brand mark (ML logo, aligned with the personal site) ---------- */
+  /* ---------- site header (logo, nav, burger menu — matching the personal site) ---------- */
   .logo-svg{display:none}
   .no-logo-file .logo-img{display:none}
   .no-logo-file .logo-svg{display:block}
-  .brand-mark{display:flex;align-items:center;gap:10px;margin-bottom:18px}
-  .brand-mark .logo-img{width:auto;height:30px;flex:none}
-  .brand-mark .logo-svg{width:44px;height:30px;flex:none}
+  .site-header{position:fixed;inset:0 0 auto 0;z-index:100;
+    transition:background .35s var(--ease),border-color .35s var(--ease),backdrop-filter .35s var(--ease);
+    border-bottom:1px solid transparent}
+  .site-header.is-stuck{background:rgba(10,10,12,.82);
+    backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px);
+    border-bottom-color:var(--line)}
+  .header-inner{display:flex;align-items:center;gap:20px;height:76px}
+  .brand{display:flex;align-items:center;gap:12px;margin-right:auto;font-weight:800;letter-spacing:-.03em}
+  .brand .logo-img{width:auto;height:30px;flex:none}
+  .brand .logo-svg{width:44px;height:30px;flex:none}
+  .brand-name{font-size:15px;text-transform:uppercase;letter-spacing:.16em;color:var(--text)}
+  .nav{display:flex;align-items:center;gap:4px}
+  .nav a{padding:9px 14px;border-radius:999px;font-size:14.5px;font-weight:600;color:var(--muted);
+    transition:color .2s,background .2s}
+  .nav a:hover{color:var(--text);background:rgba(255,255,255,.06)}
+  .header-actions{display:flex;align-items:center;gap:10px}
+  .nav-toggle{display:none;width:44px;height:44px;border:1px solid var(--line-strong);border-radius:12px;
+    background:rgba(255,255,255,.04);color:var(--text);cursor:pointer;padding:0;place-items:center}
+  .nav-toggle span,.nav-toggle span::before,.nav-toggle span::after{content:"";display:block;width:18px;height:2px;
+    background:currentColor;border-radius:2px;transition:transform .3s var(--ease),opacity .2s}
+  .nav-toggle span::before{transform:translateY(-6px)}
+  .nav-toggle span::after{transform:translateY(4px)}
+  .nav-open .nav-toggle span{background:transparent}
+  .nav-open .nav-toggle span::before{transform:rotate(45deg)}
+  .nav-open .nav-toggle span::after{transform:translateY(-2px) rotate(-45deg)}
+  @media(max-width:980px){
+    .nav-toggle{display:grid}
+    .nav{position:fixed;inset:76px 0 auto 0;flex-direction:column;align-items:stretch;gap:2px;
+      padding:18px 24px 26px;background:rgba(10,10,12,.97);backdrop-filter:blur(16px);
+      border-bottom:1px solid var(--line);transform:translateY(-140%);transition:transform .4s var(--ease)}
+    .nav-open .nav{transform:none}
+    .nav-open .site-header{background:rgba(10,10,12,.97);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+    .nav a{padding:14px 12px;font-size:16px;border-radius:12px}
+  }
+  @media(max-width:520px){
+    .header-inner{gap:10px}
+    .brand-name{display:none}
+  }
   .footer-brand .logo-img{width:auto;height:26px}
   .footer-brand .logo-svg{width:38px;height:26px}
 
@@ -184,22 +219,40 @@
   .footer-links a{color:var(--dim);border-bottom:1px dotted var(--line-strong)}
   .footer-links a:hover{color:var(--text)}
 
-  @media(max-width:700px){ .hero{padding:70px 0 56px} section{padding:64px 0} .contact{padding:70px 0} }
+  @media(max-width:700px){ .hero{padding:126px 0 56px} section{padding:64px 0} .contact{padding:70px 0} }
 </style>
 
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#home" aria-label="Marco Lombardo — home">
+      <img class="logo-img" src="https://marcolombardodev.github.io/assets/img/logo-ml.png" alt="" aria-hidden="true">
+      <svg class="logo-svg" viewBox="0 0 240 160" aria-hidden="true">
+        <g transform="skewX(-8) translate(10 0)" fill="none" stroke="#e8112d" stroke-width="21" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 132C26 92 40 52 56 52c14 0 10 40 6 80 8-40 22-80 38-80 14 0 8 44 4 80"/>
+          <path d="M104 132c14-36 46-112 72-112 20 0 14 40-14 76-22 28-30 42-16 44 16 2 46-22 68-48"/>
+        </g>
+      </svg>
+      <span class="brand-name">Marco Lombardo</span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="#toolkits">Toolkits</a>
+      <a href="#guides">Guides</a>
+      <a href="#books">Books</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</header>
+
 <!-- ================= HERO ================= -->
-<header class="hero" id="home">
+<section class="hero" id="home">
   <div class="wrap hero-grid">
     <div class="hero-copy reveal">
-      <div class="brand-mark">
-        <img class="logo-img" src="https://marcolombardodev.github.io/assets/img/logo-ml.png" alt="" aria-hidden="true">
-        <svg class="logo-svg" viewBox="0 0 240 160" aria-hidden="true">
-          <g transform="skewX(-8) translate(10 0)" fill="none" stroke="#e8112d" stroke-width="21" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 132C26 92 40 52 56 52c14 0 10 40 6 80 8-40 22-80 38-80 14 0 8 44 4 80"/>
-            <path d="M104 132c14-36 46-112 72-112 20 0 14 40-14 76-22 28-30 42-16 44 16 2 46-22 68-48"/>
-          </g>
-        </svg>
-      </div>
       <span class="eyebrow"><span class="dot"></span>AI Toolkits &middot; Field Manuals &middot; Books</span>
       <h1>
 <span data-gumroad-field="name">Marco Lombardo</span>
@@ -216,8 +269,12 @@
         <span class="rule" aria-hidden="true"></span>
         <span>Elsewhere</span>
         <div class="social-row">
-          <a href="https://www.linkedin.com/in/mlombardo/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="https://marcolombardodev.github.io/" target="_blank" rel="noopener noreferrer">Personal site ↗</a>
+          <a href="https://www.linkedin.com/in/mlombardo/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.75-1.95 4 0 4.4 2.5 4.4 5.75V21h-4v-5.6c0-1.35-.03-3.1-1.9-3.1-1.9 0-2.2 1.48-2.2 3v5.7h-4V9z"/></svg>
+          </a>
+          <a href="https://marcolombardodev.github.io/" target="_blank" rel="noopener noreferrer" aria-label="Personal site">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg>
+          </a>
         </div>
       </div>
     </div>
@@ -231,7 +288,7 @@
       <div class="hero-badge"><span>Hi, I'm Marco</span></div>
     </div>
   </div>
-</header>
+</section>
 
 <!-- ================= MARQUEE ================= -->
 <div class="marquee" aria-hidden="true">
@@ -368,7 +425,9 @@
       <a href="https://marcolombardodev.github.io/" target="_blank" rel="noopener noreferrer">marcolombardodev.github.io</a>
     </div>
     <div class="social-row">
-      <a href="https://www.linkedin.com/in/mlombardo/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/mlombardo/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.75-1.95 4 0 4.4 2.5 4.4 5.75V21h-4v-5.6c0-1.35-.03-3.1-1.9-3.1-1.9 0-2.2 1.48-2.2 3v5.7h-4V9z"/></svg>
+      </a>
     </div>
   </div>
 </footer>
@@ -493,6 +552,34 @@
     var markLogoMissing = function(){ document.documentElement.classList.add("no-logo-file"); };
     logo.addEventListener("error", markLogoMissing);
     if (logo.complete && logo.naturalWidth === 0) markLogoMissing();
+  }
+
+  /* header: sticky background on scroll + mobile burger menu, mirrors the personal site */
+  var siteHeader = document.querySelector(".site-header");
+  var onScroll = function(){ if (siteHeader) siteHeader.classList.toggle("is-stuck", window.scrollY > 24); };
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+
+  var navToggle = document.querySelector(".nav-toggle");
+  var navEl = document.querySelector(".nav");
+  if (navToggle && navEl) {
+    navToggle.addEventListener("click", function(){
+      var open = document.body.classList.toggle("nav-open");
+      navToggle.setAttribute("aria-expanded", String(open));
+    });
+    navEl.addEventListener("click", function(e){
+      if (e.target.closest("a")) {
+        document.body.classList.remove("nav-open");
+        navToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+    document.addEventListener("keydown", function(e){
+      if (e.key === "Escape" && document.body.classList.contains("nav-open")) {
+        document.body.classList.remove("nav-open");
+        navToggle.setAttribute("aria-expanded", "false");
+        navToggle.focus();
+      }
+    });
   }
 
   /* reveals (grid cards render with .in already set, since they're built after page load) */
