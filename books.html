@@ -1,0 +1,473 @@
+<style>
+  :root{
+    color-scheme: dark;
+    --red:#e8112d; --red-bright:#ff2237; --red-deep:#b00b21;
+    --ink:#0a0a0c; --ink-2:#0f1013; --panel:#141519; --panel-2:#1b1c21;
+    --text:#f4f4f6; --muted:#a5a6b0; --dim:#74757f;
+    --line:rgba(255,255,255,.09); --line-strong:rgba(255,255,255,.16);
+    --radius:16px; --radius-lg:26px;
+    --shadow:0 24px 60px rgba(0,0,0,.55); --shadow-red:0 18px 50px rgba(232,17,45,.28);
+    --ease:cubic-bezier(.22,1,.36,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+    .reveal{opacity:1!important;transform:none!important}
+  }
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+       background:var(--ink);color:var(--text);line-height:1.65;font-size:17px;letter-spacing:-.01em;
+       -webkit-font-smoothing:antialiased}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3{margin:0;line-height:1.08;letter-spacing:-.03em;font-weight:800}
+  section{padding:100px 0;position:relative}
+  .section-alt{background:linear-gradient(180deg,var(--ink),var(--ink-2) 40%,var(--ink))}
+  .section-head{max-width:720px;margin-bottom:52px}
+  .section-tag{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:800;
+    letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:16px}
+  .section-tag::before{content:"";width:26px;height:2px;background:var(--red)}
+  section h2,section h1{font-size:clamp(2rem,4vw,3rem);margin-bottom:16px}
+  .section-head p{color:var(--muted);font-size:1.05rem;max-width:60ch}
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;overflow:hidden;padding:96px 0 76px;
+    background:radial-gradient(120% 90% at 62% 30%,#45464e 0%,#26272d 34%,#131418 66%,var(--ink) 100%)}
+  .hero::before,.hero::after{content:"";position:absolute;top:0;bottom:0;width:18px;
+    background:linear-gradient(180deg,var(--red-deep),var(--red),var(--red-deep));z-index:2}
+  .hero::before{left:0} .hero::after{right:0}
+  .hero-grid{position:relative;z-index:3;display:grid;grid-template-columns:1.15fr .85fr;gap:52px;align-items:center}
+  @media(max-width:980px){.hero-grid{grid-template-columns:1fr}}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;padding:7px 16px 7px 10px;
+    border:1px solid var(--line-strong);border-radius:999px;background:rgba(0,0,0,.28);
+    font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:24px}
+  .eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--red);
+    box-shadow:0 0 0 4px rgba(232,17,45,.2);animation:pulse 2.6s var(--ease) infinite;flex:none}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 4px rgba(232,17,45,.2)}50%{box-shadow:0 0 0 9px rgba(232,17,45,0)}}
+  .hero h1{font-size:clamp(2.5rem,6vw,4.3rem);margin-bottom:20px}
+  .hero h1 .line-2{display:block;margin-top:6px;
+    background:linear-gradient(100deg,var(--red-bright),var(--red) 45%,#ff7a86);
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero-lead{font-size:clamp(1.02rem,1.5vw,1.16rem);color:var(--muted);max-width:56ch;margin-bottom:14px}
+  .hero-lead strong{color:var(--text);font-weight:700}
+  .bio{font-size:1rem;color:var(--muted);max-width:56ch;margin-bottom:22px}
+  .bio:empty{margin:0}
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:30px}
+  .btn{display:inline-flex;align-items:center;gap:9px;padding:14px 24px;border-radius:999px;
+    font-weight:700;font-size:15px;border:1px solid transparent;cursor:pointer;
+    transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .25s,border-color .25s}
+  .btn-primary{background:linear-gradient(135deg,var(--red-bright),var(--red-deep));color:#fff;box-shadow:var(--shadow-red)}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 24px 60px rgba(232,17,45,.42)}
+  .btn-ghost{border-color:var(--line-strong);color:var(--text);background:rgba(255,255,255,.04)}
+  .btn-ghost:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.34);background:rgba(255,255,255,.09)}
+  .hero-social{display:flex;align-items:center;gap:14px;color:var(--dim);font-size:13px;
+    letter-spacing:.09em;text-transform:uppercase;font-weight:700;flex-wrap:wrap}
+  .hero-social .rule{height:1px;width:40px;background:var(--line-strong)}
+  .social-row{display:flex;gap:10px}
+  .social-row a{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:12px;
+    border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--muted);
+    text-transform:none;letter-spacing:0;font-size:13px;font-weight:700;
+    transition:transform .25s var(--ease),color .2s,border-color .2s,background .2s}
+  .social-row a:hover{transform:translateY(-3px);color:#fff;border-color:var(--red);background:rgba(232,17,45,.16)}
+
+  .hero-portrait{position:relative;justify-self:center;width:min(300px,100%);aspect-ratio:1/1}
+  .ring{position:absolute;inset:0;border-radius:50%;padding:10px;box-shadow:var(--shadow-red);
+    background:conic-gradient(from 210deg,var(--red) 0deg,var(--red-bright) 90deg,rgba(232,17,45,.25) 200deg,var(--red) 360deg);
+    animation:spin 22s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .ring-inner{width:100%;height:100%;border-radius:50%;overflow:hidden;background:linear-gradient(180deg,#d8d9dd,#6f7077);
+    animation:spin 22s linear infinite reverse}
+  .ring-inner img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block}
+  .hero-badge{position:absolute;right:-6px;bottom:12px;z-index:4;display:flex;align-items:center;gap:8px;
+    padding:10px 16px;border-radius:999px;background:rgba(12,12,15,.9);border:1px solid var(--line-strong);
+    font-size:12.5px;font-weight:700;letter-spacing:.06em;white-space:nowrap;box-shadow:var(--shadow)}
+  @media(max-width:980px){
+    .hero-portrait{order:-1;width:min(240px,66%);margin:0 auto 32px}
+    .hero-badge{right:50%;bottom:-16px;transform:translateX(50%)}
+  }
+
+  /* ---------- marquee ---------- */
+  .marquee{position:relative;border-block:1px solid var(--line);background:var(--ink-2);overflow:hidden;
+    padding:15px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+  .marquee-track{display:flex;gap:40px;width:max-content;animation:slide 30s linear infinite}
+  .marquee span{display:inline-flex;align-items:center;gap:40px;font-size:13px;font-weight:800;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--dim);white-space:nowrap}
+  .marquee span::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--red)}
+  @keyframes slide{to{transform:translateX(-50%)}}
+
+  /* ---------- stats ---------- */
+  .stats{background:var(--panel);border-bottom:1px solid var(--line)}
+  .stats .wrap{display:flex;flex-wrap:wrap;gap:14px 48px;justify-content:center;padding:26px 24px}
+  .stat{text-align:center;min-width:110px}
+  .stat b{display:block;font-size:28px;font-weight:900;color:var(--red);line-height:1.1}
+  .stat span{display:block;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);margin-top:4px}
+
+  /* ---------- collections (product grids) ---------- */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:22px;margin-top:36px}
+  .prod{position:relative;display:flex;flex-direction:column;overflow:hidden;text-decoration:none;color:var(--text);
+    border:1px solid var(--line);border-radius:var(--radius-lg);background:linear-gradient(180deg,var(--panel-2),var(--panel));
+    transition:transform .35s var(--ease),border-color .35s,box-shadow .35s var(--ease)}
+  .prod::after{content:"";position:absolute;inset:-40% -40% auto auto;width:220px;height:220px;
+    background:radial-gradient(circle,rgba(232,17,45,.22),transparent 70%);opacity:0;transition:opacity .4s;pointer-events:none}
+  .prod:hover{transform:translateY(-8px);border-color:rgba(232,17,45,.45);box-shadow:var(--shadow)}
+  .prod:hover::after{opacity:1}
+  .prod:hover .thumb img{transform:scale(1.06)}
+  .thumb{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,var(--ink-2),var(--panel));
+    display:flex;align-items:center;justify-content:center;overflow:hidden;border-bottom:1px solid var(--line)}
+  .thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}
+  .thumb .ph{font-size:34px;color:var(--red);font-weight:800}
+  .kind-tag{position:absolute;top:10px;left:10px;z-index:2;font-size:10.5px;font-weight:800;letter-spacing:.1em;
+    color:var(--text);padding:5px 10px;border-radius:999px;background:rgba(10,10,12,.82);
+    border:1px solid var(--line-strong);backdrop-filter:blur(6px)}
+  .prod .body{position:relative;padding:20px 22px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .prod h3{font-size:16px;line-height:1.35;font-weight:700}
+  .prod .desc{font-size:15px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .prod .meta{margin-top:auto;display:flex;justify-content:space-between;align-items:center;padding-top:12px}
+  .price{font-weight:800;color:var(--red);font-size:15px}
+  .go{font-size:13px;font-weight:700;color:var(--red);display:inline-flex;align-items:center;gap:6px}
+  .empty{border:1.5px dashed var(--line-strong);border-radius:var(--radius-lg);padding:40px;
+    text-align:center;color:var(--muted);margin-top:36px}
+
+  /* ---------- alt-store banner ---------- */
+  .altstore{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--ink-2)}
+  .altstore .wrap{padding:26px 24px;text-align:center;font-size:1rem;color:var(--muted)}
+  .altstore a{color:var(--red);font-weight:700}
+  .altstore a:hover{color:var(--red-bright)}
+
+  /* ---------- principles ---------- */
+  .principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;
+    background:var(--line);border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;margin-top:36px}
+  .principle{background:var(--ink-2);padding:32px 26px;transition:background .35s}
+  .principle:hover{background:var(--panel-2)}
+  .principle .num{font-size:13px;font-weight:900;letter-spacing:.2em;color:var(--red);margin-bottom:14px}
+  .principle h3{font-size:1.1rem;margin-bottom:10px}
+  .principle p{color:var(--muted);font-size:15px}
+
+  /* ---------- posts ---------- */
+  .post{display:flex;justify-content:space-between;gap:14px;align-items:baseline;padding:16px 4px;
+    border-bottom:1px solid var(--line);text-decoration:none;color:var(--text)}
+  .post:hover .t{color:var(--red)}
+  .post .t{font-weight:600;transition:color .15s ease}
+  .post time{color:var(--dim);font-size:13px;white-space:nowrap}
+
+  /* ---------- contact ---------- */
+  .contact{padding:100px 0;text-align:center;border-top:1px solid var(--line);
+    background:radial-gradient(100% 120% at 50% 0%,#34353c 0%,#17181c 45%,var(--ink) 100%)}
+  .contact h2{font-size:clamp(2rem,4.6vw,3.1rem);margin-bottom:16px}
+  .contact p{color:var(--muted);max-width:56ch;margin:0 auto 30px;font-size:1.05rem}
+  .contact .cta-row{justify-content:center;margin-bottom:0}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--line);background:var(--ink);padding:36px 0}
+  footer .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;
+    color:var(--dim);font-size:14px}
+  .footer-brand{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--muted)}
+  .footer-mark{width:26px;height:26px;border-radius:8px;background:var(--red);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;letter-spacing:.02em;flex:none}
+  .footer-links a{color:var(--dim);border-bottom:1px dotted var(--line-strong)}
+  .footer-links a:hover{color:var(--text)}
+
+  @media(max-width:700px){ .hero{padding:70px 0 56px} section{padding:64px 0} .contact{padding:70px 0} }
+</style>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div class="hero-copy reveal">
+      <span class="eyebrow"><span class="dot"></span>AI Toolkits &middot; Field Manuals &middot; Books</span>
+      <h1>
+<span data-gumroad-field="name">Marco Lombardo</span>
+<span class="line-2">Ideas, made to read.</span>
+</h1>
+      <p class="hero-lead">Practical <strong>AI toolkits</strong>, illustrated <strong>survival guides</strong>, and a few <strong>books</strong> that don't fit either box. Three formats, one standard: useful, tested, no fluff.</p>
+      <p class="bio" data-gumroad-field="bio"></p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#toolkits">Browse toolkits →</a>
+        <a class="btn btn-primary" href="#guides">Browse guides →</a>
+        <a class="btn btn-primary" href="#books">Browse books →</a>
+      </div>
+      <div class="hero-social">
+        <span class="rule" aria-hidden="true"></span>
+        <span>Elsewhere</span>
+        <div class="social-row">
+          <a href="https://www.linkedin.com/in/mlombardo/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://marcolombardodev.github.io/" target="_blank" rel="noopener noreferrer">Personal site ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-portrait reveal" data-delay="120">
+      <div class="ring">
+        <div class="ring-inner">
+          <img src="https://public-files.gumroad.com/qfb5k9kpw6z6zj0batv0tng1zs7s" alt="Portrait of Marco Lombardo" width="670" height="831">
+        </div>
+      </div>
+      <div class="hero-badge"><span>Marco Lombardo</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= MARQUEE ================= -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>AI Toolkits</span><span>Field Manuals</span><span>Illustrated Guides</span><span>Books</span><span>Prompt Engineering</span><span>Practical AI</span><span>The Survive-A Series</span>
+    <span>AI Toolkits</span><span>Field Manuals</span><span>Illustrated Guides</span><span>Books</span><span>Prompt Engineering</span><span>Practical AI</span><span>The Survive-A Series</span>
+  </div>
+</div>
+
+<!-- ================= STATS ================= -->
+<div class="stats">
+  <div class="wrap">
+    <div class="stat"><b id="stat-count">–</b><span>Releases</span></div>
+    <div class="stat"><b id="stat-series">–</b><span>Series &amp; formats</span></div>
+    <div class="stat"><b id="stat-price">–</b><span>Starting price</span></div>
+  </div>
+</div>
+
+<!-- ================= TOOLKITS ================= -->
+<section id="toolkits">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">AI Toolkits</span>
+      <h2>The toolkits</h2>
+      <p>Every toolkit follows one rule: copy, paste, get results today. No theory, no 6-hour courses &mdash; ChatGPT prompt packs built for one profession at a time.</p>
+    </div>
+    <div class="grid" id="toolkits-grid"></div>
+    <div class="empty" id="toolkits-empty" hidden>New toolkits are in the workshop. Check back soon.</div>
+  </div>
+</section>
+
+<!-- ================= GUIDES ================= -->
+<section class="section-alt" id="guides">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">Field Manuals</span>
+      <h2>The guides</h2>
+      <p>The Survive-A Series: illustrated field manuals that take unlikely disasters completely seriously &mdash; one scenario at a time, dry wit included.</p>
+    </div>
+    <div class="grid" id="guides-grid"></div>
+    <div class="empty" id="guides-empty" hidden>The next guide is in the workshop. Check back soon.</div>
+  </div>
+</section>
+
+<!-- ================= BOOKS ================= -->
+<section id="books">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">Books &amp; Essays</span>
+      <h2>The books</h2>
+      <p>Longer reads that don't fit a checklist or a field manual &mdash; speculative non-fiction and the occasional uncomfortable truth about modern life. Anything new that doesn't fit the other shelves lands here too.</p>
+    </div>
+    <div class="grid" id="books-grid"></div>
+    <div class="empty" id="books-empty" hidden>The next book is in the workshop. Check back soon.</div>
+  </div>
+</section>
+
+<!-- ================= ALT STORE ================= -->
+<div class="altstore">
+  <div class="wrap">
+    <p>Prefer not to buy through Gumroad? Everything here &mdash; toolkits, guides and books &mdash; is also sold on <a href="https://payhip.com/MarcoLombardo" target="_blank" rel="noopener noreferrer">Payhip →</a></p>
+  </div>
+</div>
+
+<!-- ================= PRINCIPLES ================= -->
+<section class="section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">How I build</span>
+      <h2>Four rules I keep coming back to</h2>
+    </div>
+    <div class="principles">
+      <div class="principle reveal">
+        <div class="num">01</div>
+        <h3>Start from the problem</h3>
+        <p>Technology, prompts and illustrations are the answer, never the question. If the problem isn't clear, no format will save it.</p>
+      </div>
+      <div class="principle reveal" data-delay="80">
+        <div class="num">02</div>
+        <h3>Ship, then refine</h3>
+        <p>A working toolkit beats a perfect outline. Real readers give better feedback than any draft.</p>
+      </div>
+      <div class="principle reveal" data-delay="160">
+        <div class="num">03</div>
+        <h3>One clear job</h3>
+        <p>Generic advice helps nobody. Every toolkit, guide or book targets one real problem for one real audience.</p>
+      </div>
+      <div class="principle reveal" data-delay="240">
+        <div class="num">04</div>
+        <h3>Guaranteed, always</h3>
+        <p>Every product carries a money-back guarantee. If it doesn't deliver, you don't pay. Simple.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= POSTS ================= -->
+<section id="posts-section" hidden>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">Notes</span>
+      <h2>Latest notes</h2>
+    </div>
+    <div id="posts"></div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<div class="contact" id="contact">
+  <div class="wrap reveal">
+    <span class="section-tag" style="justify-content:center">Get in touch</span>
+    <h2>Questions, feedback, a good idea?</h2>
+    <p>Product questions, support, licensing requests or partnership ideas: my inbox is open, and so is LinkedIn.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="mailto:marco.lombardo@gmail.com">Write me an email</a>
+      <a class="btn btn-ghost" href="https://marcolombardo.gumroad.com/subscribe" target="_blank" rel="noopener noreferrer">Subscribe for updates →</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-brand">
+      <span class="footer-mark" aria-hidden="true">ML</span>
+      <span>© <span id="yr"></span> <span data-gumroad-field="name">Marco Lombardo</span></span>
+    </div>
+    <div class="footer-links">
+      <a href="https://marcolombardodev.github.io/" target="_blank" rel="noopener noreferrer">marcolombardodev.github.io</a>
+    </div>
+    <div class="social-row">
+      <a href="https://www.linkedin.com/in/mlombardo/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Fallback catalog: Gumroad injects the real, live product list into a script#gumroad-data
+     tag before this one, and the render script below reads the FIRST script#gumroad-data it
+     finds via getElementById, so that live list always wins. This one only renders if this
+     page is ever viewed without that live injection (e.g. a raw offline preview). Update it
+     by hand when products change so the preview stays representative. -->
+<script id="gumroad-data" type="application/json">
+{"products":[{"name":"Surviving a Zombie Epidemic — An Illustrated Field Manual","url":"https://marcolombardo.gumroad.com/l/SurvivingZombieEpidemic","price":"$13.99","thumbnail_url":"https://public-files.gumroad.com/v39rjg611ipwb1e2kboqpfb4wu3z","description":"A 68-page illustrated field manual for the first days and the long after. 14 chapters, 12 field rules, 4 reference appendices."},{"name":"Surviving a Total Blackout — An Illustrated Field Manual","url":"https://marcolombardo.gumroad.com/l/SurvivingTotalBlackout","price":"$13.99","thumbnail_url":"https://public-files.gumroad.com/bvjvjgfmlfubnxvf9rbfp68shy2u","description":"A 67-page illustrated field manual for the day the grid goes dark. 14 chapters, 14 field rules, 4 reference appendices."},{"name":"Surviving an Alien Invasion — An Illustrated Field Manual","url":"https://marcolombardo.gumroad.com/l/SurvivingAlienInvasion","price":"$13.99","thumbnail_url":"https://public-files.gumroad.com/j68qwdrbpk4fmzt4g9mlf88021rg","description":"A 69-page illustrated field manual for the day the sky fills up. 14 chapters, 14 field rules, 4 reference appendices."},{"name":"Surviving an AI Uprising — An Illustrated Field Manual","url":"https://marcolombardo.gumroad.com/l/SurvivingAI","price":"$13.99","thumbnail_url":"https://public-files.gumroad.com/sr2jglmf1li3b9oca5e0orr8blfo","description":"A 70-page illustrated field manual for the day the machines stop asking. 14 chapters, 14 field rules, 4 reference appendices."},{"name":"Surviving Vacation — An Illustrated Field Manual","url":"https://marcolombardo.gumroad.com/l/SurvivingVacation","price":"$13.99","thumbnail_url":"https://public-files.gumroad.com/uj1de1x2va44eu588obzk5l8mtg2","description":"A 70-page illustrated field manual for the season of mandatory fun. 10 chapters, 10 field rules, the whole tragicomic arc."},{"name":"The Real Estate Agent's AI Toolkit — 78 ChatGPT Prompts to Sell More Listings","url":"https://marcolombardo.gumroad.com/l/RealEstateToolkit","price":"$12.99","thumbnail_url":"https://public-files.gumroad.com/72xcud2pw1i13wqrvmp7llws9804","description":"75 copy-paste ChatGPT prompts built for real estate agents: listing descriptions, follow-up emails, social content, negotiation scripts and more."},{"name":"The Loan Officer's AI Toolkit — 78 ChatGPT Prompts to Fund More Loans","url":"https://marcolombardo.gumroad.com/l/LoanOfficerToolkit","price":"$12.99","thumbnail_url":"https://public-files.gumroad.com/w0xswa96lxedo86uktatdhjuwdrs","description":"75 copy-paste ChatGPT prompts built for loan officers: borrower explanations, realtor partnership scripts, rate shopper responses and more."},{"name":"The Recruiter's AI Toolkit — 78 ChatGPT Prompts to Fill Roles Faster","url":"https://marcolombardo.gumroad.com/l/RecruiterToolkit","price":"$12.99","thumbnail_url":"https://public-files.gumroad.com/g15sym1t3znauwmypnfz60ourm6p","description":"75 copy-paste ChatGPT prompts built for recruiters: job posts that attract, cold outreach that gets replies, interview kits and more."},{"name":"The Sales Pro's AI Toolkit — 78 ChatGPT Prompts to Close More Deals","url":"https://marcolombardo.gumroad.com/l/SalesProToolkit","price":"$12.99","thumbnail_url":"https://public-files.gumroad.com/fk7hx5psz430gc2riajc7b3ty12y","description":"75 copy-paste ChatGPT prompts for sales professionals: cold outreach, discovery guides, objection scripts, negotiation and closing plays."},{"name":"The Smart Investor's AI Toolkit — 78 ChatGPT Prompts to Analyze Stocks, ETFs & Crypto","url":"https://marcolombardo.gumroad.com/l/SmartinvestorToolkit","price":"$12.99","thumbnail_url":"https://public-files.gumroad.com/p6hpq79xlt9yyis5nmzd38laz2us","description":"75 copy-paste ChatGPT prompts for DIY investors: decode annual reports and ETF factsheets, stress-test crypto whitepapers, spot scams."},{"name":"The Insurance Agent's AI Toolkit — 78 ChatGPT Prompts to Write More Policies","url":"https://marcolombardo.gumroad.com/l/InsuranceAgentToolkit","price":"$12.99","thumbnail_url":"https://public-files.gumroad.com/w49n3rrl4q6uxpzsqr73ga1ychbc","description":"75 copy-paste ChatGPT prompts built for insurance agents: coverage explainers, rate-increase scripts, renewal campaigns and more."},{"name":"Children of a Society That Got It Wrong","url":"https://marcolombardo.gumroad.com/l/ChildrenSocietyWrong","price":"$14.99","thumbnail_url":"https://public-files.gumroad.com/n5rplb5mfveh4rtayfmwc8myqjdb","description":"Family, school, society: three lines that no longer hold. Screen dependence, social media, homework outsourced to AI — the analysis and the remedies."},{"name":"The Future That Awaits Us — Surviving Ourselves","url":"https://marcolombardo.gumroad.com/l/Future","price":"$14.99","thumbnail_url":"https://public-files.gumroad.com/uttvpx1e9us8wjvkn8bzkahlh0b3","description":"A complete history of the next 200 years, written today. Climate, AI, the fork of humanity. Speculative non-fiction, 163 pages, 12 plates."},{"name":"All-Inclusive (Relaxation Not Included)","url":"https://marcolombardo.gumroad.com/l/AllInclusive","price":"$14.99","thumbnail_url":"https://public-files.gumroad.com/9y8qpr5shtf8n0eznc4ec66hmucd","description":"165 illustrated pages on the truth about vacations: the budget iceberg, the suitcase that won't close, the hotel that looks nothing like the photos."}],"posts":[],"pages":[]}
+</script>
+
+<script>
+(function(){
+  var data = {products:[],posts:[],pages:[]};
+  try { data = JSON.parse(document.getElementById("gumroad-data").textContent) || data; } catch(e){}
+
+  function esc(s){ var d=document.createElement("div"); d.textContent = s == null ? "" : String(s); return d.innerHTML; }
+  function stripHtml(s){ var d=document.createElement("div"); d.innerHTML = s || ""; return d.textContent || ""; }
+
+  function renderGrid(gridEl, emptyEl, items, ctaLabel, kindLabel){
+    if (!items.length){ if (emptyEl) emptyEl.hidden = false; return; }
+    items.forEach(function(p){
+      var a = document.createElement("a");
+      a.className = "prod reveal in";
+      a.href = p.url || "#";
+      a.target = "_blank";
+      a.rel = "noopener";
+      var tag = '<span class="kind-tag">'+esc(kindLabel)+'</span>';
+      var thumb = p.thumbnail_url
+        ? '<div class="thumb">'+tag+'<img src="'+esc(p.thumbnail_url)+'" alt="" loading="lazy"></div>'
+        : '<div class="thumb">'+tag+'<span class="ph" aria-hidden="true">&gt;_</span></div>';
+      a.innerHTML = thumb +
+        '<div class="body">'+
+          '<h3>'+esc(p.name)+'</h3>'+
+          '<p class="desc">'+esc(stripHtml(p.description))+'</p>'+
+          '<div class="meta"><span class="price">'+esc(p.price || "")+'</span><span class="go">'+esc(ctaLabel)+'</span></div>'+
+        '</div>';
+      gridEl.appendChild(a);
+    });
+  }
+
+  /* Gumroad's live feed has no series/category field, so releases are grouped here by a
+     name/url heuristic. Anything that doesn't match toolkit/guide falls into "books" so a
+     brand-new series always has somewhere real to land without code changes. */
+  var all = (data.products || []);
+  function classify(p){
+    var s = ((p.url || "") + " " + (p.name || "")).toLowerCase();
+    if (/toolkit/.test(s)) return "toolkit";
+    if (/manual|guide/.test(s)) return "guide";
+    return "book";
+  }
+  var toolkits = all.filter(function(p){ return classify(p) === "toolkit"; });
+  var guides   = all.filter(function(p){ return classify(p) === "guide"; });
+  var books    = all.filter(function(p){ return classify(p) === "book"; });
+
+  renderGrid(document.getElementById("toolkits-grid"), document.getElementById("toolkits-empty"), toolkits, "Get the toolkit →", "TOOLKIT");
+  renderGrid(document.getElementById("guides-grid"), document.getElementById("guides-empty"), guides, "Get the guide →", "GUIDE");
+  renderGrid(document.getElementById("books-grid"), document.getElementById("books-empty"), books, "Get the book →", "BOOK");
+
+  /* stats: computed from the live catalog so they never go stale as series are added */
+  function parsePrice(p){ var m = /([0-9]+(?:\.[0-9]+)?)/.exec(p.price || ""); return m ? parseFloat(m[1]) : null; }
+  var prices = all.map(parsePrice).filter(function(v){ return v !== null; });
+  var seriesCount = [toolkits, guides, books].filter(function(arr){ return arr.length > 0; }).length;
+  var minPrice = prices.length ? Math.min.apply(null, prices) : null;
+
+  function animateCount(el, target){
+    if (!target){ el.textContent = "–"; return; }
+    var start = null, dur = 900;
+    function step(ts){
+      if (start === null) start = ts;
+      var p = Math.min(1, (ts - start) / dur);
+      el.textContent = String(Math.round(p * target));
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var statCountEl = document.getElementById("stat-count");
+  var statSeriesEl = document.getElementById("stat-series");
+  var statPriceEl = document.getElementById("stat-price");
+  if ("IntersectionObserver" in window){
+    var statsIo = new IntersectionObserver(function(es, obs){
+      es.forEach(function(e){
+        if (!e.isIntersecting) return;
+        animateCount(statCountEl, all.length);
+        animateCount(statSeriesEl, seriesCount);
+        obs.disconnect();
+      });
+    },{threshold:.4});
+    statsIo.observe(statCountEl.closest(".stats"));
+  } else {
+    statCountEl.textContent = all.length ? String(all.length) : "–";
+    statSeriesEl.textContent = seriesCount ? String(seriesCount) : "–";
+  }
+  statPriceEl.textContent = minPrice != null ? ("$" + minPrice.toFixed(2)) : "–";
+
+  /* posts */
+  var posts = (data.posts || []);
+  if (posts.length){
+    document.getElementById("posts-section").hidden = false;
+    var box = document.getElementById("posts");
+    posts.slice(0, 8).forEach(function(po){
+      var a = document.createElement("a");
+      a.className = "post";
+      a.href = po.url || "#";
+      a.target = "_blank";
+      a.rel = "noopener";
+      var d = po.published_at ? new Date(po.published_at) : null;
+      var ds = d && !isNaN(d) ? d.toLocaleDateString("en-US",{year:"numeric",month:"short",day:"numeric"}) : "";
+      a.innerHTML = '<span class="t">'+esc(po.name)+'</span><time>'+esc(ds)+'</time>';
+      box.appendChild(a);
+    });
+  }
+
+  document.getElementById("yr").textContent = new Date().getFullYear();
+
+  /* reveals (grid cards render with .in already set, since they're built after page load) */
+  if ("IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target);} });
+    },{threshold:.12});
+    document.querySelectorAll(".reveal:not(.in)").forEach(function(n){ io.observe(n); });
+  } else {
+    document.querySelectorAll(".reveal").forEach(function(n){ n.classList.add("in"); });
+  }
+})();
+</script>
