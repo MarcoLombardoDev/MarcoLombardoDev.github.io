@@ -66,15 +66,6 @@
   .btn-ghost{border-color:var(--line-strong);color:var(--text);background:rgba(255,255,255,.04)}
   .btn-ghost:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.34);background:rgba(255,255,255,.09)}
   .btn svg{width:18px;height:18px;flex:none}
-  .hero-social{display:flex;align-items:center;gap:14px;color:var(--dim);font-size:13px;
-    letter-spacing:.09em;text-transform:uppercase;font-weight:700;flex-wrap:wrap}
-  .hero-social .rule{height:1px;width:40px;background:var(--line-strong)}
-  .social-row{display:flex;gap:10px}
-  .social-row a{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;
-    border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--muted);
-    transition:transform .25s var(--ease),color .2s,border-color .2s,background .2s}
-  .social-row a:hover{transform:translateY(-3px);color:#fff;border-color:var(--red);background:rgba(232,17,45,.16)}
-  .social-row svg{width:19px;height:19px}
 
   .hero-portrait{position:relative;justify-self:center;width:min(300px,100%);aspect-ratio:1/1}
   .ring{position:absolute;inset:0;border-radius:50%;padding:10px;box-shadow:var(--shadow-red);
@@ -115,6 +106,13 @@
     transition:color .2s,background .2s}
   .nav a:hover{color:var(--text);background:rgba(255,255,255,.06)}
   .header-actions{display:flex;align-items:center;gap:10px}
+  .lang-switch{display:inline-flex;align-items:center;padding:3px;border:1px solid var(--line-strong);
+    border-radius:999px;background:rgba(255,255,255,.04)}
+  .lang-switch button{display:inline-flex;align-items:center;justify-content:center;min-width:38px;
+    padding:5px 10px;border:none;border-radius:999px;background:none;font:inherit;font-size:12.5px;
+    font-weight:800;letter-spacing:.08em;color:var(--muted);cursor:pointer;transition:color .2s,background .2s}
+  .lang-switch button:hover{color:var(--text)}
+  .lang-switch button[aria-current="true"]{background:var(--red);color:#fff;box-shadow:0 4px 14px rgba(232,17,45,.4)}
   .nav-toggle{display:none;width:44px;height:44px;border:1px solid var(--line-strong);border-radius:12px;
     background:rgba(255,255,255,.04);color:var(--text);cursor:pointer;padding:0;place-items:center}
   .nav-toggle span,.nav-toggle span::before,.nav-toggle span::after{content:"";display:block;width:18px;height:2px;
@@ -137,10 +135,10 @@
     .header-inner{gap:10px}
     .brand-name{display:none}
     .cta-row .btn{width:100%;justify-content:center}
-    footer .wrap{justify-content:center;text-align:center}
   }
   .footer-brand .logo-img{width:auto;height:26px}
   .footer-brand .logo-svg{width:38px;height:26px}
+  .footer-cta{padding:12px}
 
   /* ---------- marquee ---------- */
   .marquee{position:relative;border-block:1px solid var(--line);background:var(--ink-2);overflow:hidden;
@@ -238,13 +236,17 @@
     </a>
 
     <nav class="nav" aria-label="Primary">
-      <a href="#toolkits">Toolkits</a>
-      <a href="#guides">Guides</a>
-      <a href="#books">Books</a>
-      <a href="#contact">Contact</a>
+      <a href="#toolkits" data-i18n="navToolkits">Toolkits</a>
+      <a href="#guides" data-i18n="navGuides">Guides</a>
+      <a href="#books" data-i18n="navBooks">Books</a>
+      <a href="#contact" data-i18n="navContact">Contact</a>
     </nav>
 
     <div class="header-actions">
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-lang-btn="en" aria-current="true">EN</button>
+        <button type="button" data-lang-btn="it">IT</button>
+      </div>
       <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span></button>
     </div>
   </div>
@@ -254,26 +256,21 @@
 <section class="hero" id="home">
   <div class="wrap hero-grid">
     <div class="hero-copy reveal">
-      <span class="eyebrow"><span class="dot"></span>AI Toolkits &middot; Field Manuals &middot; Books</span>
+      <span class="eyebrow"><span class="dot"></span><span data-i18n="heroEyebrow">AI Toolkits &middot; Field Manuals &middot; Books</span></span>
       <h1>
 <span data-gumroad-field="name">Marco Lombardo</span>
-<span class="line-2">Ideas, made to read.</span>
+<span class="line-2" data-i18n="heroLine2">Ideas, made to read</span>
 </h1>
-      <p class="hero-lead">Practical <strong>AI toolkits</strong>, illustrated <strong>survival guides</strong>, and a few <strong>books</strong> that don't fit either box. Three formats, one standard: useful, tested, no fluff.</p>
+      <p class="hero-lead" data-i18n="heroLead">Practical <strong>AI toolkits</strong>, illustrated <strong>survival guides</strong>, and a few <strong>books</strong> that don't fit either box. Three formats, one standard: useful, tested, no fluff.</p>
       <p class="bio" data-gumroad-field="bio"></p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="#toolkits">Browse toolkits →</a>
-        <a class="btn btn-primary" href="#guides">Browse guides →</a>
-        <a class="btn btn-primary" href="#books">Browse books →</a>
-      </div>
-      <div class="hero-social">
-        <span class="rule" aria-hidden="true"></span>
-        <span>Elsewhere</span>
-        <div class="social-row">
-          <a href="https://marcolombardodev.github.io/" target="_blank" rel="noopener noreferrer" aria-label="Personal site">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg>
-          </a>
-        </div>
+        <a class="btn btn-primary" href="#toolkits" data-i18n="ctaToolkits">Browse toolkits →</a>
+        <a class="btn btn-primary" href="#guides" data-i18n="ctaGuides">Browse guides →</a>
+        <a class="btn btn-primary" href="#books" data-i18n="ctaBooks">Browse books →</a>
+        <a class="btn btn-ghost" href="https://marcolombardodev.github.io/" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg>
+          <span data-i18n="whoIAm">Who I am</span>
+        </a>
       </div>
     </div>
 
@@ -283,7 +280,7 @@
           <img src="https://marcolombardodev.github.io/assets/img/marco-portrait.jpg" alt="Portrait of Marco Lombardo" width="800" height="993">
         </div>
       </div>
-      <div class="hero-badge"><span>Hi, I'm Marco</span></div>
+      <div class="hero-badge"><span data-i18n="heroBadge">Hi, I'm Marco</span></div>
     </div>
   </div>
 </section>
@@ -299,9 +296,9 @@
 <!-- ================= STATS ================= -->
 <div class="stats">
   <div class="wrap">
-    <div class="stat"><b id="stat-count">–</b><span>Releases</span></div>
-    <div class="stat"><b id="stat-series">–</b><span>Series &amp; formats</span></div>
-    <div class="stat"><b id="stat-price">–</b><span>Starting price</span></div>
+    <div class="stat"><b id="stat-count">–</b><span data-i18n="statsReleases">Releases</span></div>
+    <div class="stat"><b id="stat-series">–</b><span data-i18n="statsSeries">Series &amp; formats</span></div>
+    <div class="stat"><b id="stat-price">–</b><span data-i18n="statsPrice">Starting price</span></div>
   </div>
 </div>
 
@@ -309,12 +306,12 @@
 <section id="toolkits">
   <div class="wrap">
     <div class="section-head">
-      <span class="section-tag">AI Toolkits</span>
-      <h2>The toolkits</h2>
-      <p>Every toolkit follows one rule: copy, paste, get results today. No theory, no 6-hour courses &mdash; ChatGPT prompt packs built for one profession at a time.</p>
+      <span class="section-tag" data-i18n="toolkitsTag">AI Toolkits</span>
+      <h2 data-i18n="toolkitsH2">The toolkits</h2>
+      <p data-i18n="toolkitsP">Every toolkit follows one rule: copy, paste, get results today. No theory, no 6-hour courses &mdash; ChatGPT prompt packs built for one profession at a time.</p>
     </div>
     <div class="grid" id="toolkits-grid"></div>
-    <div class="empty" id="toolkits-empty" hidden>New toolkits are in the workshop. Check back soon.</div>
+    <div class="empty" id="toolkits-empty" hidden data-i18n="toolkitsEmpty">New toolkits are in the workshop. Check back soon.</div>
   </div>
 </section>
 
@@ -322,12 +319,12 @@
 <section class="section-alt" id="guides">
   <div class="wrap">
     <div class="section-head">
-      <span class="section-tag">Field Manuals</span>
-      <h2>The guides</h2>
-      <p>The Survive-A Series: illustrated field manuals that take unlikely disasters completely seriously &mdash; one scenario at a time, dry wit included.</p>
+      <span class="section-tag" data-i18n="guidesTag">Field Manuals</span>
+      <h2 data-i18n="guidesH2">The guides</h2>
+      <p data-i18n="guidesP">The Survive-A Series: illustrated field manuals that take unlikely disasters completely seriously &mdash; one scenario at a time, dry wit included.</p>
     </div>
     <div class="grid" id="guides-grid"></div>
-    <div class="empty" id="guides-empty" hidden>The next guide is in the workshop. Check back soon.</div>
+    <div class="empty" id="guides-empty" hidden data-i18n="guidesEmpty">The next guide is in the workshop. Check back soon.</div>
   </div>
 </section>
 
@@ -335,19 +332,19 @@
 <section id="books">
   <div class="wrap">
     <div class="section-head">
-      <span class="section-tag">Books &amp; Essays</span>
-      <h2>The books</h2>
-      <p>Longer reads that don't fit a checklist or a field manual &mdash; speculative non-fiction and the occasional uncomfortable truth about modern life. Anything new that doesn't fit the other shelves lands here too.</p>
+      <span class="section-tag" data-i18n="booksTag">Books &amp; Essays</span>
+      <h2 data-i18n="booksH2">The books</h2>
+      <p data-i18n="booksP">Longer reads that don't fit a checklist or a field manual &mdash; speculative non-fiction and the occasional uncomfortable truth about modern life. Anything new that doesn't fit the other shelves lands here too.</p>
     </div>
     <div class="grid" id="books-grid"></div>
-    <div class="empty" id="books-empty" hidden>The next book is in the workshop. Check back soon.</div>
+    <div class="empty" id="books-empty" hidden data-i18n="booksEmpty">The next book is in the workshop. Check back soon.</div>
   </div>
 </section>
 
 <!-- ================= ALT STORE ================= -->
 <div class="altstore">
   <div class="wrap">
-    <p>Prefer not to buy through Gumroad? Everything here &mdash; toolkits, guides and books &mdash; is also sold on <a href="https://payhip.com/MarcoLombardo" target="_blank" rel="noopener noreferrer">Payhip →</a></p>
+    <p data-i18n="altstoreP">Prefer not to buy through Gumroad? Everything here &mdash; toolkits, guides and books &mdash; is also sold on <a href="https://payhip.com/MarcoLombardo" target="_blank" rel="noopener noreferrer">Payhip →</a></p>
   </div>
 </div>
 
@@ -355,29 +352,29 @@
 <section class="section-alt">
   <div class="wrap">
     <div class="section-head">
-      <span class="section-tag">How I build</span>
-      <h2>Four rules I keep coming back to</h2>
+      <span class="section-tag" data-i18n="principlesTag">How I build</span>
+      <h2 data-i18n="principlesH2">Four rules I keep coming back to</h2>
     </div>
     <div class="principles">
       <div class="principle reveal">
         <div class="num">01</div>
-        <h3>Start from the problem</h3>
-        <p>Technology, prompts and illustrations are the answer, never the question. If the problem isn't clear, no format will save it.</p>
+        <h3 data-i18n="p1H3">Start from the problem</h3>
+        <p data-i18n="p1P">Technology, prompts and illustrations are the answer, never the question. If the problem isn't clear, no format will save it.</p>
       </div>
       <div class="principle reveal" data-delay="80">
         <div class="num">02</div>
-        <h3>Ship, then refine</h3>
-        <p>A working toolkit beats a perfect outline. Real readers give better feedback than any draft.</p>
+        <h3 data-i18n="p2H3">Ship, then refine</h3>
+        <p data-i18n="p2P">A working toolkit beats a perfect outline. Real readers give better feedback than any draft.</p>
       </div>
       <div class="principle reveal" data-delay="160">
         <div class="num">03</div>
-        <h3>One clear job</h3>
-        <p>Generic advice helps nobody. Every toolkit, guide or book targets one real problem for one real audience.</p>
+        <h3 data-i18n="p3H3">One clear job</h3>
+        <p data-i18n="p3P">Generic advice helps nobody. Every toolkit, guide or book targets one real problem for one real audience.</p>
       </div>
       <div class="principle reveal" data-delay="240">
         <div class="num">04</div>
-        <h3>Guaranteed, always</h3>
-        <p>Every product carries a money-back guarantee. If it doesn't deliver, you don't pay. Simple.</p>
+        <h3 data-i18n="p4H3">Guaranteed, always</h3>
+        <p data-i18n="p4P">Every product carries a money-back guarantee. If it doesn't deliver, you don't pay. Simple.</p>
       </div>
     </div>
   </div>
@@ -387,8 +384,8 @@
 <section id="posts-section" hidden>
   <div class="wrap">
     <div class="section-head">
-      <span class="section-tag">Notes</span>
-      <h2>Latest notes</h2>
+      <span class="section-tag" data-i18n="postsTag">Notes</span>
+      <h2 data-i18n="postsH2">Latest notes</h2>
     </div>
     <div id="posts"></div>
   </div>
@@ -397,12 +394,12 @@
 <!-- ================= CONTACT ================= -->
 <div class="contact" id="contact">
   <div class="wrap reveal">
-    <span class="section-tag" style="justify-content:center">Get in touch</span>
-    <h2>Questions, feedback, a good idea?</h2>
-    <p>Product questions, support, licensing requests or partnership ideas: my inbox is open.</p>
+    <span class="section-tag" style="justify-content:center" data-i18n="contactTag">Get in touch</span>
+    <h2 data-i18n="contactH2">Questions, feedback, a good idea?</h2>
+    <p data-i18n="contactP">Product questions, support, licensing requests or partnership ideas: my inbox is open.</p>
     <div class="cta-row">
-      <a class="btn btn-primary" href="mailto:marco.lombardo@gmail.com">Write me an email</a>
-      <a class="btn btn-ghost" href="https://marcolombardo.gumroad.com/subscribe" target="_blank" rel="noopener noreferrer">Subscribe for updates →</a>
+      <a class="btn btn-primary" href="mailto:marco.lombardo@gmail.com" data-i18n="ctaEmail">Write me an email</a>
+      <a class="btn btn-ghost" href="https://marcolombardo.gumroad.com/subscribe" target="_blank" rel="noopener noreferrer" data-i18n="ctaSubscribe">Subscribe for updates →</a>
     </div>
   </div>
 </div>
@@ -419,9 +416,8 @@
       </svg>
       <span>© <span id="yr"></span> <span data-gumroad-field="name">Marco Lombardo</span></span>
     </div>
-    <a class="btn btn-ghost footer-cta" href="https://marcolombardodev.github.io/" target="_blank" rel="noopener noreferrer">
+    <a class="btn btn-ghost footer-cta" href="https://marcolombardodev.github.io/" target="_blank" rel="noopener noreferrer" aria-label="Personal site">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg>
-      Personal site
     </a>
   </div>
 </footer>
@@ -575,6 +571,105 @@
       }
     });
   }
+
+  /* ------------------------------------------------------------- Language switch
+     In-page IT/EN toggle for the static page copy. There's no server-side routing
+     here (Gumroad serves this as a single custom-HTML page), so translation is a
+     client-side text swap instead of the personal site's /it//en/ URL split.
+     The product catalog itself (names, descriptions, prices — real Gumroad data
+     rendered above) is intentionally left in English in both languages: it isn't
+     page copy, it's commerce content, and translating it would drift from what's
+     actually listed on Gumroad. */
+  var I18N = {
+    en: {
+      navToolkits: "Toolkits", navGuides: "Guides", navBooks: "Books", navContact: "Contact",
+      heroEyebrow: "AI Toolkits &middot; Field Manuals &middot; Books",
+      heroLine2: "Ideas, made to read",
+      heroLead: "Practical <strong>AI toolkits</strong>, illustrated <strong>survival guides</strong>, and a few <strong>books</strong> that don't fit either box. Three formats, one standard: useful, tested, no fluff.",
+      ctaToolkits: "Browse toolkits →", ctaGuides: "Browse guides →", ctaBooks: "Browse books →",
+      whoIAm: "Who I am", heroBadge: "Hi, I'm Marco",
+      statsReleases: "Releases", statsSeries: "Series &amp; formats", statsPrice: "Starting price",
+      toolkitsTag: "AI Toolkits", toolkitsH2: "The toolkits",
+      toolkitsP: "Every toolkit follows one rule: copy, paste, get results today. No theory, no 6-hour courses &mdash; ChatGPT prompt packs built for one profession at a time.",
+      toolkitsEmpty: "New toolkits are in the workshop. Check back soon.",
+      guidesTag: "Field Manuals", guidesH2: "The guides",
+      guidesP: "The Survive-A Series: illustrated field manuals that take unlikely disasters completely seriously &mdash; one scenario at a time, dry wit included.",
+      guidesEmpty: "The next guide is in the workshop. Check back soon.",
+      booksTag: "Books &amp; Essays", booksH2: "The books",
+      booksP: "Longer reads that don't fit a checklist or a field manual &mdash; speculative non-fiction and the occasional uncomfortable truth about modern life. Anything new that doesn't fit the other shelves lands here too.",
+      booksEmpty: "The next book is in the workshop. Check back soon.",
+      altstoreP: 'Prefer not to buy through Gumroad? Everything here &mdash; toolkits, guides and books &mdash; is also sold on <a href="https://payhip.com/MarcoLombardo" target="_blank" rel="noopener noreferrer">Payhip →</a>',
+      principlesTag: "How I build", principlesH2: "Four rules I keep coming back to",
+      p1H3: "Start from the problem",
+      p1P: "Technology, prompts and illustrations are the answer, never the question. If the problem isn't clear, no format will save it.",
+      p2H3: "Ship, then refine",
+      p2P: "A working toolkit beats a perfect outline. Real readers give better feedback than any draft.",
+      p3H3: "One clear job",
+      p3P: "Generic advice helps nobody. Every toolkit, guide or book targets one real problem for one real audience.",
+      p4H3: "Guaranteed, always",
+      p4P: "Every product carries a money-back guarantee. If it doesn't deliver, you don't pay. Simple.",
+      postsTag: "Notes", postsH2: "Latest notes",
+      contactTag: "Get in touch", contactH2: "Questions, feedback, a good idea?",
+      contactP: "Product questions, support, licensing requests or partnership ideas: my inbox is open.",
+      ctaEmail: "Write me an email", ctaSubscribe: "Subscribe for updates →",
+      navToggleLabel: "Open menu"
+    },
+    it: {
+      navToolkits: "Toolkit", navGuides: "Guide", navBooks: "Libri", navContact: "Contatti",
+      heroEyebrow: "Toolkit AI &middot; Manuali di Campo &middot; Libri",
+      heroLine2: "Idee, pronte da leggere",
+      heroLead: "<strong>Toolkit AI</strong> pratici, <strong>guide di sopravvivenza</strong> illustrate, e qualche <strong>libro</strong> che non rientra in nessuna delle due categorie. Tre formati, uno standard: utili, testati, senza fronzoli.",
+      ctaToolkits: "Scopri i toolkit →", ctaGuides: "Scopri le guide →", ctaBooks: "Scopri i libri →",
+      whoIAm: "Chi sono", heroBadge: "Ciao, sono Marco",
+      statsReleases: "Uscite", statsSeries: "Serie e formati", statsPrice: "Prezzo di partenza",
+      toolkitsTag: "Toolkit AI", toolkitsH2: "I toolkit",
+      toolkitsP: "Ogni toolkit segue una sola regola: copia, incolla, ottieni risultati oggi stesso. Niente teoria, niente corsi da 6 ore &mdash; pacchetti di prompt ChatGPT costruiti per una professione alla volta.",
+      toolkitsEmpty: "Nuovi toolkit sono in lavorazione. Torna a trovarmi presto.",
+      guidesTag: "Manuali di Campo", guidesH2: "Le guide",
+      guidesP: "La Survive-A Series: manuali di campo illustrati che prendono sul serio disastri improbabili &mdash; uno scenario alla volta, ironia inclusa.",
+      guidesEmpty: "La prossima guida è in lavorazione. Torna a trovarmi presto.",
+      booksTag: "Libri e Saggi", booksH2: "I libri",
+      booksP: "Letture più lunghe che non rientrano in una checklist o in un manuale di campo &mdash; saggistica speculativa e qualche scomoda verità sulla vita moderna. Anche tutto ciò che è nuovo e non trova posto altrove finisce qui.",
+      booksEmpty: "Il prossimo libro è in lavorazione. Torna a trovarmi presto.",
+      altstoreP: 'Preferisci non comprare tramite Gumroad? Tutto quello che trovi qui &mdash; toolkit, guide e libri &mdash; è in vendita anche su <a href="https://payhip.com/MarcoLombardo" target="_blank" rel="noopener noreferrer">Payhip →</a>',
+      principlesTag: "Come lavoro", principlesH2: "Quattro regole a cui torno sempre",
+      p1H3: "Si parte dal problema",
+      p1P: "Tecnologia, prompt e illustrazioni sono la risposta, mai la domanda. Se il problema non è chiaro, nessun formato lo salverà.",
+      p2H3: "Prima si rilascia, poi si affina",
+      p2P: "Un toolkit funzionante vale più di una scaletta perfetta. I lettori veri danno un feedback migliore di qualsiasi bozza.",
+      p3H3: "Un compito chiaro",
+      p3P: "I consigli generici non aiutano nessuno. Ogni toolkit, guida o libro punta a un problema reale per un pubblico reale.",
+      p4H3: "Garantito, sempre",
+      p4P: "Ogni prodotto ha una garanzia soddisfatti o rimborsati. Se non mantiene le promesse, non paghi. Semplice.",
+      postsTag: "Note", postsH2: "Ultime note",
+      contactTag: "Contattami", contactH2: "Domande, feedback, una buona idea?",
+      contactP: "Domande sui prodotti, assistenza, richieste di licenza o idee di collaborazione: la mia inbox è aperta.",
+      ctaEmail: "Scrivimi una email", ctaSubscribe: "Iscriviti per gli aggiornamenti →",
+      navToggleLabel: "Apri il menu"
+    }
+  };
+
+  function setLang(lang){
+    if (!I18N[lang]) lang = "en";
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-i18n]").forEach(function(el){
+      var key = el.getAttribute("data-i18n");
+      if (I18N[lang][key] != null) el.innerHTML = I18N[lang][key];
+    });
+    document.querySelectorAll("[data-lang-btn]").forEach(function(b){
+      b.setAttribute("aria-current", b.getAttribute("data-lang-btn") === lang ? "true" : "false");
+    });
+    if (navToggle) navToggle.setAttribute("aria-label", I18N[lang].navToggleLabel);
+    try { localStorage.setItem("ml-lang", lang); } catch(e){}
+  }
+
+  document.querySelectorAll("[data-lang-btn]").forEach(function(b){
+    b.addEventListener("click", function(){ setLang(b.getAttribute("data-lang-btn")); });
+  });
+
+  var startLang = "en";
+  try { var saved = localStorage.getItem("ml-lang"); if (saved === "it") startLang = "it"; } catch(e){}
+  setLang(startLang);
 
   /* reveals (grid cards render with .in already set, since they're built after page load) */
   if ("IntersectionObserver" in window){
