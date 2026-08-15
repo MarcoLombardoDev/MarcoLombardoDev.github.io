@@ -574,8 +574,9 @@ p:last-child {
 
 .hero-badge {
   position: absolute;
-  right: -6px;
+  left: 50%;
   bottom: 18px;
+  transform: translateX(-50%);
   z-index: 4;
   display: flex;
   align-items: center;
@@ -589,6 +590,28 @@ p:last-child {
   font-weight: 700;
   white-space: nowrap;
   box-shadow: var(--shadow);
+}
+
+/* speech-bubble tail, pointing up at the portrait — two stacked triangles
+   fake a bordered shape, since CSS can't stroke a triangle directly */
+.hero-badge::before,
+.hero-badge::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+}
+
+.hero-badge::before {
+  top: -9px;
+  border-bottom: 9px solid rgba(255, 255, 255, 0.4);
+}
+
+.hero-badge::after {
+  top: -7.5px;
+  border-bottom: 7.5px solid #0c0c0f;
 }
 
 /* --------------------------------------------------------------------------
@@ -1150,9 +1173,7 @@ p:last-child {
 
   /* below the circle, not on top of it */
   .hero-badge {
-    right: 50%;
     bottom: -20px;
-    transform: translateX(50%);
   }
 }
 
