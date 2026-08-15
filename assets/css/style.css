@@ -575,7 +575,7 @@ p:last-child {
 .hero-badge {
   position: absolute;
   left: 50%;
-  bottom: 18px;
+  bottom: -20px;
   transform: translateX(-50%);
   z-index: 4;
   display: flex;
@@ -1164,11 +1164,6 @@ p:last-child {
     order: -1;
     width: min(280px, 66%);
     margin-bottom: 40px;
-  }
-
-  /* below the circle, not on top of it */
-  .hero-badge {
-    bottom: -20px;
   }
 }
 
