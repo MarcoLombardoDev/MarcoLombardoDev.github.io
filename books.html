@@ -65,6 +65,7 @@
   .btn-primary:hover{transform:translateY(-3px);box-shadow:0 24px 60px rgba(232,17,45,.42)}
   .btn-ghost{border-color:var(--line-strong);color:var(--text);background:rgba(255,255,255,.04)}
   .btn-ghost:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.34);background:rgba(255,255,255,.09)}
+  .btn svg{width:18px;height:18px;flex:none}
   .hero-social{display:flex;align-items:center;gap:14px;color:var(--dim);font-size:13px;
     letter-spacing:.09em;text-transform:uppercase;font-weight:700;flex-wrap:wrap}
   .hero-social .rule{height:1px;width:40px;background:var(--line-strong)}
@@ -135,6 +136,8 @@
   @media(max-width:520px){
     .header-inner{gap:10px}
     .brand-name{display:none}
+    .cta-row .btn{width:100%;justify-content:center}
+    footer .wrap{justify-content:center;text-align:center}
   }
   .footer-brand .logo-img{width:auto;height:26px}
   .footer-brand .logo-svg{width:38px;height:26px}
@@ -216,8 +219,6 @@
   footer .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;
     color:var(--dim);font-size:14px}
   .footer-brand{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--muted)}
-  .footer-links a{color:var(--dim);border-bottom:1px dotted var(--line-strong)}
-  .footer-links a:hover{color:var(--text)}
 
   @media(max-width:700px){ .hero{padding:126px 0 56px} section{padding:64px 0} .contact{padding:70px 0} }
 </style>
@@ -269,9 +270,6 @@
         <span class="rule" aria-hidden="true"></span>
         <span>Elsewhere</span>
         <div class="social-row">
-          <a href="https://www.linkedin.com/in/mlombardo/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.75-1.95 4 0 4.4 2.5 4.4 5.75V21h-4v-5.6c0-1.35-.03-3.1-1.9-3.1-1.9 0-2.2 1.48-2.2 3v5.7h-4V9z"/></svg>
-          </a>
           <a href="https://marcolombardodev.github.io/" target="_blank" rel="noopener noreferrer" aria-label="Personal site">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg>
           </a>
@@ -401,7 +399,7 @@
   <div class="wrap reveal">
     <span class="section-tag" style="justify-content:center">Get in touch</span>
     <h2>Questions, feedback, a good idea?</h2>
-    <p>Product questions, support, licensing requests or partnership ideas: my inbox is open, and so is LinkedIn.</p>
+    <p>Product questions, support, licensing requests or partnership ideas: my inbox is open.</p>
     <div class="cta-row">
       <a class="btn btn-primary" href="mailto:marco.lombardo@gmail.com">Write me an email</a>
       <a class="btn btn-ghost" href="https://marcolombardo.gumroad.com/subscribe" target="_blank" rel="noopener noreferrer">Subscribe for updates →</a>
@@ -421,14 +419,10 @@
       </svg>
       <span>© <span id="yr"></span> <span data-gumroad-field="name">Marco Lombardo</span></span>
     </div>
-    <div class="footer-links">
-      <a href="https://marcolombardodev.github.io/" target="_blank" rel="noopener noreferrer">marcolombardodev.github.io</a>
-    </div>
-    <div class="social-row">
-      <a href="https://www.linkedin.com/in/mlombardo/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.75-1.95 4 0 4.4 2.5 4.4 5.75V21h-4v-5.6c0-1.35-.03-3.1-1.9-3.1-1.9 0-2.2 1.48-2.2 3v5.7h-4V9z"/></svg>
-      </a>
-    </div>
+    <a class="btn btn-ghost footer-cta" href="https://marcolombardodev.github.io/" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg>
+      Personal site
+    </a>
   </div>
 </footer>
 
