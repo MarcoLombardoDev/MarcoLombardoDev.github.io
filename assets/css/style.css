@@ -592,26 +592,21 @@ p:last-child {
   box-shadow: var(--shadow);
 }
 
-/* speech-bubble tail, pointing up at the portrait — two stacked triangles
-   fake a bordered shape, since CSS can't stroke a triangle directly */
-.hero-badge::before,
-.hero-badge::after {
+/* speech-bubble tail, pointing up at the portrait — a small square rotated
+   45° and half-tucked behind the pill's own top edge, so it reads as one
+   continuous shape instead of a separate triangle floating above it */
+.hero-badge::before {
   content: "";
   position: absolute;
+  top: -6px;
   left: 50%;
-  transform: translateX(-50%);
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-}
-
-.hero-badge::before {
-  top: -9px;
-  border-bottom: 9px solid rgba(255, 255, 255, 0.4);
-}
-
-.hero-badge::after {
-  top: -7.5px;
-  border-bottom: 7.5px solid #0c0c0f;
+  width: 13px;
+  height: 13px;
+  background: rgba(12, 12, 15, 0.98);
+  border-left: 1px solid var(--line-strong);
+  border-top: 1px solid var(--line-strong);
+  border-radius: 3px 0 0 0;
+  transform: translateX(-50%) rotate(45deg);
 }
 
 /* --------------------------------------------------------------------------
