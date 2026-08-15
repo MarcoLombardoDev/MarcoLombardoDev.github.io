@@ -83,13 +83,26 @@
   .ring-inner{width:100%;height:100%;border-radius:50%;overflow:hidden;background:linear-gradient(180deg,#d8d9dd,#6f7077);
     animation:spin 22s linear infinite reverse}
   .ring-inner img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block}
-  .hero-badge{position:absolute;right:-6px;bottom:12px;z-index:4;display:flex;align-items:center;gap:8px;
+  .hero-badge{position:absolute;left:50%;bottom:-20px;transform:translateX(-50%);z-index:4;display:flex;align-items:center;gap:8px;
     padding:10px 16px;border-radius:999px;background:rgba(12,12,15,.9);border:1px solid var(--line-strong);
     font-size:12.5px;font-weight:700;letter-spacing:.06em;white-space:nowrap;box-shadow:var(--shadow)}
+  /* speech-bubble tail, matching the personal site's hero badge */
+  .hero-badge::before{content:"";position:absolute;top:-6px;left:50%;width:12px;height:12px;
+    background:rgba(12,12,15,.98);border-left:1px solid var(--line-strong);border-top:1px solid var(--line-strong);
+    border-radius:3px 0 0 0;transform:translateX(-50%) rotate(45deg)}
   @media(max-width:980px){
     .hero-portrait{order:-1;width:min(240px,66%);margin:0 auto 32px}
-    .hero-badge{right:50%;bottom:-16px;transform:translateX(50%)}
   }
+
+  /* ---------- brand mark (ML logo, aligned with the personal site) ---------- */
+  .logo-svg{display:none}
+  .no-logo-file .logo-img{display:none}
+  .no-logo-file .logo-svg{display:block}
+  .brand-mark{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+  .brand-mark .logo-img{width:auto;height:30px;flex:none}
+  .brand-mark .logo-svg{width:44px;height:30px;flex:none}
+  .footer-brand .logo-img{width:auto;height:26px}
+  .footer-brand .logo-svg{width:38px;height:26px}
 
   /* ---------- marquee ---------- */
   .marquee{position:relative;border-block:1px solid var(--line);background:var(--ink-2);overflow:hidden;
@@ -168,8 +181,6 @@
   footer .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;
     color:var(--dim);font-size:14px}
   .footer-brand{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--muted)}
-  .footer-mark{width:26px;height:26px;border-radius:8px;background:var(--red);color:#fff;
-    display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;letter-spacing:.02em;flex:none}
   .footer-links a{color:var(--dim);border-bottom:1px dotted var(--line-strong)}
   .footer-links a:hover{color:var(--text)}
 
@@ -180,6 +191,15 @@
 <header class="hero" id="home">
   <div class="wrap hero-grid">
     <div class="hero-copy reveal">
+      <div class="brand-mark">
+        <img class="logo-img" src="https://marcolombardodev.github.io/assets/img/logo-ml.png" alt="" aria-hidden="true">
+        <svg class="logo-svg" viewBox="0 0 240 160" aria-hidden="true">
+          <g transform="skewX(-8) translate(10 0)" fill="none" stroke="#e8112d" stroke-width="21" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 132C26 92 40 52 56 52c14 0 10 40 6 80 8-40 22-80 38-80 14 0 8 44 4 80"/>
+            <path d="M104 132c14-36 46-112 72-112 20 0 14 40-14 76-22 28-30 42-16 44 16 2 46-22 68-48"/>
+          </g>
+        </svg>
+      </div>
       <span class="eyebrow"><span class="dot"></span>AI Toolkits &middot; Field Manuals &middot; Books</span>
       <h1>
 <span data-gumroad-field="name">Marco Lombardo</span>
@@ -205,10 +225,10 @@
     <div class="hero-portrait reveal" data-delay="120">
       <div class="ring">
         <div class="ring-inner">
-          <img src="https://public-files.gumroad.com/qfb5k9kpw6z6zj0batv0tng1zs7s" alt="Portrait of Marco Lombardo" width="670" height="831">
+          <img src="https://marcolombardodev.github.io/assets/img/marco-portrait.jpg" alt="Portrait of Marco Lombardo" width="800" height="993">
         </div>
       </div>
-      <div class="hero-badge"><span>Marco Lombardo</span></div>
+      <div class="hero-badge"><span>Hi, I'm Marco</span></div>
     </div>
   </div>
 </header>
@@ -335,7 +355,13 @@
 <footer>
   <div class="wrap">
     <div class="footer-brand">
-      <span class="footer-mark" aria-hidden="true">ML</span>
+      <img class="logo-img" src="https://marcolombardodev.github.io/assets/img/logo-ml.png" alt="" aria-hidden="true">
+      <svg class="logo-svg" viewBox="0 0 240 160" aria-hidden="true">
+        <g transform="skewX(-8) translate(10 0)" fill="none" stroke="#e8112d" stroke-width="21" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 132C26 92 40 52 56 52c14 0 10 40 6 80 8-40 22-80 38-80 14 0 8 44 4 80"/>
+          <path d="M104 132c14-36 46-112 72-112 20 0 14 40-14 76-22 28-30 42-16 44 16 2 46-22 68-48"/>
+        </g>
+      </svg>
       <span>© <span id="yr"></span> <span data-gumroad-field="name">Marco Lombardo</span></span>
     </div>
     <div class="footer-links">
@@ -459,6 +485,15 @@
   }
 
   document.getElementById("yr").textContent = new Date().getFullYear();
+
+  /* logo graceful fallback: every instance shares one source, so a single
+     failure (e.g. the personal site being briefly unreachable) covers them all */
+  var logo = document.querySelector(".logo-img");
+  if (logo) {
+    var markLogoMissing = function(){ document.documentElement.classList.add("no-logo-file"); };
+    logo.addEventListener("error", markLogoMissing);
+    if (logo.complete && logo.naturalWidth === 0) markLogoMissing();
+  }
 
   /* reveals (grid cards render with .in already set, since they're built after page load) */
   if ("IntersectionObserver" in window){
