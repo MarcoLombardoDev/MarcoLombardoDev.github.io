@@ -174,6 +174,7 @@
   .kind-tag{position:absolute;top:10px;left:10px;z-index:2;font-size:10.5px;font-weight:800;letter-spacing:.1em;
     color:var(--text);padding:5px 10px;border-radius:999px;background:rgba(10,10,12,.82);
     border:1px solid var(--line-strong);backdrop-filter:blur(6px)}
+  .lang-tag{left:auto;right:10px}
   .prod .body{position:relative;padding:20px 22px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
   .prod h3{font-size:16px;line-height:1.35;font-weight:700}
   .prod .desc{font-size:15px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
@@ -256,7 +257,7 @@
 <section class="hero" id="home">
   <div class="wrap hero-grid">
     <div class="hero-copy reveal">
-      <span class="eyebrow"><span class="dot"></span><span data-i18n="heroEyebrow">AI Toolkits &middot; Field Manuals &middot; Books</span></span>
+      <span class="eyebrow"><span class="dot"></span><span data-i18n="heroEyebrow">Toolkits &middot; Field Manuals &middot; Books</span></span>
       <h1>
 <span data-gumroad-field="name">Marco Lombardo</span>
 <span class="line-2" data-i18n="heroLine2">Ideas, made to read</span>
@@ -306,7 +307,7 @@
 <section id="toolkits">
   <div class="wrap">
     <div class="section-head">
-      <span class="section-tag" data-i18n="toolkitsTag">AI Toolkits</span>
+      <span class="section-tag" data-i18n="toolkitsTag">Toolkits</span>
       <h2 data-i18n="toolkitsH2">The toolkits</h2>
       <p data-i18n="toolkitsP">Every toolkit follows one rule: copy, paste, get results today. No theory, no 6-hour courses &mdash; ChatGPT prompt packs built for one profession at a time.</p>
     </div>
@@ -359,12 +360,12 @@
       <div class="principle reveal">
         <div class="num">01</div>
         <h3 data-i18n="p1H3">Start from the problem</h3>
-        <p data-i18n="p1P">Technology, prompts and illustrations are the answer, never the question. If the problem isn't clear, no format will save it.</p>
+        <p data-i18n="p1P">Content is the answer, never the question. If the problem isn't clear, no format &mdash; toolkit, guide or book &mdash; will save it.</p>
       </div>
       <div class="principle reveal" data-delay="80">
         <div class="num">02</div>
         <h3 data-i18n="p2H3">Ship, then refine</h3>
-        <p data-i18n="p2P">A working toolkit beats a perfect outline. Real readers give better feedback than any draft.</p>
+        <p data-i18n="p2P">A real release beats a perfect outline. Real readers give better feedback than any draft.</p>
       </div>
       <div class="principle reveal" data-delay="160">
         <div class="num">03</div>
@@ -398,7 +399,10 @@
     <h2 data-i18n="contactH2">Questions, feedback, a good idea?</h2>
     <p data-i18n="contactP">Product questions, support, licensing requests or partnership ideas: my inbox is open.</p>
     <div class="cta-row">
-      <a class="btn btn-primary" href="mailto:marco.lombardo@gmail.com" data-i18n="ctaEmail">Write me an email</a>
+      <a class="btn btn-primary" href="mailto:marco.lombardo@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        <span data-i18n="ctaEmail">Write me an email</span>
+      </a>
       <a class="btn btn-ghost" href="https://marcolombardo.gumroad.com/subscribe" target="_blank" rel="noopener noreferrer" data-i18n="ctaSubscribe">Subscribe for updates →</a>
     </div>
   </div>
@@ -447,7 +451,7 @@
       a.href = p.url || "#";
       a.target = "_blank";
       a.rel = "noopener";
-      var tag = '<span class="kind-tag">'+esc(kindLabel)+'</span>';
+      var tag = '<span class="kind-tag">'+esc(kindLabel)+'</span><span class="kind-tag lang-tag">EN</span>';
       var thumb = p.thumbnail_url
         ? '<div class="thumb">'+tag+'<img src="'+esc(p.thumbnail_url)+'" alt="" loading="lazy"></div>'
         : '<div class="thumb">'+tag+'<span class="ph" aria-hidden="true">&gt;_</span></div>';
@@ -583,13 +587,13 @@
   var I18N = {
     en: {
       navToolkits: "Toolkits", navGuides: "Guides", navBooks: "Books", navContact: "Contact",
-      heroEyebrow: "AI Toolkits &middot; Field Manuals &middot; Books",
+      heroEyebrow: "Toolkits &middot; Field Manuals &middot; Books",
       heroLine2: "Ideas, made to read",
       heroLead: "Practical <strong>AI toolkits</strong>, illustrated <strong>survival guides</strong>, and a few <strong>books</strong> that don't fit either box. Three formats, one standard: useful, tested, no fluff.",
       ctaToolkits: "Browse toolkits →", ctaGuides: "Browse guides →", ctaBooks: "Browse books →",
       whoIAm: "Who I am", heroBadge: "Hi, I'm Marco",
       statsReleases: "Releases", statsSeries: "Series &amp; formats", statsPrice: "Starting price",
-      toolkitsTag: "AI Toolkits", toolkitsH2: "The toolkits",
+      toolkitsTag: "Toolkits", toolkitsH2: "The toolkits",
       toolkitsP: "Every toolkit follows one rule: copy, paste, get results today. No theory, no 6-hour courses &mdash; ChatGPT prompt packs built for one profession at a time.",
       toolkitsEmpty: "New toolkits are in the workshop. Check back soon.",
       guidesTag: "Field Manuals", guidesH2: "The guides",
@@ -601,9 +605,9 @@
       altstoreP: 'Prefer not to buy through Gumroad? Everything here &mdash; toolkits, guides and books &mdash; is also sold on <a href="https://payhip.com/MarcoLombardo" target="_blank" rel="noopener noreferrer">Payhip →</a>',
       principlesTag: "How I build", principlesH2: "Four rules I keep coming back to",
       p1H3: "Start from the problem",
-      p1P: "Technology, prompts and illustrations are the answer, never the question. If the problem isn't clear, no format will save it.",
+      p1P: "Content is the answer, never the question. If the problem isn't clear, no format &mdash; toolkit, guide or book &mdash; will save it.",
       p2H3: "Ship, then refine",
-      p2P: "A working toolkit beats a perfect outline. Real readers give better feedback than any draft.",
+      p2P: "A real release beats a perfect outline. Real readers give better feedback than any draft.",
       p3H3: "One clear job",
       p3P: "Generic advice helps nobody. Every toolkit, guide or book targets one real problem for one real audience.",
       p4H3: "Guaranteed, always",
@@ -616,13 +620,13 @@
     },
     it: {
       navToolkits: "Toolkit", navGuides: "Guide", navBooks: "Libri", navContact: "Contatti",
-      heroEyebrow: "Toolkit AI &middot; Manuali &middot; Libri",
+      heroEyebrow: "Toolkit &middot; Manuali &middot; Libri",
       heroLine2: "Idee, pronte da leggere",
       heroLead: "<strong>Toolkit AI</strong> pratici, <strong>guide di sopravvivenza</strong> illustrate, e qualche <strong>libro</strong> che non rientra in nessuna delle due categorie. Tre formati, uno standard: utili, testati, senza fronzoli.",
       ctaToolkits: "Scopri i toolkit →", ctaGuides: "Scopri le guide →", ctaBooks: "Scopri i libri →",
       whoIAm: "Chi sono", heroBadge: "Ciao, sono Marco",
       statsReleases: "Uscite", statsSeries: "Serie e formati", statsPrice: "Prezzo di partenza",
-      toolkitsTag: "Toolkit AI", toolkitsH2: "I toolkit",
+      toolkitsTag: "Toolkit", toolkitsH2: "I toolkit",
       toolkitsP: "Ogni toolkit segue una sola regola: copia, incolla, ottieni risultati oggi stesso. Niente teoria, niente corsi da 6 ore &mdash; pacchetti di prompt ChatGPT costruiti per una professione alla volta.",
       toolkitsEmpty: "Nuovi toolkit sono in lavorazione. Torna a trovarmi presto.",
       guidesTag: "Manuali", guidesH2: "Le guide",
@@ -634,9 +638,9 @@
       altstoreP: 'Preferisci non comprare tramite Gumroad? Tutto quello che trovi qui &mdash; toolkit, guide e libri &mdash; è in vendita anche su <a href="https://payhip.com/MarcoLombardo" target="_blank" rel="noopener noreferrer">Payhip →</a>',
       principlesTag: "Come lavoro", principlesH2: "Quattro regole a cui torno sempre",
       p1H3: "Si parte dal problema",
-      p1P: "Tecnologia, prompt e illustrazioni sono la risposta, mai la domanda. Se il problema non è chiaro, nessun formato lo salverà.",
+      p1P: "I contenuti sono la risposta, mai la domanda. Se il problema non è chiaro, nessun formato &mdash; toolkit, guida o libro &mdash; lo salverà.",
       p2H3: "Prima si rilascia, poi si affina",
-      p2P: "Un toolkit funzionante vale più di una scaletta perfetta. I lettori veri danno un feedback migliore di qualsiasi bozza.",
+      p2P: "Una release reale vale più di una scaletta perfetta. I lettori veri danno un feedback migliore di qualsiasi bozza.",
       p3H3: "Un compito chiaro",
       p3P: "I consigli generici non aiutano nessuno. Ogni toolkit, guida o libro punta a un problema reale per un pubblico reale.",
       p4H3: "Garantito, sempre",
