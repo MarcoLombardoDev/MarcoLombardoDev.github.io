@@ -1212,6 +1212,11 @@ p:last-child {
     padding-inline: 20px;
   }
 
+  .hero::before,
+  .hero::after {
+    width: 10px;
+  }
+
   body {
     font-size: 16px;
   }
