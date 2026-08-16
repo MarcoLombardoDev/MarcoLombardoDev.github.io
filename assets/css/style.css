@@ -324,7 +324,7 @@ p:last-child {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 26px;
+  width: 18px;
   background: linear-gradient(180deg, var(--red-deep), var(--red), var(--red-deep));
   z-index: 2;
 }
@@ -1201,11 +1201,6 @@ p:last-child {
     padding: 14px 12px;
     font-size: 16px;
     border-radius: 12px;
-  }
-
-  .hero::before,
-  .hero::after {
-    width: 12px;
   }
 
   .section,
