@@ -98,6 +98,22 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://marcolombardodev.github.io/it/progetti/orion/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://marcolombardodev.github.io/it/progetti/orion/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marcolombardodev.github.io/en/projects/orion/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://marcolombardodev.github.io/it/progetti/orion/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://marcolombardodev.github.io/en/projects/orion/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marcolombardodev.github.io/en/projects/orion/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://marcolombardodev.github.io/it/progetti/orion/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://marcolombardodev.github.io/it/progetti/orion/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://marcolombardodev.github.io/it/progetti/iris/</loc>
     <xhtml:link rel="alternate" hreflang="it" href="https://marcolombardodev.github.io/it/progetti/iris/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://marcolombardodev.github.io/en/projects/iris/"/>
