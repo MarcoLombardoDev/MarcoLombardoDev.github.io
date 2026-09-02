@@ -34,22 +34,6 @@
     <priority>0.2</priority>
   </url>
   <url>
-    <loc>https://marcolombardodev.github.io/it/progetti/libri/</loc>
-    <xhtml:link rel="alternate" hreflang="it" href="https://marcolombardodev.github.io/it/progetti/libri/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://marcolombardodev.github.io/en/projects/books/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://marcolombardodev.github.io/it/progetti/libri/"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://marcolombardodev.github.io/en/projects/books/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://marcolombardodev.github.io/en/projects/books/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://marcolombardodev.github.io/it/progetti/libri/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://marcolombardodev.github.io/it/progetti/libri/"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://marcolombardodev.github.io/it/progetti/repetita/</loc>
     <xhtml:link rel="alternate" hreflang="it" href="https://marcolombardodev.github.io/it/progetti/repetita/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://marcolombardodev.github.io/en/projects/repetita/"/>
