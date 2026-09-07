@@ -47,6 +47,35 @@
         ],
         "createdAt": "2026-09-07T13:56:59.134Z",
         "reason": "Agent: the marquee track uses a mask-image fade at both edges (transparent to opaque over 12%), so children appear flush against the container but are visually soft-edged, not cramped; same construct already reviewed on the main site"
+      },
+      {
+        "rule": "gradient-text",
+        "value": "*",
+        "files": [
+          "**/*.html"
+        ],
+        "createdAt": "2026-09-07T14:17:16.948Z",
+        "reason": "Agent: same red-gradient hero headline (defined once in assets/css/style.css / books.html's inline style), re-reported per HTML page that links the shared stylesheet; already confirmed intentional brand design, this closes the per-page cascade the earlier file-scoped ignores missed"
+      },
+      {
+        "rule": "all-caps-body",
+        "value": "*",
+        "files": [
+          "en/index.html",
+          "it/index.html"
+        ],
+        "createdAt": "2026-09-07T14:17:54.339Z",
+        "reason": "Agent: hero eyebrow chip (\"Innovazione · Tecnologia · Design\" / \"Innovation · Technology · Design\"), a short kicker label above the H1, not a body-copy passage — same verdict already recorded for books.html's equivalent eyebrow"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "en/index.html",
+          "it/index.html"
+        ],
+        "createdAt": "2026-09-07T14:17:54.359Z",
+        "reason": "Agent: same marquee construct as books.html — the track's mask-image fades both edges to transparent, so flush children are already soft-edged, not cramped"
       }
     ]
   }
