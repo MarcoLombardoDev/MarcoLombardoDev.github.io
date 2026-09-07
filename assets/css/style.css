@@ -15,7 +15,7 @@
 
   --text: #f4f4f6;
   --muted: #a5a6b0;
-  --dim: #74757f;
+  --dim: #868791;
 
   --line: rgba(255, 255, 255, 0.09);
   --line-strong: rgba(255, 255, 255, 0.16);
@@ -434,7 +434,7 @@ p:last-child {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--red-bright), var(--red-deep));
+  background: linear-gradient(135deg, var(--red), var(--red-deep));
   color: #fff;
   box-shadow: var(--shadow-red);
 }
@@ -688,7 +688,7 @@ p:last-child {
   font-weight: 800;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--red);
+  color: var(--red-bright);
   margin-bottom: 18px;
 }
 
@@ -772,7 +772,7 @@ p:last-child {
   font-weight: 800;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--red);
+  color: var(--red-bright);
   margin-bottom: 2px;
 }
 
@@ -944,7 +944,7 @@ p:last-child {
   gap: 8px;
   font-weight: 700;
   font-size: 14px;
-  color: var(--red);
+  color: var(--red-bright);
 }
 
 .link-card .go svg {
@@ -982,7 +982,7 @@ p:last-child {
   font-size: 13px;
   font-weight: 900;
   letter-spacing: 0.2em;
-  color: var(--red);
+  color: var(--red-bright);
   margin-bottom: 16px;
 }
 
