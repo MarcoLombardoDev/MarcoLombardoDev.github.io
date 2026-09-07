@@ -129,4 +129,20 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://marcolombardodev.github.io/it/progetti/tyche/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://marcolombardodev.github.io/it/progetti/tyche/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marcolombardodev.github.io/en/projects/tyche/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://marcolombardodev.github.io/it/progetti/tyche/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://marcolombardodev.github.io/en/projects/tyche/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marcolombardodev.github.io/en/projects/tyche/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://marcolombardodev.github.io/it/progetti/tyche/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://marcolombardodev.github.io/it/progetti/tyche/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>
