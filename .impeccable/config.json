@@ -20,6 +20,33 @@
         ],
         "createdAt": "2026-09-07T13:50:43.136Z",
         "reason": "Agent: same deliberate red-gradient hero headline treatment as style.css, verified in the impeccable audit as intentional brand design"
+      },
+      {
+        "rule": "layout-transition",
+        "value": "*",
+        "files": [
+          "assets/css/style.css"
+        ],
+        "createdAt": "2026-09-07T13:56:59.113Z",
+        "reason": "Agent: body's padding-bottom transition is a deliberate one-shot sync with the fixed cookie banner's own transform slide-in (see .cookie-notice, JS sets body.style.paddingBottom to the banner's height on show/hide); fires once per session, not a repeating/scroll-linked animation"
+      },
+      {
+        "rule": "all-caps-body",
+        "value": "*",
+        "files": [
+          "books.html"
+        ],
+        "createdAt": "2026-09-07T13:56:59.124Z",
+        "reason": "Agent: the flagged text is the hero eyebrow kicker (\"Toolkits · Field Manuals · Books\"), a short label above the H1, not a body-copy passage; matches the same eyebrow-chip convention already used and reviewed sitewide"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "books.html"
+        ],
+        "createdAt": "2026-09-07T13:56:59.134Z",
+        "reason": "Agent: the marquee track uses a mask-image fade at both edges (transparent to opaque over 12%), so children appear flush against the container but are visually soft-edged, not cramped; same construct already reviewed on the main site"
       }
     ]
   }

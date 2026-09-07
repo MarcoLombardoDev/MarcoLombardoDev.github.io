@@ -728,22 +728,6 @@ p:last-child {
   font-weight: 700;
 }
 
-.pullquote {
-  margin: 34px 0 0;
-  padding: 26px 30px;
-  border-left: 3px solid var(--red);
-  background: linear-gradient(
-    90deg,
-    rgba(232, 17, 45, 0.12),
-    rgba(232, 17, 45, 0)
-  );
-  border-radius: 0 var(--radius) var(--radius) 0;
-  font-size: 1.15rem;
-  font-weight: 600;
-  font-style: italic;
-  color: var(--text);
-}
-
 .fact-list {
   list-style: none;
   margin: 0;
