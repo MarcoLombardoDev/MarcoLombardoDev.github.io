@@ -699,16 +699,11 @@ p:last-child {
   background: var(--red);
 }
 
-.section-tag-row {
+.project-title-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 18px;
-}
-
-.section-tag-row .section-tag {
-  margin-bottom: 0;
+  flex-wrap: wrap;
+  gap: 14px;
 }
 
 .project-badge {
@@ -725,12 +720,6 @@ p:last-child {
   background: rgba(255, 255, 255, 0.04);
   color: var(--muted);
   white-space: nowrap;
-}
-
-.project-badge--lg {
-  font-size: 12.5px;
-  padding: 7px 14px;
-  letter-spacing: 0.1em;
 }
 
 .section h1,
