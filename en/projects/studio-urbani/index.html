@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Okkupa — Marco Lombardo</title>
-<meta name="description" content="Okkupa models an organization the way its physical space actually works: a site splits into areas, an area holds resource types — desks, meeting rooms">
+<title>Studio Urbani — Marco Lombardo</title>
+<meta name="description" content="Studio Urbani is the institutional website I built for a firm of accountants, legal auditors and labor consultants in Rome: a single landing page that">
 <meta name="author" content="Marco Lombardo">
 <meta name="theme-color" content="#0a0a0c">
 
-<link rel="canonical" href="https://marcolombardodev.github.io/en/projects/okkupa/">
-<link rel="alternate" hreflang="en" href="https://marcolombardodev.github.io/en/projects/okkupa/">
-<link rel="alternate" hreflang="it" href="https://marcolombardodev.github.io/it/progetti/okkupa/">
+<link rel="canonical" href="https://marcolombardodev.github.io/en/projects/studio-urbani/">
+<link rel="alternate" hreflang="en" href="https://marcolombardodev.github.io/en/projects/studio-urbani/">
+<link rel="alternate" hreflang="it" href="https://marcolombardodev.github.io/it/progetti/studio-urbani/">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Okkupa — Marco Lombardo">
-<meta property="og:description" content="Okkupa models an organization the way its physical space actually works: a site splits into areas, an area holds resource types — desks, meeting rooms">
+<meta property="og:title" content="Studio Urbani — Marco Lombardo">
+<meta property="og:description" content="Studio Urbani is the institutional website I built for a firm of accountants, legal auditors and labor consultants in Rome: a single landing page that">
 <meta property="og:image" content="https://marcolombardodev.github.io/assets/img/og-cover.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -51,7 +51,7 @@
 
     <div class="header-actions">
       <div class="lang-switch" role="group" aria-label="Language">
-        <a href="../../../it/progetti/okkupa/" data-lang-link="it" hreflang="it" lang="it" title="Passa all'italiano">IT</a>
+        <a href="../../../it/progetti/studio-urbani/" data-lang-link="it" hreflang="it" lang="it" title="Passa all'italiano">IT</a>
         <a href="./" data-lang-link="en" hreflang="en" aria-current="true" title="English">EN</a>
       </div>
       <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span></button>
@@ -68,30 +68,26 @@
       <div class="section-head reveal" data-delay="40" style="margin-top: 22px">
         <div class="section-tag-row">
           <span class="section-tag">Projects</span>
-          <span class="project-badge project-badge--lg">Startup</span>
+          <span class="project-badge project-badge--lg">Website</span>
         </div>
-        <h1>Okkupa</h1>
-        <p>Fewer emails to book a room, more time to actually use it.</p>
+        <h1>Studio Urbani</h1>
+        <p>An institutional site that owes nothing to outside services.</p>
       </div>
 
       <div class="cta-row" style="margin-bottom: 48px">
-        <a class="btn btn-primary" href="https://www.okkupa.com/" target="_blank" rel="noopener">
+        <a class="btn btn-primary" href="https://marcolombardodev.github.io/StudioUrbani/index.html" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
           Open the site
-        </a>
-        <a class="btn btn-ghost" href="https://play.google.com/store/apps/details?id=com.okkupa.app" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>
-          Download the app
         </a>
       </div>
 
       <div class="about-grid reveal" data-delay="80">
         <div class="about-body">
-        <p>Okkupa models an organization the way its physical space actually works: a site splits into areas, an area holds resource types — desks, meeting rooms, parking spots — and each type groups the individual bookable resources. The same structure serves a small coworking space and a multi-site company without switching tools.</p>
+        <p>Studio Urbani is the institutional website I built for a firm of accountants, legal auditors and labor consultants in Rome: a single landing page that gathers the firm, its services, its method and billing into one page, with contacts and the three legal documents as separate pages.</p>
 
-        <p>A user can belong to several organizations from the same account — useful for consultants and multi-site operators — and sees resources on a map, not just a calendar. Check-in can be mandatory, with automatic release if it doesn't happen, and each area can carry its own hours and maximum booking length.</p>
+        <p>It's static and bilingual — Italian lives in the HTML, English in a JavaScript dictionary — with no build step, no external dependencies, and fonts served locally: no calls to Google Fonts, no third-party cookies. Google reviews are downloaded every night by a scheduled job and served as static data, so the visitor's browser never contacts Google directly.</p>
 
-        <p>On the admin side, an access-control module verifies identity by QR code or short code and logs every event; a dashboard shows occupancy and trends in real time, while a separate audit view makes every major system event searchable and exportable.</p>
+        <p>The office map only loads after an explicit click, in line with the cookie policy; everything else — seven photos of the office, a carousel that stops at the first manual swipe, a copyright line whose year updates itself — is built to stay legible and maintainable without me.</p>
         </div>
 
         <ul class="fact-list">
@@ -99,31 +95,31 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8 20h8M12 17v3"/></svg>
             <div>
               <div class="k">Platform</div>
-              <div class="v">Web app + native Android app</div>
+              <div class="v">Static site, no build step, no dependencies</div>
             </div>
           </li>
 
           <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11"/><path d="M4.5 6h.01M4.5 12h.01M4.5 18h.01"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18z"/></svg>
             <div>
-              <div class="k">Model</div>
-              <div class="v">Organization → sites → areas → resources</div>
+              <div class="k">Interface language</div>
+              <div class="v">Italian · English</div>
             </div>
           </li>
 
           <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14v3M17 20h4"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.7 5.5 6 .9-4.3 4.2 1 6L12 16.8 6.6 19.6l1-6L3.3 9.4l6-.9z"/></svg>
             <div>
-              <div class="k">Access control</div>
-              <div class="v">QR code or short-code verification</div>
+              <div class="k">Reviews</div>
+              <div class="v">Synced from Google every night</div>
             </div>
           </li>
 
           <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 20v-2a4 4 0 0 0-3-3.87"/><path d="M3 20v-2a4 4 0 0 1 4-4h3a4 4 0 0 1 4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg>
             <div>
-              <div class="k">Roles</div>
-              <div class="v">Superadmin, admin, operator, user</div>
+              <div class="k">License</div>
+              <div class="v">All rights reserved to the firm</div>
             </div>
           </li>
         </ul>
@@ -134,17 +130,17 @@
       </div>
 
       <ul class="feature-list reveal" data-delay="160">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg><span>Organizes sites, areas and resources on a map of the space, not just a calendar</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg><span>Gathers the firm, its method, services and billing into a single page, lighter than the old separate ones</span></li>
 
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg><span>Lets people join multiple organizations and switch between them from one account</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg><span>Switches between Italian and English with one click, remembering the choice and updating the title and meta description</span></li>
 
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg><span>Controls physical access by QR code or short code, recognizing the user instantly</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg><span>Shows the average rating and latest Google reviews, refreshed nightly without the browser ever contacting Google</span></li>
 
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg><span>Enforces time-slot and maximum-duration rules, with check-in and automatic release</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg><span>Loads the office map only after explicit consent, in line with the cookie policy</span></li>
 
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg><span>Distinguishes roles between superadmin, administrator, operator and user</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg><span>Runs a carousel of office photographs that stops at the first manual swipe</span></li>
 
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg><span>Keeps a real-time dashboard and an exportable audit trail of every event</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg><span>Serves fonts and icons locally, with no calls to any third-party service</span></li>
       </ul>
 
     </div>
@@ -181,6 +177,18 @@
             <span class="project-badge">Startup</span>
           </div>
           <p>Personalized study material, mock exams and homework help, powered by multi-model AI that adapts to how you learn.</p>
+          <span class="go">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+
+        <a class="link-card reveal" href="../okkupa/">
+          <div class="link-card-top">
+            <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="3"/><path d="M3 9.6h18M8 2.6v3.8M16 2.6v3.8"/><path d="m8.8 14.6 2.2 2.2 4.2-4.2"/></svg></span>
+            <div>
+              <h3>Okkupa</h3>
+            </div>
+            <span class="project-badge">Startup</span>
+          </div>
+          <p>Booking and managing shared workplace spaces and resources: desks, meeting rooms and assets, with availability rules and usage dashboards.</p>
           <span class="go">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </a>
 
@@ -241,18 +249,6 @@
             <span class="project-badge">Tool</span>
           </div>
           <p>Downloads the entire SuperEnalotto (the Italian lottery) draw history, runs it through independence tests and TimesFM 3.0 backtests, and honestly measures what the forecasts are worth — the answer, with the evidence, is none.</p>
-          <span class="go">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
-        </a>
-
-        <a class="link-card reveal" href="../studio-urbani/">
-          <div class="link-card-top">
-            <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M9 21v-4h6v4M8 7h1M8 11h1M15 7h1M15 11h1"/></svg></span>
-            <div>
-              <h3>Studio Urbani</h3>
-            </div>
-            <span class="project-badge">Website</span>
-          </div>
-          <p>An institutional website for a firm of accountants and labor consultants in Rome: one bilingual page, no external dependencies, with nightly-refreshed Google reviews.</p>
           <span class="go">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </a>
       </div>
