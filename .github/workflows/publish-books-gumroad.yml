@@ -22,16 +22,55 @@ jobs:
           GUMROAD_ACCESS_TOKEN: ${{ secrets.GUMROAD_ACCESS_TOKEN }}
         run: gumroad user page publish books.html
 
-      - name: Inspect the live page for the image tags and CSP
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Playwright
         run: |
-          curl -sS -o /tmp/live.html "https://marcolombardo.gumroad.com"
-          echo "--- byte size ---"
-          wc -c /tmp/live.html
-          echo "--- any occurrence of 'logo-ml' (raw or escaped) ---"
-          grep -o '.\{0,40\}logo-ml.\{0,40\}' /tmp/live.html || echo "logo-ml NOT FOUND anywhere"
-          echo "--- any occurrence of 'marco-portrait' (raw or escaped) ---"
-          grep -o '.\{0,40\}marco-portrait.\{0,40\}' /tmp/live.html || echo "marco-portrait NOT FOUND anywhere"
-          echo "--- any occurrence of 'marcolombardodev.github.io' ---"
-          grep -o '.\{0,20\}marcolombardodev\.github\.io.\{0,20\}' /tmp/live.html | head -5 || echo "domain NOT FOUND anywhere"
-          echo "--- does the page contain our brand text? ---"
-          grep -o "Ideas, made to read" /tmp/live.html || echo "hero copy NOT FOUND"
+          npm init -y >/dev/null
+          npm install playwright@1 >/dev/null
+          npx playwright install --with-deps chromium
+
+      - name: Check the two images in a real browser
+        run: |
+          cat > check.mjs <<'EOF'
+          import { chromium } from 'playwright';
+          const browser = await chromium.launch();
+          const page = await browser.newPage();
+          const failedRequests = [];
+          page.on('requestfailed', r => failedRequests.push(`${r.url()} -> ${r.failure()?.errorText}`));
+          const badResponses = [];
+          page.on('response', r => { if (r.status() >= 400) badResponses.push(`${r.url()} -> ${r.status()}`); });
+          await page.goto('https://marcolombardo.gumroad.com', { waitUntil: 'networkidle', timeout: 30000 });
+          await page.waitForTimeout(1500);
+          const imgs = await page.evaluate(() => {
+            const all = Array.from(document.querySelectorAll('img'));
+            return all
+              .filter(img => img.src.includes('logo-ml') || img.src.includes('marco-portrait'))
+              .map(img => ({
+                src: img.src,
+                complete: img.complete,
+                naturalWidth: img.naturalWidth,
+                naturalHeight: img.naturalHeight,
+                displayWidth: img.getBoundingClientRect().width,
+                displayHeight: img.getBoundingClientRect().height,
+              }));
+          });
+          console.log('--- matching <img> elements found in the live DOM ---');
+          console.log(JSON.stringify(imgs, null, 2));
+          console.log('--- failed requests ---');
+          console.log(failedRequests.join('\n') || '(none)');
+          console.log('--- 4xx/5xx responses ---');
+          console.log(badResponses.join('\n') || '(none)');
+          await page.screenshot({ path: 'live-page.png', fullPage: false });
+          await browser.close();
+          EOF
+          node check.mjs
+
+      - name: Upload screenshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: live-page-screenshot
+          path: live-page.png
