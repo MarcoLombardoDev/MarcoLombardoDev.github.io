@@ -245,8 +245,8 @@
 
     <div class="header-actions">
       <div class="lang-switch" role="group" aria-label="Language">
-        <button type="button" data-lang-btn="en" aria-current="true">EN</button>
-        <button type="button" data-lang-btn="it">IT</button>
+        <button type="button" data-lang-btn="en">EN</button>
+        <button type="button" data-lang-btn="it" aria-current="true">IT</button>
       </div>
       <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span></button>
     </div>
@@ -268,10 +268,6 @@
         <a class="btn btn-primary" href="#toolkits" data-i18n="ctaToolkits">Browse toolkits →</a>
         <a class="btn btn-primary" href="#guides" data-i18n="ctaGuides">Browse guides →</a>
         <a class="btn btn-primary" href="#books" data-i18n="ctaBooks">Browse books →</a>
-        <a class="btn btn-ghost" href="https://marcolombardodev.github.io/" target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg>
-          <span data-i18n="whoIAm">Who I am</span>
-        </a>
       </div>
     </div>
 
@@ -403,7 +399,10 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
         <span data-i18n="ctaEmail">Write me an email</span>
       </a>
-      <a class="btn btn-ghost" href="https://marcolombardo.gumroad.com/subscribe" target="_blank" rel="noopener noreferrer" data-i18n="ctaSubscribe">Subscribe for updates →</a>
+      <a class="btn btn-ghost" href="https://marcolombardodev.github.io/" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg>
+        <span data-i18n="ctaAbout">Discover who I am →</span>
+      </a>
     </div>
   </div>
 </div>
@@ -591,7 +590,7 @@
       heroLine2: "Ideas, made to read",
       heroLead: "Practical <strong>AI toolkits</strong>, illustrated <strong>survival guides</strong>, and a few <strong>books</strong> that don't fit either box. Three formats, one standard: useful, tested, no fluff.",
       ctaToolkits: "Browse toolkits →", ctaGuides: "Browse guides →", ctaBooks: "Browse books →",
-      whoIAm: "Who I am", heroBadge: "Hi, I'm Marco",
+      heroBadge: "Hi, I'm Marco",
       statsReleases: "Releases", statsSeries: "Series &amp; formats", statsPrice: "Starting price",
       toolkitsTag: "Toolkits", toolkitsH2: "The toolkits",
       toolkitsP: "Every toolkit follows one rule: copy, paste, get results today. No theory, no 6-hour courses &mdash; ChatGPT prompt packs built for one profession at a time.",
@@ -615,7 +614,7 @@
       postsTag: "Notes", postsH2: "Latest notes",
       contactTag: "Get in touch", contactH2: "Questions, feedback, a good idea?",
       contactP: "Product questions, support, licensing requests or partnership ideas: my inbox is open.",
-      ctaEmail: "Write me an email", ctaSubscribe: "Subscribe for updates →",
+      ctaEmail: "Write me an email", ctaAbout: "Discover who I am →",
       navToggleLabel: "Open menu"
     },
     it: {
@@ -624,7 +623,7 @@
       heroLine2: "Idee, pronte da leggere",
       heroLead: "<strong>Toolkit AI</strong> pratici, <strong>guide di sopravvivenza</strong> illustrate, e qualche <strong>libro</strong> che non rientra in nessuna delle due categorie. Tre formati, uno standard: utili, testati, senza fronzoli.",
       ctaToolkits: "Scopri i toolkit →", ctaGuides: "Scopri le guide →", ctaBooks: "Scopri i libri →",
-      whoIAm: "Chi sono", heroBadge: "Ciao, sono Marco",
+      heroBadge: "Ciao, sono Marco",
       statsReleases: "Uscite", statsSeries: "Serie e formati", statsPrice: "Prezzo di partenza",
       toolkitsTag: "Toolkit", toolkitsH2: "I toolkit",
       toolkitsP: "Ogni toolkit segue una sola regola: copia, incolla, ottieni risultati oggi stesso. Niente teoria, niente corsi da 6 ore &mdash; pacchetti di prompt ChatGPT costruiti per una professione alla volta.",
@@ -648,13 +647,13 @@
       postsTag: "Note", postsH2: "Ultime note",
       contactTag: "Contattami", contactH2: "Domande, feedback, una buona idea?",
       contactP: "Domande sui prodotti, assistenza, richieste di licenza o idee di collaborazione: la mia inbox è aperta.",
-      ctaEmail: "Scrivimi una email", ctaSubscribe: "Iscriviti per gli aggiornamenti →",
+      ctaEmail: "Scrivimi una email", ctaAbout: "Scopri chi sono →",
       navToggleLabel: "Apri il menu"
     }
   };
 
   function setLang(lang){
-    if (!I18N[lang]) lang = "en";
+    if (!I18N[lang]) lang = "it";
     document.documentElement.lang = lang;
     document.querySelectorAll("[data-i18n]").forEach(function(el){
       var key = el.getAttribute("data-i18n");
@@ -672,7 +671,7 @@
   });
 
   /* language priority, same as the personal site's router: a previously chosen
-     language wins; otherwise Italian browsers get Italian, everyone else English. */
+     language wins; otherwise English browsers get English, everyone else Italian. */
   var startLang = null;
   try {
     var saved = localStorage.getItem("ml-lang");
@@ -681,9 +680,9 @@
   if (!startLang) {
     var browserLangs = navigator.languages && navigator.languages.length
       ? navigator.languages
-      : [navigator.language || navigator.userLanguage || "en"];
-    var primaryLang = String(browserLangs[0] || "en").slice(0, 2).toLowerCase();
-    startLang = primaryLang === "it" ? "it" : "en";
+      : [navigator.language || navigator.userLanguage || "it"];
+    var primaryLang = String(browserLangs[0] || "it").slice(0, 2).toLowerCase();
+    startLang = primaryLang === "en" ? "en" : "it";
   }
   setLang(startLang);
 
