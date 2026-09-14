@@ -1,24 +1,23 @@
 name: Publish books.html to Gumroad
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - "books.html"
   workflow_dispatch: {}
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Install Gumroad CLI
         run: curl -fsSL https://gumroad.com/install-cli.sh | bash
 
-      - name: Remove the two covers left over from the failed cleanup
+      - name: Publish profile page
         env:
           GUMROAD_ACCESS_TOKEN: ${{ secrets.GUMROAD_ACCESS_TOKEN }}
-        run: |
-          PRODUCT_ID='6-WG6g8jVlQODOO-PRuqHw=='
-          gumroad products covers remove "$PRODUCT_ID" b5c8976f4806a9006afd927db23b295b --yes
-          gumroad products covers remove "$PRODUCT_ID" 3d428967cc074cacd1c1d44c859c760e --yes
-          echo "--- covers remaining on the product ---"
-          gumroad products view "$PRODUCT_ID" --json | node -e '
-            const data = JSON.parse(require("fs").readFileSync(0, "utf8"));
-            console.log(data.product.covers.map(c => c.id + " " + c.url).join("\n"));
-          '
+        run: gumroad user page publish books.html
