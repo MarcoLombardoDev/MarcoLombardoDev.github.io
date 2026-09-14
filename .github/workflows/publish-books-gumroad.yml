@@ -17,17 +17,6 @@ jobs:
       - name: Install Gumroad CLI
         run: curl -fsSL https://gumroad.com/install-cli.sh | bash
 
-      - name: Check token is set
-        env:
-          GUMROAD_ACCESS_TOKEN: ${{ secrets.GUMROAD_ACCESS_TOKEN }}
-        run: |
-          if [ -z "$GUMROAD_ACCESS_TOKEN" ]; then
-            echo "GUMROAD_ACCESS_TOKEN is empty or unset"
-          else
-            echo "GUMROAD_ACCESS_TOKEN is set, length=${#GUMROAD_ACCESS_TOKEN}"
-          fi
-          gumroad auth status || true
-
       - name: Publish profile page
         env:
           GUMROAD_ACCESS_TOKEN: ${{ secrets.GUMROAD_ACCESS_TOKEN }}
