@@ -41,12 +41,13 @@ jobs:
           const page = await browser.newPage();
           await page.goto('https://marcolombardo.gumroad.com', { waitUntil: 'networkidle', timeout: 30000 });
           await page.waitForTimeout(1500);
-          const imgs = await page.evaluate(() => {
-            const all = Array.from(document.querySelectorAll('img'));
-            return all.map(img => ({ src: img.src, complete: img.complete, naturalWidth: img.naturalWidth }));
-          });
-          console.log('--- every <img> currently in the live DOM ---');
-          console.log(JSON.stringify(imgs, null, 2));
+          console.log('--- frames on the page ---');
+          for (const frame of page.frames()) console.log(frame.url());
+          for (const frame of page.frames()) {
+            const imgs = await frame.evaluate(() => Array.from(document.querySelectorAll('img')).map(img => ({ src: img.src, complete: img.complete, naturalWidth: img.naturalWidth }))).catch(e => `error: ${e.message}`);
+            console.log(`--- <img> in frame ${frame.url()} ---`);
+            console.log(JSON.stringify(imgs, null, 2));
+          }
           await page.screenshot({ path: 'live-page.png' });
           await browser.close();
           EOF
