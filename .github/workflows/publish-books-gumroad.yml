@@ -20,4 +20,4 @@ jobs:
       - name: Publish profile page
         env:
           GUMROAD_ACCESS_TOKEN: ${{ secrets.GUMROAD_ACCESS_TOKEN }}
-        run: gumroad user page publish --html-file books.html
+        run: gumroad user page publish books.html
