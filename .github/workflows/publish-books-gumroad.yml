@@ -17,60 +17,13 @@ jobs:
       - name: Install Gumroad CLI
         run: curl -fsSL https://gumroad.com/install-cli.sh | bash
 
-      - name: Publish profile page
+      - name: Inspect the covers command shape (no removal yet)
         env:
           GUMROAD_ACCESS_TOKEN: ${{ secrets.GUMROAD_ACCESS_TOKEN }}
-        run: gumroad user page publish books.html
-
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-
-      - name: Install Playwright
         run: |
-          npm init -y >/dev/null
-          npm install playwright@1 >/dev/null
-          npx playwright install --with-deps chromium
-
-      - name: Check the two images in a real browser
-        run: |
-          cat > check.mjs <<'EOF'
-          import { chromium } from 'playwright';
-          const browser = await chromium.launch();
-          const page = await browser.newPage();
-          const failedRequests = [];
-          page.on('requestfailed', r => failedRequests.push(`${r.url()} -> ${r.failure()?.errorText}`));
-          const badResponses = [];
-          page.on('response', r => { if (r.status() >= 400) badResponses.push(`${r.url()} -> ${r.status()}`); });
-          await page.goto('https://marcolombardo.gumroad.com', { waitUntil: 'networkidle', timeout: 30000 });
-          await page.waitForTimeout(1500);
-          const imgs = await page.evaluate(() => {
-            const all = Array.from(document.querySelectorAll('img'));
-            return all
-              .filter(img => img.src.includes('logo-ml') || img.src.includes('marco-portrait'))
-              .map(img => ({
-                src: img.src,
-                complete: img.complete,
-                naturalWidth: img.naturalWidth,
-                naturalHeight: img.naturalHeight,
-                displayWidth: img.getBoundingClientRect().width,
-                displayHeight: img.getBoundingClientRect().height,
-              }));
-          });
-          console.log('--- matching <img> elements found in the live DOM ---');
-          console.log(JSON.stringify(imgs, null, 2));
-          console.log('--- failed requests ---');
-          console.log(failedRequests.join('\n') || '(none)');
-          console.log('--- 4xx/5xx responses ---');
-          console.log(badResponses.join('\n') || '(none)');
-          await page.screenshot({ path: 'live-page.png', fullPage: false });
-          await browser.close();
-          EOF
-          node check.mjs
-
-      - name: Upload screenshot
-        uses: actions/upload-artifact@v4
-        with:
-          name: live-page-screenshot
-          path: live-page.png
+          gumroad products covers --help
+          echo "=== add --help ==="
+          gumroad products covers add --help
+          echo "=== current covers on the product (before) ==="
+          PRODUCT_ID='6-WG6g8jVlQODOO-PRuqHw=='
+          gumroad products view "$PRODUCT_ID" --json
