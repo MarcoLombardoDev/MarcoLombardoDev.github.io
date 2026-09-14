@@ -699,13 +699,6 @@ p:last-child {
   background: var(--red);
 }
 
-.project-title-row {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 14px;
-}
-
 .project-badge {
   display: inline-flex;
   align-items: center;
