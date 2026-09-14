@@ -17,6 +17,16 @@ jobs:
       - name: Install Gumroad CLI
         run: curl -fsSL https://gumroad.com/install-cli.sh | bash
 
+      - name: Check image URLs are reachable
+        run: |
+          for url in \
+            https://marcolombardodev.github.io/assets/img/logo-ml.png \
+            https://marcolombardodev.github.io/assets/img/marco-portrait.jpg \
+            https://marcolombardodev.github.io/ ; do
+            code=$(curl -s -o /dev/null -w "%{http_code}" -I "$url")
+            echo "$url -> $code"
+          done
+
       - name: Publish profile page
         env:
           GUMROAD_ACCESS_TOKEN: ${{ secrets.GUMROAD_ACCESS_TOKEN }}
