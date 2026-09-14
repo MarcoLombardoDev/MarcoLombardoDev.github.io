@@ -24,8 +24,14 @@ jobs:
 
       - name: Inspect the live page for the image tags and CSP
         run: |
-          echo "--- response headers ---"
-          curl -sS -D - -o /tmp/live.html "https://marcolombardo.gumroad.com" | grep -i "content-security-policy\|^HTTP"
-          echo "--- logo/portrait <img> tags found in the live HTML ---"
-          grep -o '<img[^>]*logo-ml[^>]*>' /tmp/live.html || echo "logo-ml <img> NOT FOUND"
-          grep -o '<img[^>]*marco-portrait[^>]*>' /tmp/live.html || echo "marco-portrait <img> NOT FOUND"
+          curl -sS -o /tmp/live.html "https://marcolombardo.gumroad.com"
+          echo "--- byte size ---"
+          wc -c /tmp/live.html
+          echo "--- any occurrence of 'logo-ml' (raw or escaped) ---"
+          grep -o '.\{0,40\}logo-ml.\{0,40\}' /tmp/live.html || echo "logo-ml NOT FOUND anywhere"
+          echo "--- any occurrence of 'marco-portrait' (raw or escaped) ---"
+          grep -o '.\{0,40\}marco-portrait.\{0,40\}' /tmp/live.html || echo "marco-portrait NOT FOUND anywhere"
+          echo "--- any occurrence of 'marcolombardodev.github.io' ---"
+          grep -o '.\{0,20\}marcolombardodev\.github\.io.\{0,20\}' /tmp/live.html | head -5 || echo "domain NOT FOUND anywhere"
+          echo "--- does the page contain our brand text? ---"
+          grep -o "Ideas, made to read" /tmp/live.html || echo "hero copy NOT FOUND"
