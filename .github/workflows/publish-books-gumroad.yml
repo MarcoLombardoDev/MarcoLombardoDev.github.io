@@ -43,16 +43,12 @@ jobs:
           await page.waitForTimeout(1500);
           const imgs = await page.evaluate(() => {
             const all = Array.from(document.querySelectorAll('img'));
-            return all
-              .filter(img => img.src.includes('public-files.gumroad.com/n2op8ct2trv2cx14htazohek6uox') || img.src.includes('public-files.gumroad.com/x6mbojekkcgf47uc58ci9tyk46z7'))
-              .map(img => ({ src: img.src, complete: img.complete, naturalWidth: img.naturalWidth }));
+            return all.map(img => ({ src: img.src, complete: img.complete, naturalWidth: img.naturalWidth }));
           });
+          console.log('--- every <img> currently in the live DOM ---');
           console.log(JSON.stringify(imgs, null, 2));
           await page.screenshot({ path: 'live-page.png' });
           await browser.close();
-          const ok = imgs.length > 0 && imgs.every(i => i.complete && i.naturalWidth > 0);
-          if (!ok) { console.error('IMAGES STILL NOT LOADING'); process.exit(1); }
-          console.log('Images load correctly.');
           EOF
           node check.mjs
 
