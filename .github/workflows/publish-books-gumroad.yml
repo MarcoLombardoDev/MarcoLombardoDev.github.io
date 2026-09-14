@@ -21,3 +21,44 @@ jobs:
         env:
           GUMROAD_ACCESS_TOKEN: ${{ secrets.GUMROAD_ACCESS_TOKEN }}
         run: gumroad user page publish books.html
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Playwright
+        run: |
+          npm init -y >/dev/null
+          npm install playwright@1 >/dev/null
+          npx playwright install --with-deps chromium
+
+      - name: Verify the two images actually load
+        run: |
+          cat > check.mjs <<'EOF'
+          import { chromium } from 'playwright';
+          const browser = await chromium.launch();
+          const page = await browser.newPage();
+          await page.goto('https://marcolombardo.gumroad.com', { waitUntil: 'networkidle', timeout: 30000 });
+          await page.waitForTimeout(1500);
+          const imgs = await page.evaluate(() => {
+            const all = Array.from(document.querySelectorAll('img'));
+            return all
+              .filter(img => img.src.includes('public-files.gumroad.com/n2op8ct2trv2cx14htazohek6uox') || img.src.includes('public-files.gumroad.com/x6mbojekkcgf47uc58ci9tyk46z7'))
+              .map(img => ({ src: img.src, complete: img.complete, naturalWidth: img.naturalWidth }));
+          });
+          console.log(JSON.stringify(imgs, null, 2));
+          await page.screenshot({ path: 'live-page.png' });
+          await browser.close();
+          const ok = imgs.length > 0 && imgs.every(i => i.complete && i.naturalWidth > 0);
+          if (!ok) { console.error('IMAGES STILL NOT LOADING'); process.exit(1); }
+          console.log('Images load correctly.');
+          EOF
+          node check.mjs
+
+      - name: Upload screenshot
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: live-page-screenshot
+          path: live-page.png
