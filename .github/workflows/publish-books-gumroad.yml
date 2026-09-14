@@ -17,13 +17,56 @@ jobs:
       - name: Install Gumroad CLI
         run: curl -fsSL https://gumroad.com/install-cli.sh | bash
 
-      - name: Inspect the covers command shape (no removal yet)
+      - name: Host the logo and portrait on Gumroad's CDN
         env:
           GUMROAD_ACCESS_TOKEN: ${{ secrets.GUMROAD_ACCESS_TOKEN }}
         run: |
-          gumroad products covers --help
-          echo "=== add --help ==="
-          gumroad products covers add --help
-          echo "=== current covers on the product (before) ==="
           PRODUCT_ID='6-WG6g8jVlQODOO-PRuqHw=='
-          gumroad products view "$PRODUCT_ID" --json
+
+          existing_ids() {
+            gumroad products view "$PRODUCT_ID" --json | node -e '
+              const data = JSON.parse(require("fs").readFileSync(0, "utf8"));
+              console.log(data.product.covers.map(c => c.id).join(","));
+            '
+          }
+
+          add_and_capture() {
+            local file="$1" outvar="$2"
+            local before after
+            before=$(existing_ids)
+            gumroad products covers add "$PRODUCT_ID" --image "$file" --json >/dev/null
+            after=$(gumroad products view "$PRODUCT_ID" --json)
+            node -e '
+              const before = process.argv[1].split(",").filter(Boolean);
+              const data = JSON.parse(process.argv[2]);
+              const added = data.product.covers.filter(c => !before.includes(c.id));
+              if (added.length !== 1) { console.error("expected exactly 1 new cover, got " + added.length); process.exit(1); }
+              console.log(added[0].id + "|" + added[0].url);
+            ' "$before" "$after" > "$outvar"
+          }
+
+          add_and_capture assets/img/logo-ml.png logo_cover.txt
+          add_and_capture assets/img/marco-portrait.jpg portrait_cover.txt
+
+          echo "logo cover -> $(cat logo_cover.txt)"
+          echo "portrait cover -> $(cat portrait_cover.txt)"
+
+      - name: Remove the two temporary covers
+        if: always()
+        env:
+          GUMROAD_ACCESS_TOKEN: ${{ secrets.GUMROAD_ACCESS_TOKEN }}
+        run: |
+          PRODUCT_ID='6-WG6g8jVlQODOO-PRuqHw=='
+          for f in logo_cover.txt portrait_cover.txt; do
+            if [ -f "$f" ]; then
+              id=$(cut -d'|' -f1 "$f")
+              echo "removing cover $id"
+              gumroad products covers remove "$PRODUCT_ID" "$id"
+            fi
+          done
+
+      - name: Print the final CDN URLs to use in books.html
+        if: always()
+        run: |
+          echo "logo:     $(cut -d'|' -f2 logo_cover.txt 2>/dev/null)"
+          echo "portrait: $(cut -d'|' -f2 portrait_cover.txt 2>/dev/null)"
