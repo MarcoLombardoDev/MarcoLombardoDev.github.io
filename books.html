@@ -159,6 +159,7 @@
 
   /* ---------- collections (product grids) ---------- */
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:22px;margin-top:36px}
+  .lang-divider{grid-column:1/-1;height:1px;background:var(--line)}
   .prod{position:relative;display:flex;flex-direction:column;overflow:hidden;text-decoration:none;color:var(--text);
     border:1px solid var(--line);border-radius:var(--radius-lg);background:linear-gradient(180deg,var(--panel-2),var(--panel));
     transition:transform .35s var(--ease),border-color .35s,box-shadow .35s var(--ease)}
@@ -442,26 +443,49 @@
   function esc(s){ var d=document.createElement("div"); d.textContent = s == null ? "" : String(s); return d.innerHTML; }
   function stripHtml(s){ var d=document.createElement("div"); d.innerHTML = s || ""; return d.textContent || ""; }
 
-  function renderGrid(gridEl, emptyEl, items, ctaLabel, kindLabel){
-    if (!items.length){ if (emptyEl) emptyEl.hidden = false; return; }
-    items.forEach(function(p){
-      var a = document.createElement("a");
-      a.className = "prod reveal in";
-      a.href = p.url || "#";
-      a.target = "_blank";
-      a.rel = "noopener";
-      var tag = '<span class="kind-tag">'+esc(kindLabel)+'</span><span class="kind-tag lang-tag">EN</span>';
-      var thumb = p.thumbnail_url
-        ? '<div class="thumb">'+tag+'<img src="'+esc(p.thumbnail_url)+'" alt="" loading="lazy"></div>'
-        : '<div class="thumb">'+tag+'<span class="ph" aria-hidden="true">&gt;_</span></div>';
-      a.innerHTML = thumb +
-        '<div class="body">'+
-          '<h3>'+esc(p.name)+'</h3>'+
-          '<p class="desc">'+esc(stripHtml(p.description))+'</p>'+
-          '<div class="meta"><span class="price">'+esc(p.price || "")+'</span><span class="go">'+esc(ctaLabel)+'</span></div>'+
-        '</div>';
-      gridEl.appendChild(a);
-    });
+  /* Product language: Gumroad's feed has no locale field either, so it's inferred from the
+     price currency (a proxy for the storefront it was priced for) — euros mean IT, anything
+     else (dollars by default) means EN. */
+  function detectLang(p){ return /€/.test(p.price || "") ? "it" : "en"; }
+
+  function renderItem(gridEl, p, ctaLabel, kindLabel){
+    var a = document.createElement("a");
+    a.className = "prod reveal in";
+    a.href = p.url || "#";
+    a.target = "_blank";
+    a.rel = "noopener";
+    var tag = '<span class="kind-tag">'+esc(kindLabel)+'</span><span class="kind-tag lang-tag">'+esc(detectLang(p).toUpperCase())+'</span>';
+    var thumb = p.thumbnail_url
+      ? '<div class="thumb">'+tag+'<img src="'+esc(p.thumbnail_url)+'" alt="" loading="lazy"></div>'
+      : '<div class="thumb">'+tag+'<span class="ph" aria-hidden="true">&gt;_</span></div>';
+    a.innerHTML = thumb +
+      '<div class="body">'+
+        '<h3>'+esc(p.name)+'</h3>'+
+        '<p class="desc">'+esc(stripHtml(p.description))+'</p>'+
+        '<div class="meta"><span class="price">'+esc(p.price || "")+'</span><span class="go">'+esc(ctaLabel)+'</span></div>'+
+      '</div>';
+    gridEl.appendChild(a);
+  }
+
+  /* Splits each grid by product language, page language first, with a dividing line between
+     the two groups — only shown when both are actually present. */
+  function renderGrid(gridEl, emptyEl, items, ctaLabel, kindLabel, pageLang){
+    gridEl.innerHTML = "";
+    if (emptyEl) emptyEl.hidden = !!items.length;
+    if (!items.length) return;
+
+    var primaryLang = pageLang === "en" ? "en" : "it";
+    var secondaryLang = primaryLang === "it" ? "en" : "it";
+    var primaryItems = items.filter(function(p){ return detectLang(p) === primaryLang; });
+    var secondaryItems = items.filter(function(p){ return detectLang(p) === secondaryLang; });
+
+    primaryItems.forEach(function(p){ renderItem(gridEl, p, ctaLabel, kindLabel); });
+    if (primaryItems.length && secondaryItems.length){
+      var divider = document.createElement("div");
+      divider.className = "lang-divider";
+      gridEl.appendChild(divider);
+    }
+    secondaryItems.forEach(function(p){ renderItem(gridEl, p, ctaLabel, kindLabel); });
   }
 
   /* Gumroad's live feed has no series/category field, so releases are grouped here by a
@@ -478,9 +502,11 @@
   var guides   = all.filter(function(p){ return classify(p) === "guide"; });
   var toolkits = all.filter(function(p){ return classify(p) === "toolkit"; });
 
-  renderGrid(document.getElementById("books-grid"), document.getElementById("books-empty"), books, "Get the book →", "BOOK");
-  renderGrid(document.getElementById("guides-grid"), document.getElementById("guides-empty"), guides, "Get the guide →", "GUIDE");
-  renderGrid(document.getElementById("toolkits-grid"), document.getElementById("toolkits-empty"), toolkits, "Get the toolkit →", "TOOLKIT");
+  function renderAllGrids(pageLang){
+    renderGrid(document.getElementById("books-grid"), document.getElementById("books-empty"), books, "Get the book →", "BOOK", pageLang);
+    renderGrid(document.getElementById("guides-grid"), document.getElementById("guides-empty"), guides, "Get the guide →", "GUIDE", pageLang);
+    renderGrid(document.getElementById("toolkits-grid"), document.getElementById("toolkits-empty"), toolkits, "Get the toolkit →", "TOOLKIT", pageLang);
+  }
 
   /* stats: computed from the live catalog so they never go stale as series are added */
   function parsePrice(p){ var m = /([0-9]+(?:\.[0-9]+)?)/.exec(p.price || ""); return m ? parseFloat(m[1]) : null; }
@@ -664,6 +690,7 @@
     });
     if (navToggle) navToggle.setAttribute("aria-label", I18N[lang].navToggleLabel);
     try { localStorage.setItem("ml-lang", lang); } catch(e){}
+    renderAllGrids(lang);
   }
 
   document.querySelectorAll("[data-lang-btn]").forEach(function(b){
