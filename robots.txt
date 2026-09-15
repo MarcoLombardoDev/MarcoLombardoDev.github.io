@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /books.html
 
 Sitemap: https://marcolombardodev.github.io/sitemap.xml
