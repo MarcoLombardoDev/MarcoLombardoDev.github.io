@@ -22,10 +22,6 @@ jobs:
           GUMROAD_ACCESS_TOKEN: ${{ secrets.GUMROAD_ACCESS_TOKEN }}
         run: gumroad user page publish books.html
 
-      - name: Check the raw HTML of the outer page (no JS) for the verification tag
-        run: |
-          curl -sS "https://marcolombardo.gumroad.com/" | grep -o '<meta name="google-site-verification"[^>]*>' || echo "NOT in the outer page's raw HTML"
-
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
@@ -37,20 +33,29 @@ jobs:
           npm install playwright@1 >/dev/null
           npx playwright install --with-deps chromium
 
-      - name: Check every frame for the verification tag after JS runs
+      - name: Check the mobile nav width on the live page (no viewport meta survives publish)
         run: |
           cat > check.mjs <<'EOF'
           import { chromium } from 'playwright';
           const browser = await chromium.launch();
-          const page = await browser.newPage();
+          const context = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true });
+          const page = await context.newPage();
           await page.goto('https://marcolombardo.gumroad.com', { waitUntil: 'networkidle', timeout: 30000 });
           await page.waitForTimeout(1000);
           for (const frame of page.frames()) {
-            const meta = await frame.evaluate(() => {
-              const m = document.querySelector('meta[name="google-site-verification"]');
-              return m ? m.getAttribute('content') : null;
-            }).catch(e => `error: ${e.message}`);
-            console.log(frame.url(), '-> google-site-verification:', meta);
+            if (!frame.url().includes('/landing/embed')) continue;
+            const info = await frame.evaluate(() => {
+              const header = document.querySelector('.site-header');
+              const nav = document.querySelector('.nav');
+              return {
+                innerWidth: window.innerWidth,
+                headerPosition: header && getComputedStyle(header).position,
+                headerWidth: header && header.getBoundingClientRect().width,
+                navPosition: nav && getComputedStyle(nav).position,
+                navWidth: nav && nav.getBoundingClientRect().width,
+              };
+            });
+            console.log(frame.url(), JSON.stringify(info));
           }
           await browser.close();
           EOF
