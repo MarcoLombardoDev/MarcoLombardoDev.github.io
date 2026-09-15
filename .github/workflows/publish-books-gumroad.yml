@@ -21,13 +21,3 @@ jobs:
         env:
           GUMROAD_ACCESS_TOKEN: ${{ secrets.GUMROAD_ACCESS_TOKEN }}
         run: gumroad user page publish books.html
-
-      - name: Explore available settings for SEO/verification meta tags
-        env:
-          GUMROAD_ACCESS_TOKEN: ${{ secrets.GUMROAD_ACCESS_TOKEN }}
-        run: |
-          gumroad --help
-          echo "=== user --help ==="
-          gumroad user --help
-          echo "=== user page --help ==="
-          gumroad user page --help
