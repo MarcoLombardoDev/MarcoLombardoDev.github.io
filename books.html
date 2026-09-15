@@ -91,7 +91,7 @@
   .logo-svg{display:none}
   .no-logo-file .logo-img{display:none}
   .no-logo-file .logo-svg{display:block}
-  .site-header{position:fixed;inset:0 0 auto 0;z-index:100;
+  .site-header{position:sticky;top:0;z-index:100;
     transition:background .35s var(--ease),border-color .35s var(--ease),backdrop-filter .35s var(--ease);
     border-bottom:1px solid transparent}
   .site-header.is-stuck{background:rgba(10,10,12,.82);
@@ -125,7 +125,7 @@
   .nav-open .nav-toggle span::after{transform:translateY(-2px) rotate(-45deg)}
   @media(max-width:980px){
     .nav-toggle{display:grid}
-    .nav{position:fixed;inset:76px 0 auto 0;flex-direction:column;align-items:stretch;gap:2px;
+    .nav{position:absolute;top:76px;left:0;right:0;flex-direction:column;align-items:stretch;gap:2px;
       padding:18px 24px 26px;background:rgba(10,10,12,.97);backdrop-filter:blur(16px);
       border-bottom:1px solid var(--line);transform:translateY(-140%);transition:transform .4s var(--ease)}
     .nav-open .nav{transform:none}
@@ -160,7 +160,11 @@
 
   /* ---------- collections (product grids) ---------- */
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:22px;margin-top:36px}
-  .lang-divider{grid-column:1/-1;height:1px;background:var(--line)}
+  .lang-divider{grid-column:1/-1;display:flex;align-items:center;gap:16px}
+  .lang-divider::before,.lang-divider::after{content:"";flex:1;height:1px;background:var(--line)}
+  .lang-divider-label{flex:none;font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--muted);padding:6px 14px;border:1px solid var(--line);border-radius:999px;
+    background:rgba(255,255,255,.04);white-space:nowrap}
   .prod{position:relative;display:flex;flex-direction:column;overflow:hidden;text-decoration:none;color:var(--text);
     border:1px solid var(--line);border-radius:var(--radius-lg);background:linear-gradient(180deg,var(--panel-2),var(--panel));
     transition:transform .35s var(--ease),border-color .35s,box-shadow .35s var(--ease)}
@@ -468,9 +472,25 @@
     gridEl.appendChild(a);
   }
 
-  /* Splits each grid by product language, page language first, with a dividing line between
-     the two groups — only shown when both are actually present. */
-  function renderGrid(gridEl, emptyEl, items, ctaLabel, kindLabel, pageLang){
+  var CATEGORY_NAMES = {
+    book: { it: "Libri", en: "books" },
+    guide: { it: "Guide", en: "guides" },
+    toolkit: { it: "Toolkit", en: "toolkits" }
+  };
+
+  /* Divider badge label: names the group that follows it (the secondary-language one). */
+  function dividerLabel(categoryKey, secondaryLang, pageLang){
+    var names = CATEGORY_NAMES[categoryKey] || CATEGORY_NAMES.book;
+    if (pageLang === "en"){
+      return (secondaryLang === "it" ? "Italian " : "English ") + names.en;
+    }
+    return names.it + " in " + (secondaryLang === "it" ? "italiano" : "inglese");
+  }
+
+  /* Splits each grid by product language, page language first, with a dividing line —
+     labelled with the language of the group that follows — between the two groups, only
+     shown when both are actually present. */
+  function renderGrid(gridEl, emptyEl, items, ctaLabel, kindLabel, categoryKey, pageLang){
     gridEl.innerHTML = "";
     if (emptyEl) emptyEl.hidden = !!items.length;
     if (!items.length) return;
@@ -484,6 +504,7 @@
     if (primaryItems.length && secondaryItems.length){
       var divider = document.createElement("div");
       divider.className = "lang-divider";
+      divider.innerHTML = '<span class="lang-divider-label">'+esc(dividerLabel(categoryKey, secondaryLang, pageLang))+'</span>';
       gridEl.appendChild(divider);
     }
     secondaryItems.forEach(function(p){ renderItem(gridEl, p, ctaLabel, kindLabel); });
@@ -504,9 +525,9 @@
   var toolkits = all.filter(function(p){ return classify(p) === "toolkit"; });
 
   function renderAllGrids(pageLang){
-    renderGrid(document.getElementById("books-grid"), document.getElementById("books-empty"), books, "Get the book →", "BOOK", pageLang);
-    renderGrid(document.getElementById("guides-grid"), document.getElementById("guides-empty"), guides, "Get the guide →", "GUIDE", pageLang);
-    renderGrid(document.getElementById("toolkits-grid"), document.getElementById("toolkits-empty"), toolkits, "Get the toolkit →", "TOOLKIT", pageLang);
+    renderGrid(document.getElementById("books-grid"), document.getElementById("books-empty"), books, "Get the book →", "BOOK", "book", pageLang);
+    renderGrid(document.getElementById("guides-grid"), document.getElementById("guides-empty"), guides, "Get the guide →", "GUIDE", "guide", pageLang);
+    renderGrid(document.getElementById("toolkits-grid"), document.getElementById("toolkits-empty"), toolkits, "Get the toolkit →", "TOOLKIT", "toolkit", pageLang);
   }
 
   /* stats: computed from the live catalog so they never go stale as series are added */
