@@ -1121,6 +1121,47 @@ p:last-child {
   }
 }
 
+.myth-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  margin-top: 40px;
+  padding: 24px 26px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--panel);
+}
+
+.myth-note > svg {
+  width: 26px;
+  height: 26px;
+  flex: none;
+  margin-top: 3px;
+  color: var(--red);
+}
+
+.myth-note-tag {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--red-bright);
+  margin-bottom: 8px;
+}
+
+.myth-note p {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 560px) {
+  .myth-note {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
 .back-link {
   display: inline-block;
   color: var(--muted);
