@@ -480,18 +480,16 @@ p:last-child {
 
 .hero {
   position: relative;
-  padding: 148px 0 88px;
+  padding: 148px 0 100px;
   overflow: hidden;
+  min-height: 620px;
+  display: flex;
+  align-items: center;
 }
 
-.hero-grid {
+.hero-inner {
   position: relative;
-  z-index: 3;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 40px;
-  min-height: 460px;
+  width: 100%;
 }
 
 .hero-copy {
@@ -585,9 +583,11 @@ p:last-child {
 /* the decorative preview chart behind the hero cartouche — no links, no
    labels, just visual proof that a plotted sky exists before you scroll */
 .sky-preview {
-  position: relative;
-  height: 100%;
-  min-height: 360px;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  mask-image: linear-gradient(90deg, transparent, #000 28%, #000 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 28%, #000 100%);
 }
 
 .sky-preview svg {
@@ -918,6 +918,122 @@ p:last-child {
   font-weight: 600;
   letter-spacing: 0.03em;
   color: var(--dim);
+}
+
+/* --------------------------------------------------------------------------
+   Catalog list — a bordered index of entries, the chart's own vocabulary
+   (catalog tag + mark + copy), used instead of a same-size icon/heading/
+   text card grid for Focus, Approach and Elsewhere.
+   -------------------------------------------------------------------------- */
+
+.catalog-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--line);
+}
+
+.catalog-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 24px 6px;
+  border-bottom: 1px solid var(--line);
+  transition: background 0.3s var(--ease);
+  color: inherit;
+}
+
+.catalog-row:hover {
+  background: var(--panel);
+}
+
+.catalog-row .catalog-tag {
+  flex: none;
+  width: 42px;
+  padding-top: 3px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--red-bright);
+}
+
+.catalog-mark {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line);
+  background: rgba(210, 216, 255, 0.03);
+  color: var(--red);
+}
+
+.catalog-mark svg {
+  width: 19px;
+  height: 19px;
+}
+
+.catalog-row-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.catalog-row h3 {
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+}
+
+.catalog-row p {
+  color: var(--muted);
+  font-size: 14.5px;
+  margin: 0;
+}
+
+.catalog-row .handle {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--dim);
+  font-weight: 500;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.catalog-row .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.catalog-row .tags span {
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--dim);
+}
+
+.catalog-row .go {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--red-bright);
+}
+
+.catalog-row .go svg {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.3s var(--ease);
+}
+
+.catalog-row:hover .go svg {
+  transform: translate(4px, -4px);
 }
 
 /* Link / profile cards */
@@ -1565,18 +1681,26 @@ p:last-child {
    -------------------------------------------------------------------------- */
 
 @media (max-width: 980px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-    min-height: 0;
-  }
-
   .hero {
     padding-top: 122px;
+    padding-bottom: 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-inner {
+    order: 1;
   }
 
   .sky-preview {
-    min-height: 150px;
+    position: relative;
+    inset: auto;
+    order: 2;
+    height: 150px;
     margin-top: 28px;
+    mask-image: none;
+    -webkit-mask-image: none;
   }
 
   .hero-portrait-inset {

@@ -74,79 +74,81 @@
 
   <!-- ================= HERO ================= -->
   <section class="hero" id="home">
-    <div class="wrap hero-grid">
-      <div class="hero-copy reveal">
-        <div class="cartouche ticked">
-          <h1>
-            Marco Lombardo
-            <span class="line-2">Ideas, made to work</span>
-          </h1>
+    <div class="sky-preview reveal" data-delay="0" aria-hidden="true">
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+        <line class="grid-line" x1="20" y1="0" x2="20" y2="100"/>
+        <line class="grid-line" x1="40" y1="0" x2="40" y2="100"/>
+        <line class="grid-line" x1="60" y1="0" x2="60" y2="100"/>
+        <line class="grid-line" x1="80" y1="0" x2="80" y2="100"/>
+        <line class="grid-line" x1="0" y1="25" x2="100" y2="25"/>
+        <line class="grid-line" x1="0" y1="50" x2="100" y2="50"/>
+        <line class="grid-line" x1="0" y1="75" x2="100" y2="75"/>
+        <path class="const-line" pathLength="100" d="M16 30 L27 40"/>
+        <path class="const-line" pathLength="100" d="M58 14 L51 28 L63 33 L74 26 L70 44 L59 48"/>
+        <circle class="pt pt--flagship" cx="16" cy="30" r="1.6"/>
+        <circle class="pt pt--flagship" cx="27" cy="40" r="1.6"/>
+        <circle class="pt" cx="58" cy="14" r="1"/>
+        <circle class="pt" cx="51" cy="28" r="1"/>
+        <circle class="pt" cx="63" cy="33" r="1"/>
+        <circle class="pt" cx="74" cy="26" r="1"/>
+        <circle class="pt" cx="70" cy="44" r="1"/>
+        <circle class="pt" cx="59" cy="48" r="1"/>
+        <circle class="pt" cx="34" cy="68" r="1.3"/>
+        <circle class="pt" cx="84" cy="66" r="1.3"/>
+      </svg>
+      <div class="hero-portrait-inset">
+        <!-- If the photo file is missing, the logo is shown in its place. -->
+        <img data-portrait src="../assets/img/marco-portrait.jpg" alt="Portrait of Marco Lombardo" width="200" height="200">
+        <span class="portrait-fallback" aria-hidden="true">
+          <img class="logo-img" src="../assets/img/logo-ml.png" alt="" aria-hidden="true">
+          <svg class="logo-svg" viewBox="0 0 240 160" aria-hidden="true">
+            <g transform="skewX(-8) translate(10 0)" fill="none" stroke="#e8112d" stroke-width="21" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 132C26 92 40 52 56 52c14 0 10 40 6 80 8-40 22-80 38-80 14 0 8 44 4 80"/>
+              <path d="M104 132c14-36 46-112 72-112 20 0 14 40-14 76-22 28-30 42-16 44 16 2 46-22 68-48"/>
+            </g>
+          </svg>
+        </span>
+      </div>
+    </div>
 
-          <p class="hero-lead">
-            I work where <strong>technology, innovation and people</strong> meet: turning
-            complex problems into digital products, automated processes and stories that
-            actually get understood. Curious by default, builder by instinct.
-          </p>
+    <div class="hero-inner">
+      <div class="wrap">
+        <div class="hero-copy reveal">
+          <div class="cartouche ticked">
+            <h1>
+              Marco Lombardo
+              <span class="line-2">Ideas, made to work</span>
+            </h1>
 
-          <div class="cta-row">
-            <a class="btn btn-primary" href="#projects">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
-              See what I make
-            </a>
-          </div>
+            <p class="hero-lead">
+              I work where <strong>technology, innovation and people</strong> meet: turning
+              complex problems into digital products, automated processes and stories that
+              actually get understood. Curious by default, builder by instinct.
+            </p>
 
-          <div class="hero-social">
-            <span class="rule" aria-hidden="true"></span>
-            <span>Find me</span>
-            <div class="social-row">
-              <a href="https://www.linkedin.com/in/mlombardo/" target="_blank" rel="noopener" aria-label="LinkedIn">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.75-1.95 4 0 4.4 2.5 4.4 5.75V21h-4v-5.6c0-1.35-.03-3.1-1.9-3.1-1.9 0-2.2 1.48-2.2 3v5.7h-4V9z"/></svg>
-              </a>
-              <a href="https://www.instagram.com/mrram/" target="_blank" rel="noopener" aria-label="Instagram">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
-              </a>
-              <a href="https://x.com/MrRAM" target="_blank" rel="noopener" aria-label="X">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="#projects">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+                See what I make
               </a>
             </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="sky-preview reveal" data-delay="120" aria-hidden="true">
-        <svg viewBox="0 0 100 100" preserveAspectRatio="none">
-          <line class="grid-line" x1="20" y1="0" x2="20" y2="100"/>
-          <line class="grid-line" x1="40" y1="0" x2="40" y2="100"/>
-          <line class="grid-line" x1="60" y1="0" x2="60" y2="100"/>
-          <line class="grid-line" x1="80" y1="0" x2="80" y2="100"/>
-          <line class="grid-line" x1="0" y1="25" x2="100" y2="25"/>
-          <line class="grid-line" x1="0" y1="50" x2="100" y2="50"/>
-          <line class="grid-line" x1="0" y1="75" x2="100" y2="75"/>
-          <path class="const-line" pathLength="100" d="M16 30 L27 40"/>
-          <path class="const-line" pathLength="100" d="M58 14 L51 28 L63 33 L74 26 L70 44 L59 48"/>
-          <circle class="pt pt--flagship" cx="16" cy="30" r="1.6"/>
-          <circle class="pt pt--flagship" cx="27" cy="40" r="1.6"/>
-          <circle class="pt" cx="58" cy="14" r="1"/>
-          <circle class="pt" cx="51" cy="28" r="1"/>
-          <circle class="pt" cx="63" cy="33" r="1"/>
-          <circle class="pt" cx="74" cy="26" r="1"/>
-          <circle class="pt" cx="70" cy="44" r="1"/>
-          <circle class="pt" cx="59" cy="48" r="1"/>
-          <circle class="pt" cx="34" cy="68" r="1.3"/>
-          <circle class="pt" cx="84" cy="66" r="1.3"/>
-        </svg>
-        <div class="hero-portrait-inset">
-          <!-- If the photo file is missing, the logo is shown in its place. -->
-          <img data-portrait src="../assets/img/marco-portrait.jpg" alt="Portrait of Marco Lombardo" width="200" height="200">
-          <span class="portrait-fallback" aria-hidden="true">
-            <img class="logo-img" src="../assets/img/logo-ml.png" alt="" aria-hidden="true">
-            <svg class="logo-svg" viewBox="0 0 240 160" aria-hidden="true">
-              <g transform="skewX(-8) translate(10 0)" fill="none" stroke="#e8112d" stroke-width="21" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 132C26 92 40 52 56 52c14 0 10 40 6 80 8-40 22-80 38-80 14 0 8 44 4 80"/>
-                <path d="M104 132c14-36 46-112 72-112 20 0 14 40-14 76-22 28-30 42-16 44 16 2 46-22 68-48"/>
-              </g>
-            </svg>
-          </span>
+            <div class="hero-social">
+              <span class="rule" aria-hidden="true"></span>
+              <span>Find me</span>
+              <div class="social-row">
+                <a href="https://www.linkedin.com/in/mlombardo/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.75-1.95 4 0 4.4 2.5 4.4 5.75V21h-4v-5.6c0-1.35-.03-3.1-1.9-3.1-1.9 0-2.2 1.48-2.2 3v5.7h-4V9z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/mrram/" target="_blank" rel="noopener" aria-label="Instagram">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+                </a>
+                <a href="https://x.com/MrRAM" target="_blank" rel="noopener" aria-label="X">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -235,48 +237,66 @@
         <p>Different fields, one common thread: taking something complicated and making it feel obvious.</p>
       </div>
 
-      <div class="cards">
-        <article class="card reveal">
-          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V16h8v-1.3A7 7 0 0 0 12 2z"/></svg>F·01</div>
-          <h3>Innovation &amp; strategy</h3>
-          <p>Reading change before it becomes urgent, and translating it into a roadmap someone can actually execute.</p>
-          <div class="tags"><span>Vision</span><span>Roadmap</span><span>Change</span></div>
-        </article>
+      <div class="catalog-list reveal">
+        <div class="catalog-row">
+          <span class="catalog-tag">F-01</span>
+          <span class="catalog-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V16h8v-1.3A7 7 0 0 0 12 2z"/></svg></span>
+          <div class="catalog-row-body">
+            <h3>Innovation &amp; strategy</h3>
+            <p>Reading change before it becomes urgent, and translating it into a roadmap someone can actually execute.</p>
+            <div class="tags"><span>Vision</span><span>Roadmap</span><span>Change</span></div>
+          </div>
+        </div>
 
-        <article class="card reveal" data-delay="80">
-          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4"/><rect x="9" y="9" width="6" height="6" rx="1.5"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg>F·02</div>
-          <h3>AI &amp; automation</h3>
-          <p>Generative models, agents and workflows that remove the boring part of a job and give the time back to people.</p>
-          <div class="tags"><span>LLM</span><span>Agents</span><span>Workflow</span></div>
-        </article>
+        <div class="catalog-row">
+          <span class="catalog-tag">F-02</span>
+          <span class="catalog-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4"/><rect x="9" y="9" width="6" height="6" rx="1.5"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg></span>
+          <div class="catalog-row-body">
+            <h3>AI &amp; automation</h3>
+            <p>Generative models, agents and workflows that remove the boring part of a job and give the time back to people.</p>
+            <div class="tags"><span>LLM</span><span>Agents</span><span>Workflow</span></div>
+          </div>
+        </div>
 
-        <article class="card reveal" data-delay="160">
-          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5 12 3l9 4.5-9 4.5z"/><path d="m3 12 9 4.5L21 12M3 16.5 12 21l9-4.5"/></svg>F·03</div>
-          <h3>Digital products</h3>
-          <p>From discovery to release: interfaces, services and platforms designed around the person using them.</p>
-          <div class="tags"><span>Product</span><span>UX</span><span>Delivery</span></div>
-        </article>
+        <div class="catalog-row">
+          <span class="catalog-tag">F-03</span>
+          <span class="catalog-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5 12 3l9 4.5-9 4.5z"/><path d="m3 12 9 4.5L21 12M3 16.5 12 21l9-4.5"/></svg></span>
+          <div class="catalog-row-body">
+            <h3>Digital products</h3>
+            <p>From discovery to release: interfaces, services and platforms designed around the person using them.</p>
+            <div class="tags"><span>Product</span><span>UX</span><span>Delivery</span></div>
+          </div>
+        </div>
 
-        <article class="card reveal">
-          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg>F·04</div>
-          <h3>Building things</h3>
-          <p>Side projects, scripts and prototypes. The fastest way to understand an idea is still to build a rough version of it.</p>
-          <div class="tags"><span>Code</span><span>Prototype</span><span>Open source</span></div>
-        </article>
+        <div class="catalog-row">
+          <span class="catalog-tag">F-04</span>
+          <span class="catalog-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg></span>
+          <div class="catalog-row-body">
+            <h3>Building things</h3>
+            <p>Side projects, scripts and prototypes. The fastest way to understand an idea is still to build a rough version of it.</p>
+            <div class="tags"><span>Code</span><span>Prototype</span><span>Open source</span></div>
+          </div>
+        </div>
 
-        <article class="card reveal" data-delay="80">
-          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>F·05</div>
-          <h3>Content &amp; communication</h3>
-          <p>Social content, visual identity and the craft of making a message land — because a good idea badly told stays invisible.</p>
-          <div class="tags"><span>Social</span><span>Design</span><span>Brand</span></div>
-        </article>
+        <div class="catalog-row">
+          <span class="catalog-tag">F-05</span>
+          <span class="catalog-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+          <div class="catalog-row-body">
+            <h3>Content &amp; communication</h3>
+            <p>Social content, visual identity and the craft of making a message land — because a good idea badly told stays invisible.</p>
+            <div class="tags"><span>Social</span><span>Design</span><span>Brand</span></div>
+          </div>
+        </div>
 
-        <article class="card reveal" data-delay="160">
-          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 20v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="3.5"/><path d="M18 8.5h4M20 6.5v4"/></svg>F·06</div>
-          <h3>Sharing &amp; mentoring</h3>
-          <p>Publishing what I learn, mentoring people who are starting out, and staying in the conversation with a community I owe a lot to.</p>
-          <div class="tags"><span>Community</span><span>Talks</span><span>Writing</span></div>
-        </article>
+        <div class="catalog-row">
+          <span class="catalog-tag">F-06</span>
+          <span class="catalog-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 20v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="3.5"/><path d="M18 8.5h4M20 6.5v4"/></svg></span>
+          <div class="catalog-row-body">
+            <h3>Sharing &amp; mentoring</h3>
+            <p>Publishing what I learn, mentoring people who are starting out, and staying in the conversation with a community I owe a lot to.</p>
+            <div class="tags"><span>Community</span><span>Talks</span><span>Writing</span></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -288,26 +308,34 @@
         <h2>Four rules I keep coming back to</h2>
       </div>
 
-      <div class="principles reveal">
-        <div class="principle">
-          <div class="num">01</div>
-          <h3>Start from the problem</h3>
-          <p>Technology is the answer, never the question. If the problem isn't clear, no stack will save the project.</p>
+      <div class="catalog-list reveal">
+        <div class="catalog-row">
+          <span class="catalog-tag">R-01</span>
+          <div class="catalog-row-body">
+            <h3>Start from the problem</h3>
+            <p>Technology is the answer, never the question. If the problem isn't clear, no stack will save the project.</p>
+          </div>
         </div>
-        <div class="principle">
-          <div class="num">02</div>
-          <h3>Ship, then refine</h3>
-          <p>A working prototype beats a perfect presentation. Reality gives better feedback than any meeting.</p>
+        <div class="catalog-row">
+          <span class="catalog-tag">R-02</span>
+          <div class="catalog-row-body">
+            <h3>Ship, then refine</h3>
+            <p>A working prototype beats a perfect presentation. Reality gives better feedback than any meeting.</p>
+          </div>
         </div>
-        <div class="principle">
-          <div class="num">03</div>
-          <h3>Design is not decoration</h3>
-          <p>How something looks and how it works are the same conversation. Clarity is a feature.</p>
+        <div class="catalog-row">
+          <span class="catalog-tag">R-03</span>
+          <div class="catalog-row-body">
+            <h3>Design is not decoration</h3>
+            <p>How something looks and how it works are the same conversation. Clarity is a feature.</p>
+          </div>
         </div>
-        <div class="principle">
-          <div class="num">04</div>
-          <h3>Share what you learn</h3>
-          <p>Knowledge kept private stops growing. Everything I've built started from something someone else shared first.</p>
+        <div class="catalog-row">
+          <span class="catalog-tag">R-04</span>
+          <div class="catalog-row-body">
+            <h3>Share what you learn</h3>
+            <p>Knowledge kept private stops growing. Everything I've built started from something someone else shared first.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -321,41 +349,35 @@
         <p>The professional side, the visual one, and the more informal one — pick the version of me you're looking for.</p>
       </div>
 
-      <div class="cards cards-links">
-        <a class="link-card reveal" href="https://www.linkedin.com/in/mlombardo/" target="_blank" rel="noopener">
-          <div class="link-card-top">
-            <span class="mark"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.75-1.95 4 0 4.4 2.5 4.4 5.75V21h-4v-5.6c0-1.35-.03-3.1-1.9-3.1-1.9 0-2.2 1.48-2.2 3v5.7h-4V9z"/></svg></span>
-            <div>
-              <h3>LinkedIn</h3>
-              <div class="handle">/in/mlombardo</div>
-            </div>
+      <div class="catalog-list reveal">
+        <a class="catalog-row" href="https://www.linkedin.com/in/mlombardo/" target="_blank" rel="noopener">
+          <span class="catalog-mark"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.75-1.95 4 0 4.4 2.5 4.4 5.75V21h-4v-5.6c0-1.35-.03-3.1-1.9-3.1-1.9 0-2.2 1.48-2.2 3v5.7h-4V9z"/></svg></span>
+          <div class="catalog-row-body">
+            <span class="handle">/in/mlombardo</span>
+            <h3>LinkedIn</h3>
+            <p>Career, projects and the professional conversation: the best place to reach me.</p>
+            <span class="go">Open profile <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
           </div>
-          <p>Career, projects and the professional conversation: the best place to reach me.</p>
-          <span class="go">Open profile <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </a>
 
-        <a class="link-card reveal" data-delay="80" href="https://www.instagram.com/mrram/" target="_blank" rel="noopener">
-          <div class="link-card-top">
-            <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></span>
-            <div>
-              <h3>Instagram</h3>
-              <div class="handle">@mrram</div>
-            </div>
+        <a class="catalog-row" href="https://www.instagram.com/mrram/" target="_blank" rel="noopener">
+          <span class="catalog-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></span>
+          <div class="catalog-row-body">
+            <span class="handle">@mrram</span>
+            <h3>Instagram</h3>
+            <p>Images, moments and everyday curiosity, told in visual form.</p>
+            <span class="go">Take a look <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
           </div>
-          <p>Images, moments and everyday curiosity, told in visual form.</p>
-          <span class="go">Take a look <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </a>
 
-        <a class="link-card reveal" data-delay="160" href="https://x.com/MrRAM" target="_blank" rel="noopener">
-          <div class="link-card-top">
-            <span class="mark"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></span>
-            <div>
-              <h3>X</h3>
-              <div class="handle">@mrram</div>
-            </div>
+        <a class="catalog-row" href="https://x.com/MrRAM" target="_blank" rel="noopener">
+          <span class="catalog-mark"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></span>
+          <div class="catalog-row-body">
+            <span class="handle">@mrram</span>
+            <h3>X</h3>
+            <p>The less formal side of me: I comment on private-life events and current affairs.</p>
+            <span class="go">Follow me <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
           </div>
-          <p>The less formal side of me: I comment on private-life events and current affairs.</p>
-          <span class="go">Follow me <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </a>
       </div>
     </div>
@@ -392,7 +414,7 @@
         <span class="cluster-label" style="left:48%;top:5%">Tools</span>
         <span class="cluster-label" style="left:24%;top:74%">Site &amp; material</span>
 
-        <a class="star star--flagship reveal" role="listitem" style="--x:16;--y:30;--r:12" data-edge="left" href="https://marcolombardo.gumroad.com/" target="_blank" rel="noopener">
+        <a class="star star--flagship reveal" role="listitem" style="--x:16;--y:30;--r:12" data-edge="left" href="projects/repetita/">
           <span class="star-dot"></span>
           <span class="star-tag"><span class="cat">ST-01</span>Repetita</span>
           <span class="star-card">
@@ -496,7 +518,7 @@
       <div class="sky-index">
         <div class="sky-index-group">
           <h3>Startups</h3>
-          <a class="sky-index-row" href="https://marcolombardo.gumroad.com/" target="_blank" rel="noopener">
+          <a class="sky-index-row" href="projects/repetita/">
             <span class="star-dot" style="--r:9;background:var(--star-flagship);box-shadow:0 0 6px rgba(255,34,55,.6)"></span>
             <div><span class="cat">ST-01</span><h3>Repetita</h3><p>Personalized study material with multi-model AI.</p></div>
           </a>
