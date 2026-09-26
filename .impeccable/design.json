@@ -22,77 +22,74 @@
         "canonical": "#b00b21",
         "tonalRamp": ["#2e030b", "#4c060f", "#6e0916", "#900c1c", "#b00b21", "#e8112d", "#ff2237", "#ff8f9b"]
       },
-      "ink": {
+      "graphite-night": {
         "role": "neutral",
-        "displayName": "Void Ink",
-        "canonical": "#07080d",
-        "tonalRamp": ["#07080d", "#0b0d15", "#10121b", "#161927", "#22263a", "#42455c", "#7a7d95", "#a3a6bd"]
+        "displayName": "Graphite Night",
+        "canonical": "#0a0a0c",
+        "tonalRamp": ["#0a0a0c", "#0f1013", "#141519", "#1b1c21", "#303138", "#55565e", "#868791", "#a5a6b0"]
       },
-      "ink-2": {
+      "graphite-night-deep": {
         "role": "neutral",
-        "displayName": "Ink Layer Two",
-        "canonical": "#0b0d15",
-        "tonalRamp": ["#07080d", "#0b0d15", "#10121b", "#161927", "#22263a", "#42455c", "#7a7d95", "#a3a6bd"]
+        "displayName": "Graphite Night Deep",
+        "canonical": "#0f1013",
+        "tonalRamp": ["#0a0a0c", "#0f1013", "#141519", "#1b1c21", "#303138", "#55565e", "#868791", "#a5a6b0"]
       },
-      "panel": {
+      "graphite-panel": {
         "role": "neutral",
-        "displayName": "Panel",
-        "canonical": "#10121b",
-        "tonalRamp": ["#07080d", "#0b0d15", "#10121b", "#161927", "#22263a", "#42455c", "#7a7d95", "#a3a6bd"]
+        "displayName": "Graphite Panel",
+        "canonical": "#141519",
+        "tonalRamp": ["#0a0a0c", "#0f1013", "#141519", "#1b1c21", "#303138", "#55565e", "#868791", "#a5a6b0"]
       },
-      "panel-2": {
+      "graphite-panel-bright": {
         "role": "neutral",
-        "displayName": "Panel Two",
-        "canonical": "#161927",
-        "tonalRamp": ["#07080d", "#0b0d15", "#10121b", "#161927", "#22263a", "#42455c", "#7a7d95", "#a3a6bd"]
+        "displayName": "Graphite Panel Bright",
+        "canonical": "#1b1c21",
+        "tonalRamp": ["#0a0a0c", "#0f1013", "#141519", "#1b1c21", "#303138", "#55565e", "#868791", "#a5a6b0"]
       },
-      "starlight-text": {
+      "bone-white": {
         "role": "neutral",
-        "displayName": "Starlight Text",
-        "canonical": "#f2f3fa",
-        "tonalRamp": ["#07080d", "#161927", "#42455c", "#7a7d95", "#a3a6bd", "#c8cae0", "#e7e9ff", "#f2f3fa"]
+        "displayName": "Bone White",
+        "canonical": "#f4f4f6",
+        "tonalRamp": ["#0a0a0c", "#303138", "#55565e", "#868791", "#a5a6b0", "#c9cacf", "#e2e2e5", "#f4f4f6"]
       },
-      "muted": {
+      "fog-muted": {
         "role": "neutral",
-        "displayName": "Muted",
-        "canonical": "#a3a6bd",
-        "tonalRamp": ["#07080d", "#161927", "#42455c", "#7a7d95", "#a3a6bd", "#c8cae0", "#e7e9ff", "#f2f3fa"]
+        "displayName": "Fog Muted",
+        "canonical": "#a5a6b0",
+        "tonalRamp": ["#0a0a0c", "#303138", "#55565e", "#868791", "#a5a6b0", "#c9cacf", "#e2e2e5", "#f4f4f6"]
       },
-      "dim": {
+      "fog-dim": {
         "role": "neutral",
-        "displayName": "Dim",
-        "canonical": "#7a7d95",
-        "tonalRamp": ["#07080d", "#161927", "#42455c", "#7a7d95", "#a3a6bd", "#c8cae0", "#e7e9ff", "#f2f3fa"]
-      },
-      "star-stable": {
-        "role": "neutral",
-        "displayName": "Star Stable",
-        "canonical": "#e7e9ff",
-        "tonalRamp": ["#07080d", "#161927", "#42455c", "#7a7d95", "#a3a6bd", "#c8cae0", "#e7e9ff", "#f2f3fa"]
-      },
-      "star-flagship": {
-        "role": "primary",
-        "displayName": "Star Flagship (= Signal Red Bright)",
-        "canonical": "#ff2237",
-        "tonalRamp": ["#2e030b", "#4c060f", "#6e0916", "#900c1c", "#b00b21", "#e8112d", "#ff2237", "#ff8f9b"]
+        "displayName": "Fog Dim",
+        "canonical": "#868791",
+        "tonalRamp": ["#0a0a0c", "#303138", "#55565e", "#868791", "#a5a6b0", "#c9cacf", "#e2e2e5", "#f4f4f6"]
       }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display (Space Grotesk)", "purpose": "Hero H1 and section H2s inside cartouches; self-hosted, weights 500/700." },
-      "body": { "displayName": "Body (Inter)", "purpose": "All paragraph copy; carried over from the prior system for continuity." },
-      "label": { "displayName": "Label / Mono (IBM Plex Mono)", "purpose": "Every coordinate, catalog tag, section label, and nav string; self-hosted, weights 400/600." }
+      "display": { "displayName": "Display", "purpose": "The hero H1 only, two lines, second line in the Signal Red gradient." },
+      "headline": { "displayName": "Headline", "purpose": "Section and project-page H1/H2." },
+      "title": { "displayName": "Title", "purpose": "Card and principle H3s." },
+      "body": { "displayName": "Body", "purpose": "Paragraph copy, capped 54-65ch on lead/about text." },
+      "label": { "displayName": "Label", "purpose": "Uppercase, wide-tracked kickers: eyebrow, section-tag, badges, nav pills." }
     },
     "shadows": [
-      { "name": "ambient-panel-lift", "value": "0 24px 60px rgba(0, 0, 0, 0.6)", "purpose": "Floating elements only: the star chart's hover info card and the hero-portrait ring." },
-      { "name": "signal-glow", "value": "0 0 0 1px rgba(232,17,45,0.5), 0 0 32px rgba(232,17,45,0.45)", "purpose": "The primary button's resting shadow; the one shadow that itself carries the accent color." }
+      { "name": "ambient-signal", "value": "0 18px 50px rgba(232, 17, 45, 0.28)", "purpose": "Permanent glow on the primary CTA and the hero-portrait ring at rest. The only two resting shadows in the system." },
+      { "name": "structural-lift", "value": "0 24px 60px rgba(0, 0, 0, 0.55)", "purpose": "Hover response for cards and floating chrome (name badge, stuck header) - never present at rest." }
     ],
     "motion": [
-      { "name": "ease-standard", "value": "cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Default easing for hover lifts, panel transitions, nav underlines, star-card reveal." }
+      { "name": "ease-standard", "value": "cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Default easing for reveals, hovers, header/nav transitions." },
+      { "name": "duration-reveal", "value": "0.7s", "purpose": "Scroll-triggered fade/rise-in for .reveal elements, staggered by data-delay." },
+      { "name": "duration-hover", "value": "0.25s", "purpose": "Button and social-icon hover transitions." },
+      { "name": "duration-lift", "value": "0.35s", "purpose": "Card hover translateY + shadow/border transition." },
+      { "name": "ring-spin", "value": "22s linear infinite", "purpose": "Hero-portrait conic ring rotation (inner photo counter-rotates)." },
+      { "name": "marquee-slide", "value": "34s linear infinite", "purpose": "Continuous ticker scroll in the marquee band." },
+      { "name": "pulse", "value": "2.6s ease infinite", "purpose": "The eyebrow's live/on-air dot." }
     ],
     "breakpoints": [
-      { "name": "chart-fallback", "value": "780px" },
-      { "name": "nav-collapse", "value": "980px" },
-      { "name": "small-phone", "value": "520px" }
+      { "name": "xs", "value": "520px" },
+      { "name": "sm", "value": "700px" },
+      { "name": "md", "value": "820px" },
+      { "name": "lg", "value": "980px" }
     ]
   },
   "components": [
@@ -100,78 +97,77 @@
       "name": "Primary Button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "The site's one high-emphasis action (hero CTA, contact email, project repo/download links).",
-      "html": "<a class=\"ds-btn ds-btn-primary\" href=\"#\">Scrivimi una email</a>",
-      "css": ".ds-btn { display: inline-flex; align-items: center; gap: 10px; padding: 13px 22px; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: -0.005em; border: 1px solid transparent; border-radius: 0; cursor: pointer; transition: transform 0.25s cubic-bezier(0.22,1,0.36,1), background 0.25s, border-color 0.25s; } .ds-btn-primary { background: #e8112d; color: #fff; box-shadow: 0 0 0 1px rgba(232,17,45,0.5), 0 0 32px rgba(232,17,45,0.45); } .ds-btn-primary:hover { transform: translateY(-2px); background: #b00b21; } .ds-btn-primary:focus-visible { outline: 2px solid #ff2237; outline-offset: 3px; }"
+      "description": "The one weighted action per screen; permanent ambient red glow, lifts on hover.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 6h16M4 12h16M4 18h10\"/></svg>Guarda cosa faccio</a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; border-radius: 999px; font-weight: 700; font-size: 15px; background: linear-gradient(135deg, #e8112d, #b00b21); color: #fff; box-shadow: 0 18px 50px rgba(232,17,45,0.28); transition: transform 0.25s cubic-bezier(0.22,1,0.36,1), box-shadow 0.25s cubic-bezier(0.22,1,0.36,1); } .ds-btn-primary svg { width: 18px; height: 18px; } .ds-btn-primary:hover { transform: translateY(-3px); box-shadow: 0 24px 60px rgba(232,17,45,0.42); } .ds-btn-primary:focus-visible { outline: 2px solid #ff2237; outline-offset: 3px; }"
     },
     {
       "name": "Ghost Button",
       "kind": "button",
       "refersTo": "button-ghost",
-      "description": "Secondary action alongside a primary button (e.g. 'Download software' next to 'View repository').",
-      "html": "<a class=\"ds-btn ds-btn-ghost\" href=\"#\">Scarica il software</a>",
-      "css": ".ds-btn-ghost { border: 1px solid rgba(210,216,255,0.2); color: #f2f3fa; background: rgba(210,216,255,0.04); padding: 13px 22px; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 15px; border-radius: 0; transition: transform 0.25s cubic-bezier(0.22,1,0.36,1), border-color 0.2s, background 0.2s; } .ds-btn-ghost:hover { transform: translateY(-2px); border-color: rgba(210,216,255,0.4); background: rgba(210,216,255,0.09); } .ds-btn-ghost:focus-visible { outline: 2px solid #ff2237; outline-offset: 3px; }"
+      "description": "Secondary action; near-transparent fill, brightens on hover, no color shift.",
+      "html": "<a class=\"ds-btn-ghost\" href=\"#\">Scarica il software</a>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; border-radius: 999px; font-weight: 700; font-size: 15px; border: 1px solid rgba(255,255,255,0.16); background: rgba(255,255,255,0.04); color: #f4f4f6; transition: transform 0.25s cubic-bezier(0.22,1,0.36,1), border-color 0.25s, background 0.25s; } .ds-btn-ghost:hover { transform: translateY(-3px); border-color: rgba(255,255,255,0.34); background: rgba(255,255,255,0.09); } .ds-btn-ghost:focus-visible { outline: 2px solid #ff2237; outline-offset: 3px; }"
     },
     {
-      "name": "Cartouche Panel",
+      "name": "Project Card",
       "kind": "card",
-      "refersTo": "cartouche",
-      "description": "The recurring corner-tick panel: hero identity card, project-detail header, contact close.",
-      "html": "<div class=\"ds-cartouche\"><h2 class=\"ds-cartouche-title\">Tyche</h2><div class=\"ds-coord-row\"><strong>TL-06</strong><span>Tool</span></div><p class=\"ds-cartouche-body\">Una misura onesta di quanto valga prevedere un'estrazione.</p></div>",
-      "css": ".ds-cartouche { position: relative; background: linear-gradient(180deg, #161927, #10121b); border: 1px solid rgba(210,216,255,0.2); padding: 34px 32px; } .ds-cartouche::before, .ds-cartouche::after { content: ''; position: absolute; width: 10px; height: 10px; border: 1px solid #ff2237; opacity: 0.85; } .ds-cartouche::before { top: -1px; left: -1px; border-right: none; border-bottom: none; } .ds-cartouche::after { bottom: -1px; right: -1px; border-left: none; border-top: none; } .ds-cartouche-title { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.9rem; color: #f2f3fa; margin: 0 0 6px; } .ds-coord-row { display: flex; gap: 18px; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: #7a7d95; margin-bottom: 18px; } .ds-coord-row strong { color: #ff2237; font-weight: 600; } .ds-cartouche-body { color: #a3a6bd; font-size: 1.02rem; margin: 0; }"
+      "refersTo": "card",
+      "description": "Content container: flat at rest, structural lift plus a red radial glow on hover.",
+      "html": "<a class=\"ds-card\" href=\"#\"><span class=\"ds-card-icon\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"9\"/></svg></span><h3>Repetita</h3><p>Materiale di studio personalizzato, con IA multi-modello che si adatta al tuo modo di imparare.</p></a>",
+      "css": ".ds-card { position: relative; display: block; padding: 32px 28px; border: 1px solid rgba(255,255,255,0.09); border-radius: 26px; background: linear-gradient(180deg, #1b1c21, #141519); overflow: hidden; transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), border-color 0.35s, box-shadow 0.35s cubic-bezier(0.22,1,0.36,1); } .ds-card-icon { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 15px; background: rgba(232,17,45,0.14); border: 1px solid rgba(232,17,45,0.32); color: #e8112d; margin-bottom: 22px; } .ds-card-icon svg { width: 24px; height: 24px; } .ds-card h3 { margin: 0 0 12px; font-size: 1.28rem; font-weight: 800; letter-spacing: -0.035em; color: #f4f4f6; } .ds-card p { margin: 0; color: #a5a6b0; font-size: 15.5px; } .ds-card:hover { transform: translateY(-8px); border-color: rgba(232,17,45,0.45); box-shadow: 0 24px 60px rgba(0,0,0,0.55); } .ds-card:focus-visible { outline: 2px solid #ff2237; outline-offset: 3px; }"
     },
     {
-      "name": "Catalog Row",
+      "name": "Fact List Item",
       "kind": "custom",
-      "refersTo": "catalog-row",
-      "description": "The bordered index-row that replaced the card grid for Focus/Approach/Elsewhere: a mono catalog tag, an optional icon mark, and body copy.",
-      "html": "<div class=\"ds-catalog-list\"><a class=\"ds-catalog-row\" href=\"#\"><span class=\"ds-catalog-tag\">F-01</span><span class=\"ds-catalog-mark\">&#9733;</span><div><h3 class=\"ds-catalog-h\">Innovazione e strategia</h3><p class=\"ds-catalog-p\">Leggere il cambiamento prima che diventi urgenza.</p></div></a></div>",
-      "css": ".ds-catalog-list { display: flex; flex-direction: column; border-top: 1px solid rgba(210,216,255,0.1); } .ds-catalog-row { display: flex; align-items: flex-start; gap: 20px; padding: 24px 6px; border-bottom: 1px solid rgba(210,216,255,0.1); color: inherit; text-decoration: none; transition: background 0.3s cubic-bezier(0.22,1,0.36,1); } .ds-catalog-row:hover, .ds-catalog-row:focus-visible { background: #10121b; } .ds-catalog-tag { flex: none; width: 42px; padding-top: 3px; font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; font-weight: 600; letter-spacing: 0.04em; color: #ff2237; } .ds-catalog-mark { flex: none; display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid rgba(210,216,255,0.1); background: rgba(210,216,255,0.03); color: #e8112d; } .ds-catalog-h { font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; color: #f2f3fa; margin: 0 0 6px; } .ds-catalog-p { color: #a3a6bd; font-size: 14.5px; margin: 0; }"
+      "refersTo": "chip",
+      "description": "Icon + key/value row used in project fact lists and the myth-note aside; hover nudges sideways instead of lifting.",
+      "html": "<ul class=\"ds-fact-list\"><li><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"2.5\" y=\"4\" width=\"19\" height=\"13\" rx=\"2\"/><path d=\"M8 20h8M12 17v3\"/></svg><div><div class=\"ds-fact-k\">Piattaforma</div><div class=\"ds-fact-v\">Desktop — Windows, macOS, Linux</div></div></li></ul>",
+      "css": ".ds-fact-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; } .ds-fact-list li { display: flex; gap: 14px; padding: 18px 20px; border: 1px solid rgba(255,255,255,0.09); border-radius: 16px; background: #141519; transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), border-color 0.3s; } .ds-fact-list li:hover { transform: translateX(6px); border-color: rgba(232,17,45,0.5); } .ds-fact-list svg { width: 22px; height: 22px; flex: none; margin-top: 4px; color: #e8112d; } .ds-fact-k { font-size: 12px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: #ff2237; margin-bottom: 2px; } .ds-fact-v { color: #f4f4f6; font-weight: 600; font-size: 15px; }"
     },
     {
-      "name": "Sky Chart Star",
-      "kind": "custom",
-      "refersTo": "sky-star",
-      "description": "One plotted project in the signature interactive chart: a circular magnitude dot at hand-authored coordinates, revealing a detail popover on hover/focus. Flagship stars (the two startups) render Signal Red and larger; every other project renders Star Stable off-white.",
-      "html": "<div class=\"ds-sky\"><a class=\"ds-star ds-star--flagship\" style=\"left:16%;top:30%\" href=\"#\"><span class=\"ds-star-dot\"></span><span class=\"ds-star-tag\"><span class=\"ds-cat\">ST-01</span>Repetita</span><span class=\"ds-star-card\"><span class=\"ds-cat\">ST-01 &middot; Startup</span><h3>Repetita</h3><p>Materiale di studio personalizzato con IA multi-modello.</p></span></a></div>",
-      "css": ".ds-sky { position: relative; width: 320px; height: 160px; border: 1px solid rgba(210,216,255,0.1); background: #0b0d15; } .ds-star { position: absolute; transform: translate(-50%,-50%); display: flex; align-items: center; gap: 8px; text-decoration: none; } .ds-star-dot { width: 12px; height: 12px; border-radius: 50%; background: #e7e9ff; transition: transform 0.25s cubic-bezier(0.22,1,0.36,1); } .ds-star--flagship .ds-star-dot { background: #ff2237; box-shadow: 0 0 0 4px rgba(255,34,55,0.16), 0 0 14px rgba(255,34,55,0.55); } .ds-star:hover .ds-star-dot, .ds-star:focus-visible .ds-star-dot { transform: scale(1.35); } .ds-star-tag { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; color: #a3a6bd; white-space: nowrap; } .ds-star-tag .ds-cat { color: #7a7d95; margin-right: 6px; } .ds-star-card { position: absolute; left: 50%; bottom: calc(100% + 14px); transform: translateX(-50%) translateY(6px); width: 200px; padding: 14px 16px; background: #10121b; border: 1px solid rgba(210,216,255,0.2); box-shadow: 0 24px 60px rgba(0,0,0,0.6); opacity: 0; pointer-events: none; transition: opacity 0.2s, transform 0.2s; } .ds-star:hover .ds-star-card, .ds-star:focus-visible .ds-star-card { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; } .ds-star-card .ds-cat { display: block; font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; font-weight: 600; letter-spacing: 0.1em; color: #ff2237; margin-bottom: 6px; } .ds-star-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 0.98rem; color: #f2f3fa; margin: 0 0 6px; } .ds-star-card p { font-size: 12.5px; color: #a3a6bd; margin: 0; }"
+      "name": "Eyebrow / Section Tag",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Uppercase, wide-tracked kicker label; the hero variant adds a pulsing live dot.",
+      "html": "<span class=\"ds-eyebrow\"><span class=\"ds-eyebrow-dot\"></span>Innovazione · Tecnologia · Idee</span>",
+      "css": ".ds-eyebrow { display: inline-flex; align-items: center; gap: 10px; padding: 7px 16px 7px 10px; border: 1px solid rgba(255,255,255,0.16); border-radius: 999px; background: rgba(0,0,0,0.28); font-size: 12.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #a5a6b0; } .ds-eyebrow-dot { width: 8px; height: 8px; border-radius: 50%; background: #e8112d; box-shadow: 0 0 0 4px rgba(232,17,45,0.2); animation: ds-pulse 2.6s cubic-bezier(0.22,1,0.36,1) infinite; } @keyframes ds-pulse { 0%, 100% { box-shadow: 0 0 0 4px rgba(232,17,45,0.2); } 50% { box-shadow: 0 0 0 9px rgba(232,17,45,0); } }"
     },
     {
-      "name": "Primary Navigation",
+      "name": "Language Switch",
       "kind": "nav",
-      "refersTo": "nav",
-      "description": "Fixed header nav: mono-badged language switch, underline-on-hover links, transparent until scrolled.",
-      "html": "<nav class=\"ds-nav\"><a href=\"#\" class=\"ds-nav-link is-active\">Chi sono</a><a href=\"#\" class=\"ds-nav-link\">Progetti</a><div class=\"ds-lang-switch\"><a href=\"#\" aria-current=\"true\">IT</a><a href=\"#\">EN</a></div></nav>",
-      "css": ".ds-nav { display: flex; align-items: center; gap: 2px; } .ds-nav-link { position: relative; padding: 9px 14px; font-family: Inter, sans-serif; font-size: 14.5px; font-weight: 600; color: #a3a6bd; text-decoration: none; transition: color 0.2s; } .ds-nav-link::after { content: ''; position: absolute; left: 14px; right: 14px; bottom: 4px; height: 1px; background: #ff2237; transform: scaleX(0); transition: transform 0.25s cubic-bezier(0.22,1,0.36,1); } .ds-nav-link:hover, .ds-nav-link.is-active { color: #f2f3fa; } .ds-nav-link:hover::after, .ds-nav-link.is-active::after { transform: scaleX(1); } .ds-lang-switch { display: inline-flex; border: 1px solid rgba(210,216,255,0.2); margin-left: 16px; } .ds-lang-switch a { display: inline-flex; align-items: center; justify-content: center; min-width: 40px; padding: 6px 10px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; color: #a3a6bd; text-decoration: none; } .ds-lang-switch a[aria-current='true'] { background: #e8112d; color: #fff; }"
+      "refersTo": "lang-pill-active",
+      "description": "Two-pill segmented control; the active language solid-fills red with its own tinted shadow.",
+      "html": "<div class=\"ds-lang-switch\"><a class=\"ds-lang-pill is-active\" href=\"#\">IT</a><a class=\"ds-lang-pill\" href=\"#\">EN</a></div>",
+      "css": ".ds-lang-switch { display: inline-flex; align-items: center; padding: 3px; border: 1px solid rgba(255,255,255,0.16); border-radius: 999px; background: rgba(255,255,255,0.04); } .ds-lang-pill { display: inline-flex; align-items: center; justify-content: center; min-width: 42px; padding: 5px 10px; border-radius: 999px; font-size: 12.5px; font-weight: 800; letter-spacing: 0.08em; color: #a5a6b0; transition: color 0.2s, background 0.2s; } .ds-lang-pill:hover { color: #f4f4f6; } .ds-lang-pill.is-active { background: #e8112d; color: #fff; box-shadow: 0 4px 14px rgba(232,17,45,0.4); }"
     }
   ],
   "narrative": {
-    "northStar": "The Working Sky",
-    "overview": "The site reads as a personal star chart, not a portfolio grid: real shipped work — two startups, six open-source desktop tools, one client site, one publishing shop — is plotted as catalogued celestial bodies on a hairline coordinate grid over a deep space-black ground, instead of stacked into equal-sized cards. Signal Red (#e8112d and its brighter/deeper steps) is the chart's magnitude marker: it is reserved for exactly the two flagship bodies (the two startups, Repetita and Okkupa) plus the primary call-to-action and the hero-portrait ring, and appears nowhere else as a fill color. Every other project — the six tools, the client site, the books shop — renders in a cool, dim 'stable' starlight-white (#e7e9ff), so rarity of red is structural, not incidental. Panels are cartouches: gradient-filled rectangular blocks with a small L-shaped corner-tick bracket at two opposite corners, standing in for the rounded-card idiom this category defaults to. Three type families do distinct jobs — Space Grotesk carries display/heading weight, IBM Plex Mono carries every coordinate, catalog tag, and label, Inter carries body copy — and headings lead their sections directly; nothing sits above an H1 as a kicker or eyebrow anywhere in the build.",
+    "northStar": "The Night Workshop",
+    "overview": "A maker's desk at night, lit like a film set rather than a cozy corner: graphite dark everywhere, one signal-red within arm's reach, used exactly when it matters and never as decoration. The system is confident and precise, with a touch of cinema in its lighting - the hero's radial vignette, the conic ring that circles the portrait like a spotlight, the vertical red bars borrowed straight from the owner's own LinkedIn banner. Nothing about it apologizes for the dark palette; it treats black and graphite as the workshop's natural light and lets the red do the only talking that needs doing.\n\nThe voice matches: direct, unhyped, a little dramatic where it counts (the gradient hero headline, the pulsing \"on\" dot in the eyebrow) but otherwise quiet. Bilingual IT/EN content is a structural constraint, not a visual one - every surface must hold its composition in both languages at the same density.",
     "keyCharacteristics": [
-      "Deep space-black/indigo ground with a faint scattered-star texture behind all content, not a flat \"dark mode\" fill.",
-      "Signal Red rationed to exactly two flagship data-points, the CTA, and the portrait ring — everything else in the chart is cool starlight-white.",
-      "Corner-tick cartouche frames replace rounded cards and pill shapes site-wide.",
-      "Real hand-authored coordinates (--x/--y) plot actual shipped projects — never decorative filler points.",
-      "No kicker/eyebrow above any heading; catalog/byline metadata follows a heading, never precedes it."
+      "One accent color, used deliberately and rarely - never as a fill for a large surface at rest.",
+      "Flat, dark surfaces by default; shadow is earned, not ambient, except on the one or two elements meant to command attention.",
+      "Pill shapes for anything interactive or status-bearing; soft-large radius for content containers; a perfect circle only for the portrait.",
+      "Uppercase, letter-spaced labels functioning as on-screen kickers/captions, the closest thing this system has to a second typographic voice despite using a single font family."
     ],
     "rules": [
-      { "name": "The Rare Signal Rule", "body": "Signal Red (in any of its three steps) marks exactly the two flagship project-points, the primary CTA, and the hero-portrait ring — nothing else. Every other project renders in Star Stable off-white. If a new element wants red for emphasis alone, that is the rule failing, not a new use case.", "section": "colors" },
-      { "name": "The No-Kicker Rule", "body": "No heading anywhere in the build is preceded by an all-caps label line above it. Metadata (catalog code, coordinate row, project type) is placed directly below an H1/H2, never above it.", "section": "typography" },
-      { "name": "The Flat-Chart Rule", "body": "Surfaces are flat at rest; a shadow only appears on something that must visually float above the coordinate grid (a hover card) or that needs to announce itself as the rare-red interactive element (the primary CTA).", "section": "elevation" }
+      { "name": "The Rare Red Rule", "body": "Signal Red never fills a large surface at rest. It appears as a rule, a dot, a badge fill, a gradient stop, or a hover/active response - always small, always earned.", "section": "colors" },
+      { "name": "The One Voice Rule", "body": "Every text role is Inter. Hierarchy is a function of scale, weight, and tracking - never a second typeface, not even for labels or code-like content.", "section": "typography" },
+      { "name": "The Earned Shadow Rule", "body": "A shadow either marks the one primary action on a screen, or answers a hover/focus/scroll event. Nothing else casts one at rest.", "section": "elevation" }
     ],
     "dos": [
-      "Do keep Signal Red (any of its three steps) to the two flagship star-points, the primary CTA, and the hero-portrait ring — nowhere else.",
-      "Do use corner-tick cartouches (.ticked) for any panel that would otherwise default to a rounded card.",
-      "Do put catalog/byline metadata (tag, coordinate row, category) directly below a heading, never above it.",
-      "Do use IBM Plex Mono for every coordinate, tag, and label; reserve Space Grotesk for headings and Inter for body copy.",
-      "Do design a real alternate state for any component that hides on narrow viewports (as .sky-index does for .sky), not just a media-query display:none."
+      "Do keep Signal Red to accents, rules, dots, gradient stops, and the single primary action per screen - never a background fill.",
+      "Do ship every new string in Italian and English together; a surface that only reads correctly in one language is incomplete.",
+      "Do use the pill shape for anything the visitor acts on or that reports status; use the 26px soft radius for anything that just contains content.",
+      "Do let shadows answer an interaction (hover, focus, scroll, \"this is the primary action\") rather than sit under something at rest by default.",
+      "Do keep labels/eyebrows uppercase and wide-tracked - they are the system's only substitute for a second typeface."
     ],
     "donts": [
-      "Don't introduce a kicker or eyebrow label above any heading — this build removed them site-wide and none should return.",
-      "Don't use rounded pills, cards, or badges; the form language is rectangular hairline panels with circular treatment reserved for portraits and star-dots only.",
-      "Don't add a drop shadow to a surface at rest; shadows appear only on floating/interactive elements (the star-card popover, the primary CTA's signal glow).",
-      "Don't plot a decorative or placeholder point in the sky chart — every star corresponds to a real, currently shipped project with a real catalog code."
+      "Don't introduce a second font family for emphasis or \"personality\" - hierarchy is size, weight, and tracking only.",
+      "Don't add a testimonial, press logo, benchmark, or case-study metric - none exist in the real content, and PRODUCT.md records that absence deliberately.",
+      "Don't give a card, chip, or nav item a resting shadow; only the primary button and the hero-portrait ring are allowed to glow without being touched.",
+      "Don't treat books.html as a normal page when designing - it is a headless Gumroad content fragment with no <head>, and any <meta> tag added to it is silently stripped on publish."
     ]
   }
 }
