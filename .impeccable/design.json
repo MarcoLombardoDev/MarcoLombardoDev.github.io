@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-26T00:00:00Z",
+  "title": "Design System: Marco Lombardo",
+  "extensions": {
+    "colorMeta": {
+      "signal-red": {
+        "role": "primary",
+        "displayName": "Signal Red",
+        "canonical": "#e8112d",
+        "tonalRamp": ["#2e030b", "#4c060f", "#6e0916", "#900c1c", "#b00b21", "#e8112d", "#ff2237", "#ff8f9b"]
+      },
+      "signal-red-bright": {
+        "role": "primary",
+        "displayName": "Signal Red Bright",
+        "canonical": "#ff2237",
+        "tonalRamp": ["#2e030b", "#4c060f", "#6e0916", "#900c1c", "#b00b21", "#e8112d", "#ff2237", "#ff8f9b"]
+      },
+      "signal-red-deep": {
+        "role": "primary",
+        "displayName": "Signal Red Deep",
+        "canonical": "#b00b21",
+        "tonalRamp": ["#2e030b", "#4c060f", "#6e0916", "#900c1c", "#b00b21", "#e8112d", "#ff2237", "#ff8f9b"]
+      },
+      "graphite-night": {
+        "role": "neutral",
+        "displayName": "Graphite Night",
+        "canonical": "#0a0a0c",
+        "tonalRamp": ["#0a0a0c", "#0f1013", "#141519", "#1b1c21", "#303138", "#55565e", "#868791", "#a5a6b0"]
+      },
+      "graphite-night-deep": {
+        "role": "neutral",
+        "displayName": "Graphite Night Deep",
+        "canonical": "#0f1013",
+        "tonalRamp": ["#0a0a0c", "#0f1013", "#141519", "#1b1c21", "#303138", "#55565e", "#868791", "#a5a6b0"]
+      },
+      "graphite-panel": {
+        "role": "neutral",
+        "displayName": "Graphite Panel",
+        "canonical": "#141519",
+        "tonalRamp": ["#0a0a0c", "#0f1013", "#141519", "#1b1c21", "#303138", "#55565e", "#868791", "#a5a6b0"]
+      },
+      "graphite-panel-bright": {
+        "role": "neutral",
+        "displayName": "Graphite Panel Bright",
+        "canonical": "#1b1c21",
+        "tonalRamp": ["#0a0a0c", "#0f1013", "#141519", "#1b1c21", "#303138", "#55565e", "#868791", "#a5a6b0"]
+      },
+      "bone-white": {
+        "role": "neutral",
+        "displayName": "Bone White",
+        "canonical": "#f4f4f6",
+        "tonalRamp": ["#0a0a0c", "#303138", "#55565e", "#868791", "#a5a6b0", "#c9cacf", "#e2e2e5", "#f4f4f6"]
+      },
+      "fog-muted": {
+        "role": "neutral",
+        "displayName": "Fog Muted",
+        "canonical": "#a5a6b0",
+        "tonalRamp": ["#0a0a0c", "#303138", "#55565e", "#868791", "#a5a6b0", "#c9cacf", "#e2e2e5", "#f4f4f6"]
+      },
+      "fog-dim": {
+        "role": "neutral",
+        "displayName": "Fog Dim",
+        "canonical": "#868791",
+        "tonalRamp": ["#0a0a0c", "#303138", "#55565e", "#868791", "#a5a6b0", "#c9cacf", "#e2e2e5", "#f4f4f6"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "The hero H1 only, two lines, second line in the Signal Red gradient." },
+      "headline": { "displayName": "Headline", "purpose": "Section and project-page H1/H2." },
+      "title": { "displayName": "Title", "purpose": "Card and principle H3s." },
+      "body": { "displayName": "Body", "purpose": "Paragraph copy, capped 54-65ch on lead/about text." },
+      "label": { "displayName": "Label", "purpose": "Uppercase, wide-tracked kickers: eyebrow, section-tag, badges, nav pills." }
+    },
+    "shadows": [
+      { "name": "ambient-signal", "value": "0 18px 50px rgba(232, 17, 45, 0.28)", "purpose": "Permanent glow on the primary CTA and the hero-portrait ring at rest. The only two resting shadows in the system." },
+      { "name": "structural-lift", "value": "0 24px 60px rgba(0, 0, 0, 0.55)", "purpose": "Hover response for cards and floating chrome (name badge, stuck header) - never present at rest." }
+    ],
+    "motion": [
+      { "name": "ease-standard", "value": "cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Default easing for reveals, hovers, header/nav transitions." },
+      { "name": "duration-reveal", "value": "0.7s", "purpose": "Scroll-triggered fade/rise-in for .reveal elements, staggered by data-delay." },
+      { "name": "duration-hover", "value": "0.25s", "purpose": "Button and social-icon hover transitions." },
+      { "name": "duration-lift", "value": "0.35s", "purpose": "Card hover translateY + shadow/border transition." },
+      { "name": "ring-spin", "value": "22s linear infinite", "purpose": "Hero-portrait conic ring rotation (inner photo counter-rotates)." },
+      { "name": "marquee-slide", "value": "34s linear infinite", "purpose": "Continuous ticker scroll in the marquee band." },
+      { "name": "pulse", "value": "2.6s ease infinite", "purpose": "The eyebrow's live/on-air dot." }
+    ],
+    "breakpoints": [
+      { "name": "xs", "value": "520px" },
+      { "name": "sm", "value": "700px" },
+      { "name": "md", "value": "820px" },
+      { "name": "lg", "value": "980px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one weighted action per screen; permanent ambient red glow, lifts on hover.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 6h16M4 12h16M4 18h10\"/></svg>Guarda cosa faccio</a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; border-radius: 999px; font-weight: 700; font-size: 15px; background: linear-gradient(135deg, #e8112d, #b00b21); color: #fff; box-shadow: 0 18px 50px rgba(232,17,45,0.28); transition: transform 0.25s cubic-bezier(0.22,1,0.36,1), box-shadow 0.25s cubic-bezier(0.22,1,0.36,1); } .ds-btn-primary svg { width: 18px; height: 18px; } .ds-btn-primary:hover { transform: translateY(-3px); box-shadow: 0 24px 60px rgba(232,17,45,0.42); } .ds-btn-primary:focus-visible { outline: 2px solid #ff2237; outline-offset: 3px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary action; near-transparent fill, brightens on hover, no color shift.",
+      "html": "<a class=\"ds-btn-ghost\" href=\"#\">Scarica il software</a>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; border-radius: 999px; font-weight: 700; font-size: 15px; border: 1px solid rgba(255,255,255,0.16); background: rgba(255,255,255,0.04); color: #f4f4f6; transition: transform 0.25s cubic-bezier(0.22,1,0.36,1), border-color 0.25s, background 0.25s; } .ds-btn-ghost:hover { transform: translateY(-3px); border-color: rgba(255,255,255,0.34); background: rgba(255,255,255,0.09); } .ds-btn-ghost:focus-visible { outline: 2px solid #ff2237; outline-offset: 3px; }"
+    },
+    {
+      "name": "Project Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Content container: flat at rest, structural lift plus a red radial glow on hover.",
+      "html": "<a class=\"ds-card\" href=\"#\"><span class=\"ds-card-icon\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"9\"/></svg></span><h3>Repetita</h3><p>Materiale di studio personalizzato, con IA multi-modello che si adatta al tuo modo di imparare.</p></a>",
+      "css": ".ds-card { position: relative; display: block; padding: 32px 28px; border: 1px solid rgba(255,255,255,0.09); border-radius: 26px; background: linear-gradient(180deg, #1b1c21, #141519); overflow: hidden; transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), border-color 0.35s, box-shadow 0.35s cubic-bezier(0.22,1,0.36,1); } .ds-card-icon { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 15px; background: rgba(232,17,45,0.14); border: 1px solid rgba(232,17,45,0.32); color: #e8112d; margin-bottom: 22px; } .ds-card-icon svg { width: 24px; height: 24px; } .ds-card h3 { margin: 0 0 12px; font-size: 1.28rem; font-weight: 800; letter-spacing: -0.035em; color: #f4f4f6; } .ds-card p { margin: 0; color: #a5a6b0; font-size: 15.5px; } .ds-card:hover { transform: translateY(-8px); border-color: rgba(232,17,45,0.45); box-shadow: 0 24px 60px rgba(0,0,0,0.55); } .ds-card:focus-visible { outline: 2px solid #ff2237; outline-offset: 3px; }"
+    },
+    {
+      "name": "Fact List Item",
+      "kind": "custom",
+      "refersTo": "chip",
+      "description": "Icon + key/value row used in project fact lists and the myth-note aside; hover nudges sideways instead of lifting.",
+      "html": "<ul class=\"ds-fact-list\"><li><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"2.5\" y=\"4\" width=\"19\" height=\"13\" rx=\"2\"/><path d=\"M8 20h8M12 17v3\"/></svg><div><div class=\"ds-fact-k\">Piattaforma</div><div class=\"ds-fact-v\">Desktop — Windows, macOS, Linux</div></div></li></ul>",
+      "css": ".ds-fact-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; } .ds-fact-list li { display: flex; gap: 14px; padding: 18px 20px; border: 1px solid rgba(255,255,255,0.09); border-radius: 16px; background: #141519; transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), border-color 0.3s; } .ds-fact-list li:hover { transform: translateX(6px); border-color: rgba(232,17,45,0.5); } .ds-fact-list svg { width: 22px; height: 22px; flex: none; margin-top: 4px; color: #e8112d; } .ds-fact-k { font-size: 12px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: #ff2237; margin-bottom: 2px; } .ds-fact-v { color: #f4f4f6; font-weight: 600; font-size: 15px; }"
+    },
+    {
+      "name": "Eyebrow / Section Tag",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Uppercase, wide-tracked kicker label; the hero variant adds a pulsing live dot.",
+      "html": "<span class=\"ds-eyebrow\"><span class=\"ds-eyebrow-dot\"></span>Innovazione · Tecnologia · Idee</span>",
+      "css": ".ds-eyebrow { display: inline-flex; align-items: center; gap: 10px; padding: 7px 16px 7px 10px; border: 1px solid rgba(255,255,255,0.16); border-radius: 999px; background: rgba(0,0,0,0.28); font-size: 12.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #a5a6b0; } .ds-eyebrow-dot { width: 8px; height: 8px; border-radius: 50%; background: #e8112d; box-shadow: 0 0 0 4px rgba(232,17,45,0.2); animation: ds-pulse 2.6s cubic-bezier(0.22,1,0.36,1) infinite; } @keyframes ds-pulse { 0%, 100% { box-shadow: 0 0 0 4px rgba(232,17,45,0.2); } 50% { box-shadow: 0 0 0 9px rgba(232,17,45,0); } }"
+    },
+    {
+      "name": "Language Switch",
+      "kind": "nav",
+      "refersTo": "lang-pill-active",
+      "description": "Two-pill segmented control; the active language solid-fills red with its own tinted shadow.",
+      "html": "<div class=\"ds-lang-switch\"><a class=\"ds-lang-pill is-active\" href=\"#\">IT</a><a class=\"ds-lang-pill\" href=\"#\">EN</a></div>",
+      "css": ".ds-lang-switch { display: inline-flex; align-items: center; padding: 3px; border: 1px solid rgba(255,255,255,0.16); border-radius: 999px; background: rgba(255,255,255,0.04); } .ds-lang-pill { display: inline-flex; align-items: center; justify-content: center; min-width: 42px; padding: 5px 10px; border-radius: 999px; font-size: 12.5px; font-weight: 800; letter-spacing: 0.08em; color: #a5a6b0; transition: color 0.2s, background 0.2s; } .ds-lang-pill:hover { color: #f4f4f6; } .ds-lang-pill.is-active { background: #e8112d; color: #fff; box-shadow: 0 4px 14px rgba(232,17,45,0.4); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Night Workshop",
+    "overview": "A maker's desk at night, lit like a film set rather than a cozy corner: graphite dark everywhere, one signal-red within arm's reach, used exactly when it matters and never as decoration. The system is confident and precise, with a touch of cinema in its lighting - the hero's radial vignette, the conic ring that circles the portrait like a spotlight, the vertical red bars borrowed straight from the owner's own LinkedIn banner. Nothing about it apologizes for the dark palette; it treats black and graphite as the workshop's natural light and lets the red do the only talking that needs doing.\n\nThe voice matches: direct, unhyped, a little dramatic where it counts (the gradient hero headline, the pulsing \"on\" dot in the eyebrow) but otherwise quiet. Bilingual IT/EN content is a structural constraint, not a visual one - every surface must hold its composition in both languages at the same density.",
+    "keyCharacteristics": [
+      "One accent color, used deliberately and rarely - never as a fill for a large surface at rest.",
+      "Flat, dark surfaces by default; shadow is earned, not ambient, except on the one or two elements meant to command attention.",
+      "Pill shapes for anything interactive or status-bearing; soft-large radius for content containers; a perfect circle only for the portrait.",
+      "Uppercase, letter-spaced labels functioning as on-screen kickers/captions, the closest thing this system has to a second typographic voice despite using a single font family."
+    ],
+    "rules": [
+      { "name": "The Rare Red Rule", "body": "Signal Red never fills a large surface at rest. It appears as a rule, a dot, a badge fill, a gradient stop, or a hover/active response - always small, always earned.", "section": "colors" },
+      { "name": "The One Voice Rule", "body": "Every text role is Inter. Hierarchy is a function of scale, weight, and tracking - never a second typeface, not even for labels or code-like content.", "section": "typography" },
+      { "name": "The Earned Shadow Rule", "body": "A shadow either marks the one primary action on a screen, or answers a hover/focus/scroll event. Nothing else casts one at rest.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep Signal Red to accents, rules, dots, gradient stops, and the single primary action per screen - never a background fill.",
+      "Do ship every new string in Italian and English together; a surface that only reads correctly in one language is incomplete.",
+      "Do use the pill shape for anything the visitor acts on or that reports status; use the 26px soft radius for anything that just contains content.",
+      "Do let shadows answer an interaction (hover, focus, scroll, \"this is the primary action\") rather than sit under something at rest by default.",
+      "Do keep labels/eyebrows uppercase and wide-tracked - they are the system's only substitute for a second typeface."
+    ],
+    "donts": [
+      "Don't introduce a second font family for emphasis or \"personality\" - hierarchy is size, weight, and tracking only.",
+      "Don't add a testimonial, press logo, benchmark, or case-study metric - none exist in the real content, and PRODUCT.md records that absence deliberately.",
+      "Don't give a card, chip, or nav item a resting shadow; only the primary button and the hero-portrait ring are allowed to glow without being touched.",
+      "Don't treat books.html as a normal page when designing - it is a headless Gumroad content fragment with no <head>, and any <meta> tag added to it is silently stripped on publish."
+    ]
+  }
+}
