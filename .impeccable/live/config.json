@@ -1,0 +1,7 @@
+{
+  "files": ["*.html", "it/**/*.html", "en/**/*.html"],
+  "exclude": ["books.html", "google78a54a2611004bcc.html"],
+  "insertBefore": "</body>",
+  "commentSyntax": "html",
+  "cspChecked": true
+}
