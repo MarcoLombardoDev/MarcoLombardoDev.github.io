@@ -308,8 +308,7 @@ p:last-child {
   position: relative;
   padding: 150px 0 90px;
   overflow: hidden;
-  background: url("../img/texture/bg-field-wide.webp") right -80px top -40px / 62% auto no-repeat,
-    radial-gradient(
+  background: radial-gradient(
       120% 90% at 62% 30%,
       #45464e 0%,
       #26272d 34%,
@@ -512,16 +511,6 @@ p:last-child {
   aspect-ratio: 1 / 1;
 }
 
-.hero-portrait::before {
-  content: "";
-  position: absolute;
-  inset: -34%;
-  z-index: -1;
-  background: url("../img/texture/icon-orbit.webp") center / contain no-repeat;
-  opacity: 0.55;
-  pointer-events: none;
-}
-
 .hero-portrait .ring {
   position: absolute;
   inset: 0;
@@ -683,8 +672,7 @@ p:last-child {
 }
 
 .section-alt {
-  background: url("../img/texture/bg-field-panel.webp") left bottom / 34% auto no-repeat,
-    linear-gradient(180deg, var(--ink), var(--ink-2) 40%, var(--ink));
+  background: linear-gradient(180deg, var(--ink), var(--ink-2) 40%, var(--ink));
 }
 
 .section-head {
@@ -1001,8 +989,7 @@ p:last-child {
 }
 
 .principle:hover {
-  background: url("../img/texture/icon-asterisk.webp") right -10px bottom -10px / 90px auto no-repeat,
-    var(--panel-2);
+  background: var(--panel-2);
 }
 
 .principle .num {
@@ -1030,13 +1017,12 @@ p:last-child {
 .contact {
   position: relative;
   padding: 110px 0;
-  background: url("../img/texture/icon-reticle.webp") center 18% / 220px auto no-repeat,
-    radial-gradient(
-      100% 120% at 50% 0%,
-      #34353c 0%,
-      #17181c 45%,
-      var(--ink) 100%
-    );
+  background: radial-gradient(
+    100% 120% at 50% 0%,
+    #34353c 0%,
+    #17181c 45%,
+    var(--ink) 100%
+  );
   border-top: 1px solid var(--line);
   text-align: center;
 }
@@ -1136,7 +1122,6 @@ p:last-child {
 }
 
 .myth-note {
-  position: relative;
   display: flex;
   align-items: flex-start;
   gap: 18px;
@@ -1144,8 +1129,7 @@ p:last-child {
   padding: 24px 26px;
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  background: url("../img/texture/icon-constellation.webp") right -12px bottom -12px / 130px auto no-repeat,
-    var(--panel);
+  background: var(--panel);
 }
 
 .myth-note > svg {
