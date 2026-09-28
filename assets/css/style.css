@@ -68,6 +68,24 @@ img {
   display: block;
 }
 
+/* Ambient background: fixed canvas painted by assets/js/bg-fx.js, sitting
+   behind every section. Sections use translucent backgrounds (below) so it
+   reads through the whole page rather than just behind the hero. */
+.bg-fx {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+#main,
+.site-footer {
+  position: relative;
+  z-index: 1;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -310,10 +328,10 @@ p:last-child {
   overflow: hidden;
   background: radial-gradient(
       120% 90% at 62% 30%,
-      #45464e 0%,
-      #26272d 34%,
-      #131418 66%,
-      var(--ink) 100%
+      rgba(69, 70, 78, 0.92) 0%,
+      rgba(38, 39, 45, 0.92) 34%,
+      rgba(19, 20, 24, 0.92) 66%,
+      rgba(10, 10, 12, 0.92) 100%
     );
 }
 
@@ -669,10 +687,16 @@ p:last-child {
 .section {
   padding: 110px 0;
   position: relative;
+  background: rgba(10, 10, 12, 0.9);
 }
 
 .section-alt {
-  background: linear-gradient(180deg, var(--ink), var(--ink-2) 40%, var(--ink));
+  background: linear-gradient(
+    180deg,
+    rgba(10, 10, 12, 0.9),
+    rgba(15, 16, 19, 0.9) 40%,
+    rgba(10, 10, 12, 0.9)
+  );
 }
 
 .section-head {
@@ -1019,9 +1043,9 @@ p:last-child {
   padding: 110px 0;
   background: radial-gradient(
     100% 120% at 50% 0%,
-    #34353c 0%,
-    #17181c 45%,
-    var(--ink) 100%
+    rgba(52, 53, 60, 0.9) 0%,
+    rgba(23, 24, 28, 0.9) 45%,
+    rgba(10, 10, 12, 0.9) 100%
   );
   border-top: 1px solid var(--line);
   text-align: center;
@@ -1051,7 +1075,7 @@ p:last-child {
 
 .site-footer {
   border-top: 1px solid var(--line);
-  background: var(--ink);
+  background: rgba(10, 10, 12, 0.92);
   padding: 40px 0;
 }
 
@@ -1314,6 +1338,10 @@ p:last-child {
     opacity: 1;
     transform: none;
   }
+
+  .bg-fx {
+    display: none;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -1375,7 +1403,8 @@ p:last-child {
   .marquee,
   .hero::before,
   .hero::after,
-  .cookie-notice {
+  .cookie-notice,
+  .bg-fx {
     display: none;
   }
 
