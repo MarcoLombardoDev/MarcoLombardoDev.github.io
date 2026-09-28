@@ -27,30 +27,30 @@
     off.width = off.height = size;
     var octx = off.getContext("2d");
     var g = octx.createRadialGradient(glowPx, glowPx, 0, glowPx, glowPx, glowPx);
-    g.addColorStop(0, "rgba(" + color[0] + "," + color[1] + "," + color[2] + ",0.9)");
-    g.addColorStop(0.35, "rgba(" + color[0] + "," + color[1] + "," + color[2] + ",0.35)");
+    g.addColorStop(0, "rgba(" + color[0] + "," + color[1] + "," + color[2] + ",1)");
+    g.addColorStop(0.4, "rgba(" + color[0] + "," + color[1] + "," + color[2] + ",0.55)");
     g.addColorStop(1, "rgba(" + color[0] + "," + color[1] + "," + color[2] + ",0)");
     octx.fillStyle = g;
     octx.fillRect(0, 0, size, size);
     return off;
   }
 
-  var redSprite = sprite(RED, 22);
-  var whiteSprite = sprite(WHITE, 10);
+  var redSprite = sprite(RED, 30);
+  var whiteSprite = sprite(WHITE, 16);
 
   function makeParticle() {
-    var isEmber = Math.random() < 0.16;
+    var isEmber = Math.random() < 0.24;
     return {
       x: Math.random() * w,
       y: Math.random() * h + h * 0.1,
       r: isEmber ? 2 + Math.random() * 2.2 : 0.6 + Math.random() * 1.1,
       sprite: isEmber ? redSprite : whiteSprite,
-      glow: isEmber ? 22 : 10,
+      glow: isEmber ? 30 : 16,
       speed: isEmber ? 8 + Math.random() * 10 : 4 + Math.random() * 8,
       drift: (Math.random() - 0.5) * 10,
       sway: Math.random() * Math.PI * 2,
       swaySpeed: 0.15 + Math.random() * 0.25,
-      alpha: isEmber ? 0.55 + Math.random() * 0.35 : 0.12 + Math.random() * 0.22
+      alpha: isEmber ? 0.75 + Math.random() * 0.25 : 0.32 + Math.random() * 0.3
     };
   }
 
@@ -63,7 +63,7 @@
     canvas.style.height = h + "px";
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-    var density = Math.min(70, Math.max(24, Math.round((w * h) / 26000)));
+    var density = Math.min(110, Math.max(40, Math.round((w * h) / 16000)));
     particles = [];
     for (var i = 0; i < density; i++) particles.push(makeParticle());
   }

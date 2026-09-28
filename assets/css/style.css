@@ -328,10 +328,10 @@ p:last-child {
   overflow: hidden;
   background: radial-gradient(
       120% 90% at 62% 30%,
-      rgba(69, 70, 78, 0.92) 0%,
-      rgba(38, 39, 45, 0.92) 34%,
-      rgba(19, 20, 24, 0.92) 66%,
-      rgba(10, 10, 12, 0.92) 100%
+      rgba(69, 70, 78, 0.76) 0%,
+      rgba(38, 39, 45, 0.76) 34%,
+      rgba(19, 20, 24, 0.76) 66%,
+      rgba(10, 10, 12, 0.76) 100%
     );
 }
 
@@ -687,15 +687,15 @@ p:last-child {
 .section {
   padding: 110px 0;
   position: relative;
-  background: rgba(10, 10, 12, 0.9);
+  background: rgba(10, 10, 12, 0.76);
 }
 
 .section-alt {
   background: linear-gradient(
     180deg,
-    rgba(10, 10, 12, 0.9),
-    rgba(15, 16, 19, 0.9) 40%,
-    rgba(10, 10, 12, 0.9)
+    rgba(10, 10, 12, 0.76),
+    rgba(15, 16, 19, 0.76) 40%,
+    rgba(10, 10, 12, 0.76)
   );
 }
 
@@ -1043,9 +1043,9 @@ p:last-child {
   padding: 110px 0;
   background: radial-gradient(
     100% 120% at 50% 0%,
-    rgba(52, 53, 60, 0.9) 0%,
-    rgba(23, 24, 28, 0.9) 45%,
-    rgba(10, 10, 12, 0.9) 100%
+    rgba(52, 53, 60, 0.76) 0%,
+    rgba(23, 24, 28, 0.76) 45%,
+    rgba(10, 10, 12, 0.76) 100%
   );
   border-top: 1px solid var(--line);
   text-align: center;
@@ -1075,7 +1075,7 @@ p:last-child {
 
 .site-footer {
   border-top: 1px solid var(--line);
-  background: rgba(10, 10, 12, 0.92);
+  background: rgba(10, 10, 12, 0.8);
   padding: 40px 0;
 }
 

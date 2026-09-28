@@ -23,8 +23,8 @@
   .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
   a{color:inherit;text-decoration:none}
   h1,h2,h3{margin:0;line-height:1.08;letter-spacing:-.03em;font-weight:800}
-  section{padding:100px 0;position:relative;background:rgba(10,10,12,.9)}
-  .section-alt{background:linear-gradient(180deg,rgba(10,10,12,.9),rgba(15,16,19,.9) 40%,rgba(10,10,12,.9))}
+  section{padding:100px 0;position:relative;background:rgba(10,10,12,.76)}
+  .section-alt{background:linear-gradient(180deg,rgba(10,10,12,.76),rgba(15,16,19,.76) 40%,rgba(10,10,12,.76))}
 
   /* Ambient background: fixed canvas painted by the inline script below,
      sitting behind every section. Sections use translucent backgrounds so
@@ -45,7 +45,7 @@
 
   /* ---------- hero ---------- */
   .hero{position:relative;overflow:hidden;padding:172px 0 76px;
-    background:radial-gradient(120% 90% at 62% 30%,rgba(69,70,78,.92) 0%,rgba(38,39,45,.92) 34%,rgba(19,20,24,.92) 66%,rgba(10,10,12,.92) 100%)}
+    background:radial-gradient(120% 90% at 62% 30%,rgba(69,70,78,.76) 0%,rgba(38,39,45,.76) 34%,rgba(19,20,24,.76) 66%,rgba(10,10,12,.76) 100%)}
   .hero::before,.hero::after{content:"";position:absolute;top:0;bottom:0;width:18px;
     background:linear-gradient(180deg,var(--red-deep),var(--red),var(--red-deep));z-index:2}
   .hero::before{left:0} .hero::after{right:0}
@@ -159,7 +159,7 @@
   @keyframes slide{to{transform:translateX(-50%)}}
 
   /* ---------- stats ---------- */
-  .stats{background:rgba(20,21,25,.9);border-bottom:1px solid var(--line)}
+  .stats{background:rgba(20,21,25,.76);border-bottom:1px solid var(--line)}
   .stats .wrap{display:flex;flex-wrap:wrap;gap:14px 48px;justify-content:center;padding:26px 24px}
   .stat{text-align:center;min-width:110px}
   .stat b{display:block;font-size:28px;font-weight:900;color:var(--red);line-height:1.1}
@@ -198,7 +198,7 @@
     text-align:center;color:var(--muted);margin-top:36px}
 
   /* ---------- alt-store banner ---------- */
-  .altstore{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(15,16,19,.9)}
+  .altstore{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(15,16,19,.76)}
   .altstore .wrap{padding:26px 24px;text-align:center;font-size:1rem;color:var(--muted)}
   .altstore a{color:var(--red-bright);font-weight:700}
   .altstore a:hover{text-decoration:underline}
@@ -221,13 +221,13 @@
 
   /* ---------- contact ---------- */
   .contact{padding:100px 0;text-align:center;border-top:1px solid var(--line);
-    background:radial-gradient(100% 120% at 50% 0%,rgba(52,53,60,.9) 0%,rgba(23,24,28,.9) 45%,rgba(10,10,12,.9) 100%)}
+    background:radial-gradient(100% 120% at 50% 0%,rgba(52,53,60,.76) 0%,rgba(23,24,28,.76) 45%,rgba(10,10,12,.76) 100%)}
   .contact h2{font-size:clamp(2rem,4.6vw,3.1rem);margin-bottom:16px}
   .contact p{color:var(--muted);max-width:56ch;margin:0 auto 30px;font-size:1.05rem}
   .contact .cta-row{justify-content:center;margin-bottom:0}
 
   /* ---------- footer ---------- */
-  footer{border-top:1px solid var(--line);background:rgba(10,10,12,.92);padding:36px 0}
+  footer{border-top:1px solid var(--line);background:rgba(10,10,12,.8);padding:36px 0}
   footer .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;
     color:var(--dim);font-size:14px}
   .footer-brand{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--muted)}
@@ -258,29 +258,29 @@
     off.width = off.height = size;
     var octx = off.getContext("2d");
     var g = octx.createRadialGradient(glowPx, glowPx, 0, glowPx, glowPx, glowPx);
-    g.addColorStop(0, "rgba(" + color[0] + "," + color[1] + "," + color[2] + ",0.9)");
-    g.addColorStop(0.35, "rgba(" + color[0] + "," + color[1] + "," + color[2] + ",0.35)");
+    g.addColorStop(0, "rgba(" + color[0] + "," + color[1] + "," + color[2] + ",1)");
+    g.addColorStop(0.4, "rgba(" + color[0] + "," + color[1] + "," + color[2] + ",0.55)");
     g.addColorStop(1, "rgba(" + color[0] + "," + color[1] + "," + color[2] + ",0)");
     octx.fillStyle = g;
     octx.fillRect(0, 0, size, size);
     return off;
   }
 
-  var redSprite = sprite(RED, 22);
-  var whiteSprite = sprite(WHITE, 10);
+  var redSprite = sprite(RED, 30);
+  var whiteSprite = sprite(WHITE, 16);
 
   function makeParticle() {
-    var isEmber = Math.random() < 0.16;
+    var isEmber = Math.random() < 0.24;
     return {
       x: Math.random() * w,
       y: Math.random() * h + h * 0.1,
       sprite: isEmber ? redSprite : whiteSprite,
-      glow: isEmber ? 22 : 10,
+      glow: isEmber ? 30 : 16,
       speed: isEmber ? 8 + Math.random() * 10 : 4 + Math.random() * 8,
       drift: (Math.random() - 0.5) * 10,
       sway: Math.random() * Math.PI * 2,
       swaySpeed: 0.15 + Math.random() * 0.25,
-      alpha: isEmber ? 0.55 + Math.random() * 0.35 : 0.12 + Math.random() * 0.22
+      alpha: isEmber ? 0.75 + Math.random() * 0.25 : 0.32 + Math.random() * 0.3
     };
   }
 
@@ -292,7 +292,7 @@
     canvas.style.width = w + "px";
     canvas.style.height = h + "px";
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    var density = Math.min(70, Math.max(24, Math.round((w * h) / 26000)));
+    var density = Math.min(110, Math.max(40, Math.round((w * h) / 16000)));
     particles = [];
     for (var i = 0; i < density; i++) particles.push(makeParticle());
   }
