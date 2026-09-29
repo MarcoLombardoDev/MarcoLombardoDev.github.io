@@ -42,7 +42,7 @@
       isEmber: isEmber,
       length: isEmber ? 24 + Math.random() * 16 : 17 + Math.random() * 15,
       thickness: isEmber ? 3.2 + Math.random() * 1.8 : 2.4 + Math.random() * 1.3,
-      speed: isEmber ? 95 + Math.random() * 70 : 65 + Math.random() * 95,
+      speed: isEmber ? 65 + Math.random() * 50 : 45 + Math.random() * 65,
       alpha: isEmber ? 0.7 + Math.random() * 0.3 : 0.24 + Math.random() * 0.3
     };
     if (anywhere) {
