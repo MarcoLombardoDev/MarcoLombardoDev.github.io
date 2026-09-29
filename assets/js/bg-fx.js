@@ -1,5 +1,5 @@
-/* Ambient background: slow-drifting embers on a dark field.
-   Vanilla canvas, no dependency. Pauses for prefers-reduced-motion
+/* Ambient background: rain-like streaks falling down-right on a dark
+   field. Vanilla canvas, no dependency. Pauses for prefers-reduced-motion
    and while the tab is hidden. */
 (function () {
   "use strict";
@@ -18,40 +18,51 @@
   var running = true;
   var rafId = null;
 
-  var RED = [232, 17, 45];
-  var WHITE = [244, 244, 246];
+  /* Fall direction: mostly down, leaning right. */
+  var TILT = (24 * Math.PI) / 180;
+  var DIR_X = Math.sin(TILT);
+  var DIR_Y = Math.cos(TILT);
+  var ROTATION = Math.atan2(DIR_Y, DIR_X);
 
-  function sprite(color, glowPx) {
-    var size = glowPx * 2;
-    var off = document.createElement("canvas");
-    off.width = off.height = size;
-    var octx = off.getContext("2d");
-    var g = octx.createRadialGradient(glowPx, glowPx, 0, glowPx, glowPx, glowPx);
-    g.addColorStop(0, "rgba(" + color[0] + "," + color[1] + "," + color[2] + ",1)");
-    g.addColorStop(0.4, "rgba(" + color[0] + "," + color[1] + "," + color[2] + ",0.55)");
-    g.addColorStop(1, "rgba(" + color[0] + "," + color[1] + "," + color[2] + ",0)");
-    octx.fillStyle = g;
-    octx.fillRect(0, 0, size, size);
-    return off;
+  function drawStreak(length, thickness) {
+    var half = length / 2;
+    var r = thickness / 2;
+    ctx.beginPath();
+    if (ctx.roundRect) {
+      ctx.roundRect(-half, -r, length, thickness, r);
+    } else {
+      ctx.rect(-half, -r, length, thickness);
+    }
+    ctx.fill();
   }
 
-  var redSprite = sprite(RED, 30);
-  var whiteSprite = sprite(WHITE, 16);
-
-  function makeParticle() {
-    var isEmber = Math.random() < 0.24;
-    return {
-      x: Math.random() * w,
-      y: Math.random() * h + h * 0.1,
-      r: isEmber ? 2 + Math.random() * 2.2 : 0.6 + Math.random() * 1.1,
-      sprite: isEmber ? redSprite : whiteSprite,
-      glow: isEmber ? 30 : 16,
-      speed: isEmber ? 8 + Math.random() * 10 : 4 + Math.random() * 8,
-      drift: (Math.random() - 0.5) * 10,
-      sway: Math.random() * Math.PI * 2,
-      swaySpeed: 0.15 + Math.random() * 0.25,
-      alpha: isEmber ? 0.75 + Math.random() * 0.25 : 0.32 + Math.random() * 0.3
+  function makeParticle(anywhere) {
+    var isEmber = Math.random() < 0.22;
+    var p = {
+      isEmber: isEmber,
+      length: isEmber ? 24 + Math.random() * 16 : 17 + Math.random() * 15,
+      thickness: isEmber ? 3.2 + Math.random() * 1.8 : 2.4 + Math.random() * 1.3,
+      speed: isEmber ? 95 + Math.random() * 70 : 65 + Math.random() * 95,
+      alpha: isEmber ? 0.7 + Math.random() * 0.3 : 0.24 + Math.random() * 0.3
     };
+    if (anywhere) {
+      p.x = Math.random() * (w + 240) - 120;
+      p.y = Math.random() * (h + 240) - 120;
+    } else {
+      respawn(p);
+    }
+    return p;
+  }
+
+  function respawn(p) {
+    var margin = p.length + p.thickness;
+    if (Math.random() < 0.5) {
+      p.x = Math.random() * w;
+      p.y = -margin;
+    } else {
+      p.x = -margin;
+      p.y = Math.random() * h;
+    }
   }
 
   function resize() {
@@ -65,7 +76,7 @@
 
     var density = Math.min(110, Math.max(40, Math.round((w * h) / 16000)));
     particles = [];
-    for (var i = 0; i < density; i++) particles.push(makeParticle());
+    for (var i = 0; i < density; i++) particles.push(makeParticle(true));
   }
 
   var last = performance.now();
@@ -79,17 +90,19 @@
 
     for (var i = 0; i < particles.length; i++) {
       var p = particles[i];
-      p.y -= p.speed * dt;
-      p.sway += p.swaySpeed * dt;
-      var x = p.x + Math.sin(p.sway) * p.drift;
+      p.x += DIR_X * p.speed * dt;
+      p.y += DIR_Y * p.speed * dt;
 
-      if (p.y < -p.glow) {
-        p.y = h + p.glow;
-        p.x = Math.random() * w;
-      }
+      var margin = p.length + p.thickness;
+      if (p.x - margin > w || p.y - margin > h) respawn(p);
 
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(ROTATION);
       ctx.globalAlpha = p.alpha;
-      ctx.drawImage(p.sprite, x - p.glow, p.y - p.glow, p.glow * 2, p.glow * 2);
+      ctx.fillStyle = p.isEmber ? "rgb(232, 17, 45)" : "rgb(244, 244, 246)";
+      drawStreak(p.length, p.thickness);
+      ctx.restore();
     }
     ctx.globalAlpha = 1;
 
