@@ -11,7 +11,7 @@
     --ease:cubic-bezier(.22,1,.36,1);
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth;scroll-padding-top:92px;overscroll-behavior-y:contain}
+  html{scroll-behavior:smooth;scroll-padding-top:92px}
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto}
     *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
@@ -19,7 +19,7 @@
   }
   body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
        background:var(--ink);color:var(--text);line-height:1.65;font-size:17px;letter-spacing:-.01em;
-       -webkit-font-smoothing:antialiased;overscroll-behavior-y:contain}
+       -webkit-font-smoothing:antialiased}
   .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
   a{color:inherit;text-decoration:none}
   h1,h2,h3{margin:0;line-height:1.08;letter-spacing:-.03em;font-weight:800}
@@ -134,8 +134,13 @@
     .nav-toggle{display:grid}
     .nav{position:absolute;top:76px;left:0;right:0;flex-direction:column;align-items:stretch;gap:2px;
       padding:18px 24px 26px;background:rgba(10,10,12,.97);backdrop-filter:blur(16px);
-      border-bottom:1px solid var(--line);transform:translateY(-140%);transition:transform .4s var(--ease)}
-    .nav-open .nav{transform:none}
+      border-bottom:1px solid var(--line);
+      /* closed = invisible, not parked above the header: an off-screen panel shows
+         through the elastic bounce when pulling down to refresh on mobile */
+      opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-12px);
+      transition:transform .4s var(--ease),opacity .3s,visibility 0s .4s}
+    .nav-open .nav{opacity:1;visibility:visible;pointer-events:auto;transform:none;
+      transition:transform .4s var(--ease),opacity .3s,visibility 0s}
     .nav-open .site-header{background:rgba(10,10,12,.97);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
     .nav a{padding:14px 12px;font-size:16px;border-radius:12px}
   }
