@@ -86,9 +86,17 @@
     };
   }
 
+  /* Resizing only adapts the canvas and tops up the shape count: on mobile the
+     address bar showing/hiding while scrolling fires resize constantly, and
+     rebuilding the shapes there made the background jump around. */
   function resize() {
-    w = window.innerWidth;
-    h = window.innerHeight;
+    var nw = window.innerWidth;
+    var nh = window.innerHeight;
+    var first = shapes.length === 0;
+    if (!first && nw === w && nh === h) return;
+
+    w = nw;
+    h = nh;
     canvas.width = w * dpr;
     canvas.height = h * dpr;
     canvas.style.width = w + "px";
@@ -96,10 +104,7 @@
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
     baseCount = Math.min(34, Math.max(14, Math.round((w * h) / 55000)));
-    shapes = [];
-    links = [];
-    linked = {};
-    for (var i = 0; i < baseCount; i++) shapes.push(makeShape());
+    while (shapes.length < baseCount) shapes.push(makeShape());
   }
 
   function pairKey(a, b) {
