@@ -11,7 +11,7 @@
     --ease:cubic-bezier(.22,1,.36,1);
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth;scroll-padding-top:92px}
+  html{scroll-behavior:smooth;scroll-padding-top:92px;overscroll-behavior-y:none}
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto}
     *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
@@ -239,6 +239,17 @@
 
   @media(max-width:980px){ .hero{padding-top:130px} .wrap{padding:0 20px} }
   @media(max-width:700px){ .hero{padding:130px 0 56px} section{padding:64px 0} .contact{padding:70px 0} .hero::before,.hero::after{width:10px} }
+
+  /* ---------- pull to refresh ----------
+     Inside Gumroad's iframe the native gesture never reaches the browser (the
+     bounce is swallowed by the embedded page), so the page handles it itself. */
+  .ptr{position:fixed;top:0;left:50%;z-index:200;width:38px;height:38px;margin-left:-19px;border-radius:50%;
+    background:rgba(20,21,25,.96);border:1px solid var(--line-strong);box-shadow:var(--shadow);
+    display:grid;place-items:center;opacity:0;pointer-events:none;transform:translateY(-50px)}
+  .ptr::before{content:"";width:16px;height:16px;border-radius:50%;border:2px solid var(--line-strong);
+    border-top-color:var(--red-bright)}
+  .ptr.is-loading::before{animation:spin .8s linear infinite}
+  .ptr.is-snapping{transition:transform .25s var(--ease),opacity .25s}
 </style>
 
 <canvas class="bg-fx" aria-hidden="true"></canvas>
@@ -1001,5 +1012,63 @@
   } else {
     document.querySelectorAll(".reveal").forEach(function(n){ n.classList.add("in"); });
   }
+})();
+</script>
+
+<script>
+/* Pull to refresh (touch only): pulling down from the very top reloads the page. */
+(function () {
+  "use strict";
+  if (!("ontouchstart" in window)) return;
+
+  var THRESHOLD = 70, MAX = 110;
+  var el = document.createElement("div");
+  el.className = "ptr";
+  el.setAttribute("aria-hidden", "true");
+  document.body.appendChild(el);
+
+  var startY = null, pull = 0, loading = false;
+
+  function top() { return window.pageYOffset || document.documentElement.scrollTop || 0; }
+
+  function paint(p, snap) {
+    el.classList.toggle("is-snapping", !!snap);
+    el.style.opacity = Math.min(1, p / THRESHOLD);
+    el.style.transform = "translateY(" + (p - 50 + 12) + "px) rotate(" + (p * 4) + "deg)";
+  }
+
+  function reset() { startY = null; pull = 0; paint(0, true); }
+
+  document.addEventListener("touchstart", function (e) {
+    if (loading || e.touches.length !== 1 || top() > 0 || document.body.classList.contains("nav-open")) { startY = null; return; }
+    startY = e.touches[0].clientY;
+    pull = 0;
+    el.classList.remove("is-snapping");
+  }, { passive: true });
+
+  document.addEventListener("touchmove", function (e) {
+    if (startY === null || loading) return;
+    if (top() > 0) { reset(); return; }
+    var dy = e.touches[0].clientY - startY;
+    if (dy <= 0) { pull = 0; paint(0); return; }
+    pull = Math.min(MAX, dy * 0.5);
+    paint(pull);
+  }, { passive: true });
+
+  function release() {
+    if (startY === null || loading) return;
+    if (pull >= THRESHOLD) {
+      loading = true;
+      el.classList.add("is-loading");
+      paint(THRESHOLD, true);
+      setTimeout(function () {
+        try { window.top.location.reload(); } catch (err) { window.location.reload(); }
+      }, 250);
+    } else {
+      reset();
+    }
+  }
+  document.addEventListener("touchend", release, { passive: true });
+  document.addEventListener("touchcancel", reset, { passive: true });
 })();
 </script>
