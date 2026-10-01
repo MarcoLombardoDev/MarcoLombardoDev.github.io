@@ -1,0 +1,86 @@
+name: Inspect live Gumroad page (temporary diagnostic)
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Playwright
+        run: |
+          npm init -y >/dev/null
+          npm install playwright@1 >/dev/null
+          npx playwright install --with-deps chromium
+
+      - name: Inspect scrolling structure on a mobile viewport
+        run: |
+          cat > inspect.mjs <<'EOF'
+          import { chromium } from 'playwright';
+          const browser = await chromium.launch();
+          const ctx = await browser.newContext({ viewport: { width: 412, height: 800 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2 });
+          const page = await ctx.newPage();
+          await page.goto('https://marcolombardo.gumroad.com', { waitUntil: 'networkidle', timeout: 45000 });
+          await page.waitForTimeout(2500);
+
+          console.log('--- outer document ---');
+          console.log(JSON.stringify(await page.evaluate(() => ({
+            innerHeight: innerHeight,
+            scrollHeight: document.documentElement.scrollHeight,
+            bodyScrollHeight: document.body.scrollHeight,
+            htmlOverflow: getComputedStyle(document.documentElement).overflow,
+            bodyOverflow: getComputedStyle(document.body).overflow,
+            scrollingElement: document.scrollingElement && document.scrollingElement.tagName
+          })), null, 2));
+
+          console.log('--- iframes in outer document ---');
+          console.log(JSON.stringify(await page.evaluate(() => Array.from(document.querySelectorAll('iframe')).map(f => {
+            const r = f.getBoundingClientRect();
+            const chain = [];
+            for (let e = f.parentElement; e && e !== document.documentElement; e = e.parentElement) {
+              const c = getComputedStyle(e);
+              chain.push({ tag: e.tagName.toLowerCase(), cls: String(e.className).slice(0, 60), h: Math.round(e.getBoundingClientRect().height), overflowY: c.overflowY, position: c.position, height: c.height });
+            }
+            return {
+              src: f.src, widthAttr: f.getAttribute('width'), heightAttr: f.getAttribute('height'),
+              scrolling: f.getAttribute('scrolling'), sandbox: f.getAttribute('sandbox'), style: f.getAttribute('style'),
+              rect: { top: Math.round(r.top), height: Math.round(r.height), width: Math.round(r.width) },
+              parentChain: chain
+            };
+          })), null, 2));
+
+          const inner = page.frames().find(f => f.url().includes('/landing/embed'));
+          if (inner) {
+            console.log('--- inner /landing/embed document ---');
+            console.log(JSON.stringify(await inner.evaluate(() => ({
+              innerHeight: innerHeight,
+              clientHeight: document.documentElement.clientHeight,
+              scrollHeight: document.documentElement.scrollHeight,
+              internallyScrollable: document.documentElement.scrollHeight > document.documentElement.clientHeight + 1
+            })), null, 2));
+          } else {
+            console.log('inner /landing/embed frame not found; frames:', page.frames().map(f => f.url()));
+          }
+
+          console.log('--- which scroller moves on a touch swipe up ---');
+          const cdp = await ctx.newCDPSession(page);
+          async function swipeUp() {
+            const pts = y => [{ x: 206, y }];
+            await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: pts(650) });
+            for (let i = 1; i <= 12; i++) { await cdp.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: pts(650 - i * 40) }); await page.waitForTimeout(16); }
+            await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+            await page.waitForTimeout(700);
+          }
+          await swipeUp();
+          console.log(JSON.stringify({
+            outerScrollY: await page.evaluate(() => Math.round(window.scrollY)),
+            innerScrollY: inner ? await inner.evaluate(() => Math.round(window.scrollY)) : null
+          }, null, 2));
+          await browser.close();
+          EOF
+          node inspect.mjs
