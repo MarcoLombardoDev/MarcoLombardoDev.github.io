@@ -273,8 +273,10 @@
 
   var ctx = canvas.getContext("2d");
   var dpr = Math.min(window.devicePixelRatio || 1, 2);
-  var w = 0;
+  var w = 0; /* world size the shapes live in (the canvas is this big) */
   var h = 0;
+  var vw = 0; /* last seen viewport size */
+  var vh = 0;
   var shapes = [];
   var links = [];
   var linked = {};
@@ -344,25 +346,37 @@
     };
   }
 
-  /* Resizing only adapts the canvas and tops up the shape count: on mobile the
-     address bar showing/hiding while scrolling fires resize constantly, and
-     rebuilding the shapes there made the background jump around. */
+  /* On mobile the address bar showing/hiding while scrolling changes the
+     viewport height continuously. Shapes must not react to that: the world
+     only ever grows for height-only changes (shapes near the bottom stay put,
+     merely hidden while the bar is out), and the canvas is redrawn at once so
+     it never flashes blank. A real width change starts a new world size. */
   function resize() {
     var nw = window.innerWidth;
     var nh = window.innerHeight;
     var first = shapes.length === 0;
-    if (!first && nw === w && nh === h) return;
+    if (!first && nw === vw && nh === vh) return;
+    vw = nw;
+    vh = nh;
 
-    w = nw;
-    h = nh;
-    canvas.width = w * dpr;
-    canvas.height = h * dpr;
-    canvas.style.width = w + "px";
-    canvas.style.height = h + "px";
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    if (first || nw !== w) {
+      w = nw;
+      h = nh;
+    } else if (nh > h) {
+      h = nh;
+    }
+
+    if (canvas.width !== w * dpr || canvas.height !== h * dpr) {
+      canvas.width = w * dpr;
+      canvas.height = h * dpr;
+      canvas.style.width = w + "px";
+      canvas.style.height = h + "px";
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
 
     baseCount = Math.min(34, Math.max(14, Math.round((w * h) / 55000)));
     while (shapes.length < baseCount) shapes.push(makeShape());
+    if (!first) draw();
   }
 
   function pairKey(a, b) {
@@ -429,8 +443,6 @@
     if (!running) return;
     var dt = Math.min(0.05, (now - last) / 1000);
     last = now;
-
-    ctx.clearRect(0, 0, w, h);
 
     var i;
     var j;
@@ -505,6 +517,16 @@
       else if (s.y > h + m) s.y = -m;
     }
 
+    draw();
+    rafId = requestAnimationFrame(tick);
+  }
+
+  function draw() {
+    var i;
+    var l;
+
+    ctx.clearRect(0, 0, w, h);
+
     /* ties, drawn a bit stronger and brighter the more they are stretched */
     ctx.lineWidth = 1.5;
     ctx.strokeStyle = "rgb(244, 244, 246)";
@@ -538,8 +560,6 @@
 
     for (i = 0; i < shapes.length; i++) drawShape(shapes[i]);
     ctx.globalAlpha = 1;
-
-    rafId = requestAnimationFrame(tick);
   }
 
   function start() {
@@ -574,11 +594,7 @@
     while (shapes.length > baseCount + 12) shapes.shift().dead = true;
   });
 
-  var resizeTimer = null;
-  window.addEventListener("resize", function () {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(resize, 150);
-  });
+  window.addEventListener("resize", resize);
 
   resize();
   start();
