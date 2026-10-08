@@ -1387,6 +1387,51 @@ p:last-child {
   }
 }
 
+/* long-form legal text (app privacy policies) */
+.policy {
+  max-width: 72ch;
+}
+
+.policy h2 {
+  margin: 44px 0 14px;
+  font-size: 1.3rem;
+  letter-spacing: -0.02em;
+}
+
+.policy h2:first-child {
+  margin-top: 0;
+}
+
+.policy ul {
+  margin: 0 0 1em;
+  padding-left: 1.2em;
+  color: var(--muted);
+  font-size: 1.06rem;
+}
+
+.policy li {
+  margin-bottom: 0.5em;
+}
+
+.policy code {
+  padding: 1px 6px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  font-size: 0.9em;
+}
+
+.policy a {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.policy a:hover {
+  color: var(--red-bright);
+}
+
 /* disabled store button ("coming soon") */
 .btn:disabled {
   border-style: dashed;

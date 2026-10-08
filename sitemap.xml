@@ -92,6 +92,24 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://marcolombardodev.github.io/it/progetti/space-warfront/privacy/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://marcolombardodev.github.io/it/progetti/space-warfront/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marcolombardodev.github.io/en/projects/space-warfront/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://marcolombardodev.github.io/it/progetti/space-warfront/privacy/"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://marcolombardodev.github.io/en/projects/space-warfront/privacy/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marcolombardodev.github.io/en/projects/space-warfront/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://marcolombardodev.github.io/it/progetti/space-warfront/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://marcolombardodev.github.io/it/progetti/space-warfront/privacy/"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://marcolombardodev.github.io/it/progetti/argus/</loc>
     <lastmod>2026-09-14</lastmod>
     <xhtml:link rel="alternate" hreflang="it" href="https://marcolombardodev.github.io/it/progetti/argus/"/>
