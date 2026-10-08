@@ -74,6 +74,24 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://marcolombardodev.github.io/it/progetti/space-warfront/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://marcolombardodev.github.io/it/progetti/space-warfront/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marcolombardodev.github.io/en/projects/space-warfront/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://marcolombardodev.github.io/it/progetti/space-warfront/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://marcolombardodev.github.io/en/projects/space-warfront/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marcolombardodev.github.io/en/projects/space-warfront/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://marcolombardodev.github.io/it/progetti/space-warfront/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://marcolombardodev.github.io/it/progetti/space-warfront/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://marcolombardodev.github.io/it/progetti/argus/</loc>
     <lastmod>2026-09-14</lastmod>
     <xhtml:link rel="alternate" hreflang="it" href="https://marcolombardodev.github.io/it/progetti/argus/"/>

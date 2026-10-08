@@ -184,4 +184,80 @@
       });
     }
   }
+
+  /* ------------------------------------------------------------- Lightbox
+     Click a screenshot to see it full size; arrows, Esc and a click outside
+     the image work too. Without <dialog> support the link simply opens the
+     image. */
+  var shotLinks = Array.prototype.slice.call(
+    document.querySelectorAll("a[data-lightbox]")
+  );
+
+  if (shotLinks.length && typeof HTMLDialogElement === "function") {
+    var labels =
+      pageLang === "it"
+        ? { close: "Chiudi", prev: "Immagine precedente", next: "Immagine successiva" }
+        : { close: "Close", prev: "Previous image", next: "Next image" };
+
+    var box = document.createElement("dialog");
+    box.className = "lightbox";
+    box.setAttribute("aria-label", labels.close);
+    box.innerHTML =
+      '<div class="lightbox-stage"><img alt=""></div>' +
+      '<p class="lightbox-caption"></p>' +
+      '<button type="button" class="lightbox-btn lightbox-close" aria-label="' + labels.close + '">&times;</button>' +
+      '<button type="button" class="lightbox-btn lightbox-prev" aria-label="' + labels.prev + '">&#8249;</button>' +
+      '<button type="button" class="lightbox-btn lightbox-next" aria-label="' + labels.next + '">&#8250;</button>';
+    document.body.appendChild(box);
+
+    var boxImg = box.querySelector("img");
+    var boxCap = box.querySelector(".lightbox-caption");
+    var group = [];
+    var current = 0;
+
+    var show = function (i) {
+      current = (i + group.length) % group.length;
+      var link = group[current];
+      var thumb = link.querySelector("img");
+      boxImg.src = link.getAttribute("href");
+      boxImg.alt = thumb ? thumb.alt : "";
+      boxCap.textContent = thumb ? thumb.alt : "";
+      var many = group.length > 1;
+      box.querySelector(".lightbox-prev").hidden = !many;
+      box.querySelector(".lightbox-next").hidden = !many;
+    };
+
+    shotLinks.forEach(function (link) {
+      link.addEventListener("click", function (e) {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
+        e.preventDefault();
+        var name = link.getAttribute("data-lightbox");
+        group = shotLinks.filter(function (l) {
+          return l.getAttribute("data-lightbox") === name;
+        });
+        box.showModal();
+        show(group.indexOf(link));
+      });
+    });
+
+    box.querySelector(".lightbox-close").addEventListener("click", function () {
+      box.close();
+    });
+    box.querySelector(".lightbox-prev").addEventListener("click", function () {
+      show(current - 1);
+    });
+    box.querySelector(".lightbox-next").addEventListener("click", function () {
+      show(current + 1);
+    });
+    box.addEventListener("click", function (e) {
+      if (e.target === box || e.target.classList.contains("lightbox-stage")) box.close();
+    });
+    box.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") show(current - 1);
+      else if (e.key === "ArrowRight") show(current + 1);
+    });
+    box.addEventListener("close", function () {
+      boxImg.removeAttribute("src");
+    });
+  }
 })();

@@ -43,7 +43,7 @@ A serial builder who ships, not just one who talks: the claim is backed by the p
 
 ## Evidence on Hand
 
-Real, currently-live projects, each with its own detail page: **Repetita** (startup, AI exam-prep app), **Okkupa** (startup, workplace booking), **Argus** (AGPL desktop crypto-forecasting tool), **Orion** (AGPL desktop PDF editor), **Iris** (AGPL desktop mail-merge tool), **Proteus** (AGPL desktop bulk asset-replacement tool), **P7M Manager** (AGPL desktop `.p7m` signature tool), **Tyche** (AGPL SuperEnalotto backtest tool), **Studio Urbani** (client institutional website, live at studiourbani.it), and a Gumroad shop of books, guides and AI toolkits.
+Real, currently-live projects, each with its own detail page: **Repetita** (startup, AI exam-prep app), **Okkupa** (startup, workplace booking), **Space Warfront** (real-time space-strategy game for Android; the Google Play release is pending, so the page shows a disabled "coming soon" button), **Argus** (AGPL desktop crypto-forecasting tool), **Orion** (AGPL desktop PDF editor), **Iris** (AGPL desktop mail-merge tool), **Proteus** (AGPL desktop bulk asset-replacement tool), **P7M Manager** (AGPL desktop `.p7m` signature tool), **Tyche** (AGPL SuperEnalotto backtest tool), **Studio Urbani** (client institutional website, live at studiourbani.it), and a Gumroad shop of books, guides and AI toolkits.
 
 No testimonials, press mentions, customer logos, or case-study metrics exist anywhere in the current content. Future work must not invent them.
 
