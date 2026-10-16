@@ -1414,6 +1414,7 @@ p:last-child {
 }
 
 .policy code {
+  overflow-wrap: anywhere;
   padding: 1px 6px;
   border: 1px solid var(--line);
   border-radius: 6px;
