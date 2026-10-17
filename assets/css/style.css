@@ -619,9 +619,8 @@ p:last-child {
   gap: 10px;
   padding: 11px 18px;
   border-radius: 999px;
-  background: rgba(252, 252, 246, 0.94);
+  background: #fcfcf6;
   border: 1px solid var(--line-strong);
-  backdrop-filter: blur(10px);
   font-size: 13px;
   font-weight: 700;
   white-space: nowrap;
@@ -638,7 +637,7 @@ p:last-child {
   left: 50%;
   width: 13px;
   height: 13px;
-  background: rgba(252, 252, 246, 0.98);
+  background: #fcfcf6;
   border-left: 1px solid var(--line-strong);
   border-top: 1px solid var(--line-strong);
   border-radius: 3px 0 0 0;
