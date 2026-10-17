@@ -1,0 +1,26 @@
+name: Upload books.html images to the Gumroad media library
+
+# Gumroad pages may only show images hosted on Gumroad's public CDN, so the
+# images books.html needs are uploaded here and their URLs pasted into the page.
+on:
+  workflow_dispatch: {}
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Gumroad CLI
+        run: curl -fsSL https://gumroad.com/install-cli.sh | bash
+      - name: Upload
+        env:
+          GUMROAD_ACCESS_TOKEN: ${{ secrets.GUMROAD_ACCESS_TOKEN }}
+        run: |
+          export PATH="$HOME/.local/bin:$PATH"
+          up() { echo "=== $2"; gumroad media upload "$1" --name "$2" --json; }
+          up assets/img/logo-ml.png "ML logo"
+          up assets/img/marco-portrait.jpg "Marco portrait"
+          up assets/img/gumroad/header-bg-1920.jpg "ML hero banner"
+          up assets/img/gumroad/header-bg-1280.jpg "ML hero banner 1280"
+          echo "=== library"
+          gumroad media list --json
