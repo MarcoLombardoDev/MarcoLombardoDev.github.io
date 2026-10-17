@@ -1085,20 +1085,9 @@ p:last-child {
    -------------------------------------------------------------------------- */
 
 .site-footer {
-  --text: #f2f1e0;
-  --muted: #d4d5c2;
-  --dim: #b9bcab;
-  --line: rgba(242, 241, 224, 0.16);
-  --line-strong: rgba(242, 241, 224, 0.3);
-  --wash: rgba(242, 241, 224, 0.07);
-  --wash-2: rgba(242, 241, 224, 0.12);
-  border-top: 1px solid var(--charcoal);
-  background: var(--charcoal);
+  border-top: 1px solid var(--line);
+  background: rgba(228, 233, 214, 0.92);
   padding: 40px 0;
-}
-
-.site-footer .social-row a:hover {
-  color: #fff;
 }
 
 .footer-inner {
