@@ -36,7 +36,7 @@ A serial builder who ships, not just one who talks: the claim is backed by the p
 ## Brand Commitments
 
 - Name/wordmark: "Marco Lombardo", with a logo mark (`assets/img/logo-ml.png`, plus an inline SVG fallback when the image is absent).
-- Dark theme with a red accent (`#e8112d`); the red-gradient hero headline is a deliberate, already-reviewed brand treatment, not an artifact to "fix."
+- Light theme taken from the hero banner (`assets/img/header-bg.webp`): cream, sage and charcoal, with the logo red `#e7311e` as the accent. The banner is the hero background; the red-gradient hero headline is a deliberate, already-reviewed brand treatment, not an artifact to "fix."
 - Circular portrait treatment on the hero.
 - Bilingual parity is a hard rule: no content change ships in only one language — this was an explicit correction from the user earlier and must not regress.
 - Social handles: LinkedIn `/in/mlombardo`, Instagram/X `@mrram` (lowercase).

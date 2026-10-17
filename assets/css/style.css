@@ -1,24 +1,30 @@
 /* ==========================================================================
    Marco Lombardo — personal site
-   Brand: red #E8112D on graphite/black, cinematic dark theme
+   Brand: logo red #E7311E on the cream / sage / charcoal of the hero banner
    ========================================================================== */
 
 :root {
-  --red: #e8112d;
-  --red-bright: #ff2237;
-  --red-deep: #b00b21;
+  /* red: the face of the logo, plus its own shadow tones */
+  --red: #e7311e;
+  --red-bright: #f2503a;
+  --red-deep: #a42b23;
+  --red-text: #b82a1b; /* red for small text on cream: 5.6:1 */
 
-  --ink: #0a0a0c;
-  --ink-2: #0f1013;
-  --panel: #141519;
-  --panel-2: #1b1c21;
+  /* paper: cream and sage lifted from the hero banner */
+  --ink: #f2f1e0;
+  --ink-2: #e4e9d6;
+  --panel: #f6f6ea;
+  --panel-2: #fcfcf6;
+  --charcoal: #3c3939;
 
-  --text: #f4f4f6;
-  --muted: #a5a6b0;
-  --dim: #868791;
+  --text: #2b2929;
+  --muted: #484f4f;
+  --dim: #586262;
 
-  --line: rgba(255, 255, 255, 0.09);
-  --line-strong: rgba(255, 255, 255, 0.16);
+  --wash: rgba(46, 44, 44, 0.045);
+  --wash-2: rgba(46, 44, 44, 0.08);
+  --line: rgba(46, 44, 44, 0.14);
+  --line-strong: rgba(46, 44, 44, 0.26);
 
   --radius: 16px;
   --radius-lg: 26px;
@@ -27,8 +33,8 @@
   --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
 
-  --shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
-  --shadow-red: 0 18px 50px rgba(232, 17, 45, 0.28);
+  --shadow: 0 22px 50px rgba(60, 57, 57, 0.18);
+  --shadow-red: 0 16px 40px rgba(231, 49, 30, 0.3);
 
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -151,13 +157,16 @@ p:last-child {
   position: fixed;
   inset: 0 0 auto 0;
   z-index: 100;
+  background: rgba(242, 241, 224, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   transition: background 0.35s var(--ease), border-color 0.35s var(--ease),
     backdrop-filter 0.35s var(--ease);
   border-bottom: 1px solid transparent;
 }
 
 .site-header.is-stuck {
-  background: rgba(10, 10, 12, 0.82);
+  background: rgba(242, 241, 224, 0.86);
   backdrop-filter: saturate(160%) blur(14px);
   -webkit-backdrop-filter: saturate(160%) blur(14px);
   border-bottom-color: var(--line);
@@ -230,7 +239,7 @@ p:last-child {
 .nav a:hover,
 .nav a.is-active {
   color: var(--text);
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--wash-2);
 }
 
 .header-actions {
@@ -246,7 +255,7 @@ p:last-child {
   padding: 3px;
   border: 1px solid var(--line-strong);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--wash);
 }
 
 .lang-switch a {
@@ -268,9 +277,9 @@ p:last-child {
 }
 
 .lang-switch a[aria-current="true"] {
-  background: var(--red);
+  background: #d92e1b;
   color: #fff;
-  box-shadow: 0 4px 14px rgba(232, 17, 45, 0.4);
+  box-shadow: 0 4px 14px rgba(231, 49, 30, 0.35);
 }
 
 .nav-toggle {
@@ -279,7 +288,7 @@ p:last-child {
   height: 44px;
   border: 1px solid var(--line-strong);
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--wash);
   color: var(--text);
   cursor: pointer;
   padding: 0;
@@ -323,36 +332,35 @@ p:last-child {
    -------------------------------------------------------------------------- */
 
 .hero {
+  --banner-h: min(56.25vw, 1100px); /* the banner is 16:9 and fills the width */
   position: relative;
-  padding: 150px 0 90px;
+  /* the banner's own logo stays visible above the copy */
+  padding: calc(var(--banner-h) * 0.56) 0 96px;
   overflow: hidden;
-  background: radial-gradient(
-      120% 90% at 62% 30%,
-      rgba(69, 70, 78, 0.76) 0%,
-      rgba(38, 39, 45, 0.76) 34%,
-      rgba(19, 20, 24, 0.76) 66%,
-      rgba(10, 10, 12, 0.76) 100%
-    );
+  background-color: var(--ink);
+  background-image: linear-gradient(
+      180deg,
+      rgba(242, 241, 224, 0) calc(var(--banner-h) - 160px),
+      var(--ink) var(--banner-h)
+    ),
+    url("../img/header-bg.webp");
+  background-size: 100% 100%, 100% var(--banner-h);
+  background-position: 0 0, center top;
+  background-repeat: no-repeat;
 }
 
-/* red vertical bars, echoing the LinkedIn banner */
-.hero::before,
-.hero::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 18px;
-  background: linear-gradient(180deg, var(--red-deep), var(--red), var(--red-deep));
-  z-index: 2;
-}
-
-.hero::before {
-  left: 0;
-}
-
-.hero::after {
-  right: 0;
+@media (max-width: 900px) {
+  .hero {
+    --banner-h: 380px;
+    padding-top: 262px;
+    background-image: linear-gradient(
+        180deg,
+        rgba(242, 241, 224, 0) calc(var(--banner-h) - 120px),
+        var(--ink) var(--banner-h)
+      ),
+      url("../img/header-bg-1280.webp");
+    background-size: 100% 100%, auto var(--banner-h);
+  }
 }
 
 .hero-grid {
@@ -364,6 +372,16 @@ p:last-child {
   align-items: center;
 }
 
+.hero-copy {
+  padding: 44px 46px 46px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: rgba(247, 247, 236, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+}
+
 .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -371,7 +389,7 @@ p:last-child {
   padding: 7px 16px 7px 10px;
   border: 1px solid var(--line-strong);
   border-radius: 999px;
-  background: rgba(0, 0, 0, 0.28);
+  background: rgba(252, 252, 246, 0.7);
   font-size: 12.5px;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -385,17 +403,17 @@ p:last-child {
   height: 8px;
   border-radius: 50%;
   background: var(--red);
-  box-shadow: 0 0 0 4px rgba(232, 17, 45, 0.2);
+  box-shadow: 0 0 0 4px rgba(231, 49, 30, 0.2);
   animation: pulse 2.6s var(--ease) infinite;
 }
 
 @keyframes pulse {
   0%,
   100% {
-    box-shadow: 0 0 0 4px rgba(232, 17, 45, 0.2);
+    box-shadow: 0 0 0 4px rgba(231, 49, 30, 0.2);
   }
   50% {
-    box-shadow: 0 0 0 9px rgba(232, 17, 45, 0);
+    box-shadow: 0 0 0 9px rgba(231, 49, 30, 0);
   }
 }
 
@@ -406,7 +424,7 @@ p:last-child {
 
 .hero h1 .line-2 {
   display: block;
-  background: linear-gradient(100deg, var(--red-bright), var(--red) 45%, #ff7a86);
+  background: linear-gradient(100deg, var(--red-deep), var(--red) 55%, var(--red-bright));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -452,26 +470,26 @@ p:last-child {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--red), var(--red-deep));
+  background: linear-gradient(135deg, #d92e1b, var(--red-deep));
   color: #fff;
   box-shadow: var(--shadow-red);
 }
 
 .btn-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 24px 60px rgba(232, 17, 45, 0.42);
+  box-shadow: 0 22px 50px rgba(231, 49, 30, 0.4);
 }
 
 .btn-ghost {
   border-color: var(--line-strong);
   color: var(--text);
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--wash);
 }
 
 .btn-ghost:hover {
   transform: translateY(-3px);
-  border-color: rgba(255, 255, 255, 0.34);
-  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(46, 44, 44, 0.42);
+  background: var(--wash-2);
 }
 
 .hero-social {
@@ -503,7 +521,7 @@ p:last-child {
   height: 42px;
   border-radius: 12px;
   border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--wash);
   color: var(--muted);
   transition: transform 0.25s var(--ease), color 0.2s, border-color 0.2s,
     background 0.2s;
@@ -511,9 +529,9 @@ p:last-child {
 
 .social-row a:hover {
   transform: translateY(-3px);
-  color: #fff;
+  color: var(--red-text);
   border-color: var(--red);
-  background: rgba(232, 17, 45, 0.16);
+  background: rgba(231, 49, 30, 0.12);
 }
 
 .social-row svg {
@@ -537,7 +555,7 @@ p:last-child {
     from 210deg,
     var(--red) 0deg,
     var(--red-bright) 90deg,
-    rgba(232, 17, 45, 0.25) 200deg,
+    rgba(231, 49, 30, 0.25) 200deg,
     var(--red) 360deg
   );
   padding: 12px;
@@ -601,7 +619,7 @@ p:last-child {
   gap: 10px;
   padding: 11px 18px;
   border-radius: 999px;
-  background: rgba(12, 12, 15, 0.9);
+  background: rgba(252, 252, 246, 0.94);
   border: 1px solid var(--line-strong);
   backdrop-filter: blur(10px);
   font-size: 13px;
@@ -620,7 +638,7 @@ p:last-child {
   left: 50%;
   width: 13px;
   height: 13px;
-  background: rgba(12, 12, 15, 0.98);
+  background: rgba(252, 252, 246, 0.98);
   border-left: 1px solid var(--line-strong);
   border-top: 1px solid var(--line-strong);
   border-radius: 3px 0 0 0;
@@ -633,18 +651,11 @@ p:last-child {
 
 .marquee {
   position: relative;
-  border-block: 1px solid var(--line);
-  background: var(--ink-2);
+  --dim: #d9dac6;
+  border-block: 1px solid var(--charcoal);
+  background: var(--charcoal);
   overflow: hidden;
   padding: 16px 0;
-  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-  -webkit-mask-image: linear-gradient(
-    90deg,
-    transparent,
-    #000 12%,
-    #000 88%,
-    transparent
-  );
 }
 
 .marquee-track {
@@ -687,15 +698,15 @@ p:last-child {
 .section {
   padding: 110px 0;
   position: relative;
-  background: rgba(10, 10, 12, 0.76);
+  background: rgba(242, 241, 224, 0.8);
 }
 
 .section-alt {
   background: linear-gradient(
     180deg,
-    rgba(10, 10, 12, 0.76),
-    rgba(15, 16, 19, 0.76) 40%,
-    rgba(10, 10, 12, 0.76)
+    rgba(242, 241, 224, 0.8),
+    rgba(222, 230, 208, 0.82) 40%,
+    rgba(242, 241, 224, 0.8)
   );
 }
 
@@ -712,7 +723,7 @@ p:last-child {
   font-weight: 800;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--red-bright);
+  color: var(--red-text);
   margin-bottom: 18px;
 }
 
@@ -734,7 +745,7 @@ p:last-child {
   padding: 5px 10px;
   border-radius: 999px;
   border: 1px solid var(--line-strong);
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--wash);
   color: var(--muted);
   white-space: nowrap;
 }
@@ -788,7 +799,7 @@ p:last-child {
 
 .fact-list li:hover {
   transform: translateX(6px);
-  border-color: rgba(232, 17, 45, 0.5);
+  border-color: rgba(231, 49, 30, 0.5);
 }
 
 .fact-list .k {
@@ -796,7 +807,7 @@ p:last-child {
   font-weight: 800;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--red-bright);
+  color: var(--red-text);
   margin-bottom: 2px;
 }
 
@@ -848,7 +859,7 @@ p:last-child {
   inset: -40% -40% auto auto;
   width: 220px;
   height: 220px;
-  background: radial-gradient(circle, rgba(232, 17, 45, 0.22), transparent 70%);
+  background: radial-gradient(circle, rgba(231, 49, 30, 0.22), transparent 70%);
   opacity: 0;
   transition: opacity 0.4s;
   pointer-events: none;
@@ -856,7 +867,7 @@ p:last-child {
 
 .card:hover {
   transform: translateY(-8px);
-  border-color: rgba(232, 17, 45, 0.45);
+  border-color: rgba(231, 49, 30, 0.45);
   box-shadow: var(--shadow);
 }
 
@@ -870,8 +881,8 @@ p:last-child {
   width: 52px;
   height: 52px;
   border-radius: 15px;
-  background: rgba(232, 17, 45, 0.14);
-  border: 1px solid rgba(232, 17, 45, 0.32);
+  background: rgba(231, 49, 30, 0.14);
+  border: 1px solid rgba(231, 49, 30, 0.32);
   color: var(--red);
   margin-bottom: 22px;
 }
@@ -928,7 +939,7 @@ p:last-child {
 
 .link-card:hover {
   transform: translateY(-8px);
-  border-color: rgba(232, 17, 45, 0.45);
+  border-color: rgba(231, 49, 30, 0.45);
   box-shadow: var(--shadow);
 }
 
@@ -948,7 +959,7 @@ p:last-child {
   width: 46px;
   height: 46px;
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--wash-2);
   border: 1px solid var(--line);
   color: var(--text);
   flex: none;
@@ -982,7 +993,7 @@ p:last-child {
   gap: 8px;
   font-weight: 700;
   font-size: 14px;
-  color: var(--red-bright);
+  color: var(--red-text);
 }
 
 .link-card .go svg {
@@ -1007,7 +1018,7 @@ p:last-child {
 }
 
 .principle {
-  background: var(--ink-2);
+  background: var(--panel);
   padding: 34px 28px;
   transition: background 0.35s;
 }
@@ -1020,7 +1031,7 @@ p:last-child {
   font-size: 13px;
   font-weight: 900;
   letter-spacing: 0.2em;
-  color: var(--red-bright);
+  color: var(--red-text);
   margin-bottom: 16px;
 }
 
@@ -1043,9 +1054,9 @@ p:last-child {
   padding: 110px 0;
   background: radial-gradient(
     100% 120% at 50% 0%,
-    rgba(52, 53, 60, 0.76) 0%,
-    rgba(23, 24, 28, 0.76) 45%,
-    rgba(10, 10, 12, 0.76) 100%
+    rgba(190, 211, 196, 0.78) 0%,
+    rgba(222, 230, 208, 0.8) 50%,
+    rgba(242, 241, 224, 0.82) 100%
   );
   border-top: 1px solid var(--line);
   text-align: center;
@@ -1074,9 +1085,20 @@ p:last-child {
    -------------------------------------------------------------------------- */
 
 .site-footer {
-  border-top: 1px solid var(--line);
-  background: rgba(10, 10, 12, 0.8);
+  --text: #f2f1e0;
+  --muted: #d4d5c2;
+  --dim: #b9bcab;
+  --line: rgba(242, 241, 224, 0.16);
+  --line-strong: rgba(242, 241, 224, 0.3);
+  --wash: rgba(242, 241, 224, 0.07);
+  --wash-2: rgba(242, 241, 224, 0.12);
+  border-top: 1px solid var(--charcoal);
+  background: var(--charcoal);
   padding: 40px 0;
+}
+
+.site-footer .social-row a:hover {
+  color: #fff;
 }
 
 .footer-inner {
@@ -1169,7 +1191,7 @@ p:last-child {
   font-weight: 800;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--red-bright);
+  color: var(--red-text);
   margin-bottom: 8px;
 }
 
@@ -1243,7 +1265,7 @@ p:last-child {
 
 .shot a:hover {
   transform: translateY(-4px);
-  border-color: rgba(232, 17, 45, 0.45);
+  border-color: rgba(231, 49, 30, 0.45);
   box-shadow: var(--shadow);
 }
 
@@ -1295,6 +1317,9 @@ p:last-child {
   padding: 56px 72px 24px;
   border: 0;
   background: transparent;
+  --text: #f2f1e0;
+  --muted: #d4d5c2;
+  --line-strong: rgba(242, 241, 224, 0.28);
   color: var(--text);
 }
 
@@ -1306,7 +1331,7 @@ p:last-child {
 }
 
 .lightbox::backdrop {
-  background: rgba(4, 4, 6, 0.93);
+  background: rgba(30, 28, 28, 0.93);
   backdrop-filter: blur(6px);
 }
 
@@ -1342,7 +1367,7 @@ p:last-child {
   height: 46px;
   border: 1px solid var(--line-strong);
   border-radius: 50%;
-  background: rgba(20, 21, 25, 0.9);
+  background: rgba(46, 44, 44, 0.9);
   color: var(--text);
   font-size: 26px;
   line-height: 1;
@@ -1352,7 +1377,7 @@ p:last-child {
 
 .lightbox-btn:hover {
   border-color: var(--red);
-  background: rgba(232, 17, 45, 0.18);
+  background: rgba(231, 49, 30, 0.18);
 }
 
 .lightbox-close {
@@ -1418,7 +1443,7 @@ p:last-child {
   padding: 1px 6px;
   border: 1px solid var(--line);
   border-radius: 6px;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--wash);
   color: var(--text);
   font-size: 0.9em;
 }
@@ -1430,7 +1455,7 @@ p:last-child {
 }
 
 .policy a:hover {
-  color: var(--red-bright);
+  color: var(--red-text);
 }
 
 /* disabled store button ("coming soon") */
@@ -1443,16 +1468,16 @@ p:last-child {
 .btn:disabled:hover {
   transform: none;
   border-color: var(--line-strong);
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--wash);
 }
 
 .btn-soon {
   margin-left: 4px;
   padding: 3px 10px;
-  border: 1px solid rgba(232, 17, 45, 0.5);
+  border: 1px solid rgba(231, 49, 30, 0.5);
   border-radius: 999px;
-  background: rgba(232, 17, 45, 0.16);
-  color: #ff9ca6;
+  background: rgba(231, 49, 30, 0.12);
+  color: var(--red-text);
   font-size: 11.5px;
   font-weight: 800;
   letter-spacing: 0.06em;
@@ -1485,14 +1510,9 @@ p:last-child {
     grid-template-columns: 1fr;
   }
 
-  .hero {
-    padding-top: 130px;
-  }
-
   .hero-portrait {
-    order: -1;
     width: min(280px, 66%);
-    margin-bottom: 40px;
+    margin: 16px auto 28px;
   }
 }
 
@@ -1508,7 +1528,7 @@ p:last-child {
     align-items: stretch;
     gap: 2px;
     padding: 18px 24px 26px;
-    background: rgba(10, 10, 12, 0.97);
+    background: rgba(247, 247, 236, 0.97);
     backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--line);
     /* closed = invisible and out of the tab order, not just parked off-screen */
@@ -1529,7 +1549,7 @@ p:last-child {
 
   /* keep the bar opaque while the panel is open, even at scroll 0 */
   .nav-open .site-header {
-    background: rgba(10, 10, 12, 0.97);
+    background: rgba(247, 247, 236, 0.97);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
   }
@@ -1549,9 +1569,8 @@ p:last-child {
     padding-inline: 20px;
   }
 
-  .hero::before,
-  .hero::after {
-    width: 10px;
+  .hero-copy {
+    padding: 30px 24px 32px;
   }
 
   body {
@@ -1612,7 +1631,7 @@ p:last-child {
   z-index: 90;
   transform: translateY(120%);
   transition: transform 0.5s var(--ease);
-  background: rgba(10, 10, 12, 0.97);
+  background: rgba(247, 247, 236, 0.97);
   backdrop-filter: blur(16px);
   border-top: 1px solid var(--line);
 }
@@ -1646,7 +1665,7 @@ p:last-child {
 }
 
 .cookie-notice a:hover {
-  color: var(--red-bright);
+  color: var(--red-text);
 }
 
 .cookie-notice .btn {

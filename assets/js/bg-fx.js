@@ -82,8 +82,8 @@
       morphSpeed: 0.12 + Math.random() * 0.14,
       pulse: Math.random() * TAU,
       isRed: isRed,
-      strokeAlpha: isRed ? 0.85 + Math.random() * 0.15 : 0.5 + Math.random() * 0.3,
-      fillAlpha: isRed ? 0.14 : 0.08,
+      strokeAlpha: isRed ? 0.6 + Math.random() * 0.2 : 0.38 + Math.random() * 0.2,
+      fillAlpha: isRed ? 0.1 : 0.06,
       lineWidth: isRed ? 2.2 : 1.8
     };
   }
@@ -168,10 +168,10 @@
       else ctx.lineTo(px, py);
     }
     ctx.closePath();
-    ctx.fillStyle = s.isRed ? "rgb(232, 17, 45)" : "rgb(244, 244, 246)";
+    ctx.fillStyle = s.isRed ? "rgb(231, 49, 30)" : "rgb(62, 78, 78)";
     ctx.globalAlpha = s.fillAlpha;
     ctx.fill();
-    ctx.strokeStyle = s.isRed ? "rgb(255, 34, 55)" : "rgb(244, 244, 246)";
+    ctx.strokeStyle = s.isRed ? "rgb(231, 49, 30)" : "rgb(62, 78, 78)";
     ctx.lineWidth = s.lineWidth;
     ctx.lineJoin = "round";
     ctx.globalAlpha = s.strokeAlpha;
@@ -271,7 +271,7 @@
 
     /* ties, drawn a bit stronger and brighter the more they are stretched */
     ctx.lineWidth = 1.5;
-    ctx.strokeStyle = "rgb(244, 244, 246)";
+    ctx.strokeStyle = "rgb(62, 78, 78)";
     for (i = 0; i < links.length; i++) {
       l = links[i];
       var lx = l.b.x - l.a.x;
@@ -286,7 +286,7 @@
     }
 
     ctx.lineWidth = 1;
-    ctx.strokeStyle = "rgb(255, 34, 55)";
+    ctx.strokeStyle = "rgb(231, 49, 30)";
     for (i = 0; i < shapes.length; i++) {
       var gx = shapes[i].x - mouse.x;
       var gy = shapes[i].y - mouse.y;
