@@ -16,3 +16,13 @@
 In radice: `favicon.ico` (16/32/48, generata dai PNG) e `manifest.webmanifest`.
 `apple-touch-icon.png`, `icon-maskable-512.png` e `favicon.ico` derivano dai
 `favicon-*.png`: se li sostituisci, rigenerali.
+
+## Gumroad (`books.html`)
+
+Gumroad profile pages may only show images hosted on Gumroad's public CDN, so
+`books.html` uses `https://public-files.gumroad.com/…` URLs, uploaded with
+`gumroad media upload`: `logo-ml.png`, `marco-portrait.jpg` and the two banners
+in `assets/img/gumroad/` (JPG copies of `header-bg.webp`, 1920 and 1280 px wide).
+If one of those files changes, upload it again and replace its URL in `books.html`.
+If the publish workflow fails with "an image we couldn't download", a URL in
+`books.html` no longer exists in the media library.
