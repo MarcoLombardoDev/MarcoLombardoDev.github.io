@@ -115,7 +115,7 @@ Measured from `assets/img/header-bg.webp`: the banner is about 31% grey-green (`
 - **Cream Paper** (`#f2f1e0`): the page background, a lightened banner cream.
 - **Sage Band** (`#e4e9d6`): alternating-section and contact bands, from the banner's sage.
 - **Cream Panel** (`#f6f6ea`) / **Cream Panel Bright** (`#fcfcf6`): the two stops of the card gradient; cards sit slightly lighter than the page.
-- **Charcoal** (`#3c3939`): the marquee band and the footer, the banner's darkest neutral; text inside them is cream.
+- **Charcoal** (`#3c3939`): the banner's darkest neutral, kept as a reference tone (the marquee band and the footer are now Sage Band).
 - **Ink** (`#2b2929`): primary text and headlines.
 - **Slate Muted** (`#484f4f`) / **Slate Dim** (`#586262`): secondary and tertiary text, both at least 5:1 on cream and 4.5:1 on sage.
 - **Hairline** (`rgba(46,44,44,0.14)`) / **Hairline Strong** (`rgba(46,44,44,0.26)`): the only border language; colored borders appear only on hover and focus.

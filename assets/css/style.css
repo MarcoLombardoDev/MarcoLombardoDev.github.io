@@ -651,9 +651,8 @@ p:last-child {
 
 .marquee {
   position: relative;
-  --dim: #d9dac6;
-  border-block: 1px solid var(--charcoal);
-  background: var(--charcoal);
+  border-block: 1px solid var(--line);
+  background: rgba(228, 233, 214, 0.92);
   overflow: hidden;
   padding: 16px 0;
 }
