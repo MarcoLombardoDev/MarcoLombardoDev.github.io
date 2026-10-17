@@ -1,0 +1,18 @@
+name: Upload the portrait to the Gumroad media library
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Gumroad CLI
+        run: curl -fsSL https://gumroad.com/install-cli.sh | bash
+      - name: Upload
+        env:
+          GUMROAD_ACCESS_TOKEN: ${{ secrets.GUMROAD_ACCESS_TOKEN }}
+        run: |
+          export PATH="$HOME/.local/bin:$PATH"
+          gumroad media upload assets/img/marco-portrait.jpg --name "Marco portrait 2026-10-17" --json
