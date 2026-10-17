@@ -1,0 +1,16 @@
+name: Gumroad CLI help (diagnostic)
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  help:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Gumroad CLI
+        run: curl -fsSL https://gumroad.com/install-cli.sh | bash
+      - name: Show the available commands
+        run: |
+          export PATH="$HOME/.local/bin:$PATH"
+          gumroad --help || true
+          for c in files file upload assets media user "user page"; do echo "=== gumroad $c --help"; gumroad $c --help 2>&1 | head -40 || true; done
