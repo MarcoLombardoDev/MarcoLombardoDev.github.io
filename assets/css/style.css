@@ -374,12 +374,18 @@ p:last-child {
 
 .hero-copy {
   padding: 44px 46px 46px;
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.28);
   border-radius: var(--radius-lg);
-  background: rgba(247, 247, 236, 0.3);
-  backdrop-filter: blur(14px) saturate(120%);
-  -webkit-backdrop-filter: blur(14px) saturate(120%);
-  box-shadow: 0 18px 44px rgba(60, 57, 57, 0.1);
+  background: rgba(247, 247, 236, 0.12);
+  text-shadow: 0 0 14px rgba(247, 247, 236, 0.95), 0 0 4px rgba(247, 247, 236, 0.8);
+}
+
+/* a soft halo keeps the text readable on the banner; it must not sit under the
+   gradient headline (transparent fill) or the button */
+.hero-copy .line-2,
+.hero-copy .btn,
+.hero-copy .social-row {
+  text-shadow: none;
 }
 
 .eyebrow {

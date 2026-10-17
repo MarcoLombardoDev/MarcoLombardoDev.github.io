@@ -55,10 +55,12 @@
     background-image:linear-gradient(180deg,rgba(242,241,224,0) calc(var(--banner-h) - 120px),var(--ink) var(--banner-h)),
       url("https://public-files.gumroad.com/4o7a2fl2kfz41avsph6836phdpbc");
     background-size:100% 100%,auto var(--banner-h)}}
-  .hero-copy{padding:44px 46px 46px;border:1px solid rgba(255,255,255,.35);border-radius:var(--radius-lg);
-    background:rgba(247,247,236,.3);backdrop-filter:blur(14px) saturate(120%);-webkit-backdrop-filter:blur(14px) saturate(120%);box-shadow:0 18px 44px rgba(60,57,57,.1)}
+  .hero-copy{padding:44px 46px 46px;border:1px solid rgba(255,255,255,.28);border-radius:var(--radius-lg);
+    background:rgba(247,247,236,.12);
+    text-shadow:0 0 14px rgba(247,247,236,.95),0 0 4px rgba(247,247,236,.8)}
   .hero-grid{position:relative;z-index:3;display:grid;grid-template-columns:1.15fr .85fr;gap:52px;align-items:center}
   @media(max-width:980px){.hero-grid{grid-template-columns:1fr}}
+  .hero-copy .line-2,.hero-copy .btn{text-shadow:none}
   .eyebrow{display:inline-flex;align-items:center;gap:10px;padding:7px 16px 7px 10px;
     border:1px solid var(--line-strong);border-radius:999px;background:rgba(252,252,246,.7);
     font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:24px}
