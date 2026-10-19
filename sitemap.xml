@@ -146,6 +146,42 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://marcolombardodev.github.io/it/progetti/space-titans/</loc>
+    <lastmod>2026-10-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://marcolombardodev.github.io/it/progetti/space-titans/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marcolombardodev.github.io/en/projects/space-titans/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://marcolombardodev.github.io/it/progetti/space-titans/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://marcolombardodev.github.io/en/projects/space-titans/</loc>
+    <lastmod>2026-10-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marcolombardodev.github.io/en/projects/space-titans/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://marcolombardodev.github.io/it/progetti/space-titans/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://marcolombardodev.github.io/it/progetti/space-titans/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://marcolombardodev.github.io/it/progetti/space-titans/privacy/</loc>
+    <lastmod>2026-10-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://marcolombardodev.github.io/it/progetti/space-titans/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marcolombardodev.github.io/en/projects/space-titans/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://marcolombardodev.github.io/it/progetti/space-titans/privacy/"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://marcolombardodev.github.io/en/projects/space-titans/privacy/</loc>
+    <lastmod>2026-10-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marcolombardodev.github.io/en/projects/space-titans/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://marcolombardodev.github.io/it/progetti/space-titans/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://marcolombardodev.github.io/it/progetti/space-titans/privacy/"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://marcolombardodev.github.io/it/progetti/argus/</loc>
     <lastmod>2026-09-14</lastmod>
     <xhtml:link rel="alternate" hreflang="it" href="https://marcolombardodev.github.io/it/progetti/argus/"/>
