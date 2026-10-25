@@ -376,7 +376,7 @@ p:last-child {
   padding: 44px 46px 46px;
   border: 1px solid rgba(255, 255, 255, 0.45);
   border-radius: var(--radius-lg);
-  background: rgba(247, 247, 236, 0.62);
+  background: rgba(247, 247, 236, 0.5);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 16px 40px rgba(60, 57, 57, 0.12);
