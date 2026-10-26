@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Space Defense — Marco Lombardo</title>
+<meta name="description" content="Space Defense is a space tower defense game for Android: build and upgrade towers on the orbital stations of the Aegis Line to stop waves of Vhar ships, across 30 missions, battles and co-op Wi-Fi multiplayer.">
+<meta name="author" content="Marco Lombardo">
+<meta name="theme-color" content="#f2f1e0">
+
+<link rel="canonical" href="https://marcolombardodev.github.io/en/projects/space-defense/">
+<link rel="alternate" hreflang="en" href="https://marcolombardodev.github.io/en/projects/space-defense/">
+<link rel="alternate" hreflang="it" href="https://marcolombardodev.github.io/it/progetti/space-defense/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Space Defense — Marco Lombardo">
+<meta property="og:description" content="Space Defense is a space tower defense game for Android: build and upgrade towers on the orbital stations of the Aegis Line to stop waves of Vhar ships, across 30 missions, battles and co-op Wi-Fi multiplayer.">
+<meta property="og:image" content="https://marcolombardodev.github.io/assets/img/og-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="../../../favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../assets/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../assets/img/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../../../assets/img/favicon-192x192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../assets/img/apple-touch-icon.png">
+<link rel="manifest" href="../../../manifest.webmanifest">
+<link rel="stylesheet" href="../../../assets/css/style.css">
+<script>document.documentElement.classList.add("js");</script>
+</head>
+
+<body>
+<canvas class="bg-fx" aria-hidden="true"></canvas>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="../../#home" aria-label="Marco Lombardo — home">
+      <img class="logo-img" src="../../../assets/img/logo-ml.png" alt="" aria-hidden="true">
+      <svg class="logo-svg" viewBox="0 0 240 160" aria-hidden="true">
+        <g transform="skewX(-8) translate(10 0)" fill="none" stroke="#e7311e" stroke-width="21" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 132C26 92 40 52 56 52c14 0 10 40 6 80 8-40 22-80 38-80 14 0 8 44 4 80"/>
+          <path d="M104 132c14-36 46-112 72-112 20 0 14 40-14 76-22 28-30 42-16 44 16 2 46-22 68-48"/>
+        </g>
+      </svg>
+      <span class="brand-name">Marco Lombardo</span>
+    </a>
+
+    <nav class="nav" aria-label="Main">
+      <a href="../../#about">About</a>
+      <a href="../../#focus">Focus</a>
+      <a href="../../#approach">Approach</a>
+      <a href="../../#elsewhere">Elsewhere</a>
+      <a href="../../#projects">Projects</a>
+      <a href="../../#contact">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <div class="lang-switch" role="group" aria-label="Language">
+        <a href="../../../it/progetti/space-defense/" data-lang-link="it" hreflang="it" lang="it" title="Passa all'italiano">IT</a>
+        <a href="./" data-lang-link="en" hreflang="en" aria-current="true" title="English">EN</a>
+      </div>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="section" id="project">
+    <div class="wrap" style="max-width: 900px">
+      <a class="back-link reveal" href="../../#projects">‹ Back to projects</a>
+
+      <div class="section-head reveal" data-delay="40" style="margin-top: 22px">
+        <span class="section-tag">Game</span>
+        <h1>Space Defense</h1>
+        <p>Space tower defense: stop the Vhar invasion along the Aegis Line.</p>
+      </div>
+
+      <div class="cta-row" style="margin-bottom: 48px">
+        <button class="btn btn-ghost" type="button" disabled title="Coming soon on Google Play">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>
+          Download the app
+          <span class="btn-soon">Coming soon</span>
+        </button>
+        <a class="btn btn-ghost" href="privacy/">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+          Privacy policy
+        </a>
+      </div>
+
+      <div class="about-grid reveal" data-delay="80">
+        <div class="about-body">
+        <p>Space Defense is a space tower defense game for Android, set in the same universe and with the same look as Space Tactics, Space Warfront and Space Titans. The ships of the <strong>Vhar Dominion</strong> come out of hyperspace gates and follow the routes to a Coalition planet: Commander Elian Varo stops them by building towers on the orbital stations and mining bases of the <strong>Aegis Line</strong>.</p>
+
+        <p>There are <strong>four towers</strong> (Battery, Missile Launcher, Ion Lance and Hangar), each with three levels and two <strong>specializations</strong> to choose from at the third: eight in all. Armor and shields matter, because kinetic weapons are stopped by armor and energy weapons by shields. The <strong>ten enemy ships</strong> have different abilities, from forward jumps to self-repairing drones, up to battleships and flagships too big to stop; the commander has four <strong>powers</strong>: orbital strike, gravity field, reinforcements and EMP pulse.</p>
+
+        <p>The <strong>Campaign</strong> has 30 missions in 5 acts, with a comic-style story, a hands-on tutorial and <strong>Research</strong> bought with stars. Then there is <strong>Battle</strong>, on a map of your choice, with 15, 30 or endless waves. <strong>Same-Wi-Fi multiplayer</strong>, for 2 to 4 players, is <strong>co-op</strong>: one planet to defend, shared lives.</p>
+        </div>
+
+        <ul class="fact-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>
+            <div>
+              <div class="k">Platform</div>
+              <div class="v">Android app, landscape only</div>
+            </div>
+          </li>
+
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.7 5.5 6 .9-4.3 4.2 1 6L12 16.8 6.6 19.6l1-6L3.3 9.4l6-.9z"/></svg>
+            <div>
+              <div class="k">Genre</div>
+              <div class="v">Space tower defense</div>
+            </div>
+          </li>
+
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 20v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="3.5"/><path d="M22 20v-2a4 4 0 0 0-3-3.9M16 3.1a3.5 3.5 0 0 1 0 6.8"/></svg>
+            <div>
+              <div class="k">Modes</div>
+              <div class="v">30-mission Campaign, Battle, co-op Wi-Fi multiplayer</div>
+            </div>
+          </li>
+
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18z"/></svg>
+            <div>
+              <div class="k">Languages</div>
+              <div class="v">English, Italian, Spanish, French, German, Russian</div>
+            </div>
+          </li>
+
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg>
+            <div>
+              <div class="k">Technology</div>
+              <div class="v">TypeScript, Canvas 2D and Capacitor</div>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+      <div class="section-head reveal" data-delay="120" style="margin-top: 56px; margin-bottom: 28px">
+        <span class="section-tag">What you can do</span>
+      </div>
+
+      <ul class="feature-list reveal" data-delay="160">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg><span>Build towers on orbital stations, mining bases and asteroid outposts along the hyperspace routes</span></li>
+
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg><span>Choose among four towers and eight specializations, keeping the enemies' armor and shields in mind</span></li>
+
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg><span>Stop ten kinds of enemy ships, from fighter swarms to flagships</span></li>
+
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg><span>Use the commander's four powers and call waves early for bonus credits</span></li>
+
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg><span>Play 30 missions in 5 acts and spend the stars you earn on Research</span></li>
+
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg><span>Learn with the hands-on tutorial, then try Battle with endless waves on any map and beat your record</span></li>
+
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg><span>Defend the same planet with friends on the same Wi-Fi, 2 to 4 players</span></li>
+
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg><span>Play in six languages, with no internet connection needed</span></li>
+
+      </ul>
+
+      <div class="section-head reveal" data-delay="120" style="margin-top: 56px; margin-bottom: 28px">
+        <span class="section-tag">Screenshots</span>
+      </div>
+
+      <div class="shots reveal" data-delay="160">
+          <figure class="shot">
+            <a href="../../../assets/img/screens/space-defense/partita.webp" data-lightbox="space-defense" aria-label="Enlarge: Mission 16, &quot;The Carriers&quot;: a gate at the top where the Vhar ships come out, towers on the bases and the four powers on the right">
+              <img src="../../../assets/img/screens/space-defense/partita.webp" alt="Mission 16, &quot;The Carriers&quot;: a gate at the top where the Vhar ships come out, towers on the bases and the four powers on the right" width="1600" height="900" loading="lazy" decoding="async">
+            </a>
+            <figcaption>Mission 16, &quot;The Carriers&quot;: a gate at the top where the Vhar ships come out, towers on the bases and the four powers on the right</figcaption>
+          </figure>
+          <figure class="shot">
+            <a href="../../../assets/img/screens/space-defense/dettaglio.webp" data-lightbox="space-defense" aria-label="Enlarge: The battle up close: Red Sun ships just out of the gate under fire from specialized towers">
+              <img src="../../../assets/img/screens/space-defense/dettaglio.webp" alt="The battle up close: Red Sun ships just out of the gate under fire from specialized towers" width="1600" height="900" loading="lazy" decoding="async">
+            </a>
+            <figcaption>The battle up close: Red Sun ships just out of the gate under fire from specialized towers</figcaption>
+          </figure>
+          <figure class="shot">
+            <a href="../../../assets/img/screens/space-defense/anello.webp" data-lightbox="space-defense" aria-label="Enlarge: A tower's menu: the buttons to the left of the base, the dashed range and the tower card">
+              <img src="../../../assets/img/screens/space-defense/anello.webp" alt="A tower's menu: the buttons to the left of the base, the dashed range and the tower card" width="1600" height="900" loading="lazy" decoding="async">
+            </a>
+            <figcaption>A tower's menu: the buttons to the left of the base, the dashed range and the tower card</figcaption>
+          </figure>
+          <figure class="shot">
+            <a href="../../../assets/img/screens/space-defense/menu.webp" data-lightbox="space-defense" aria-label="Enlarge: The main screen, with a demo battle in the background">
+              <img src="../../../assets/img/screens/space-defense/menu.webp" alt="The main screen, with a demo battle in the background" width="1600" height="900" loading="lazy" decoding="async">
+            </a>
+            <figcaption>The main screen, with a demo battle in the background</figcaption>
+          </figure>
+          <figure class="shot">
+            <a href="../../../assets/img/screens/space-defense/livelli.webp" data-lightbox="space-defense" aria-label="Enlarge: Mission select: the third act, with the stars earned">
+              <img src="../../../assets/img/screens/space-defense/livelli.webp" alt="Mission select: the third act, with the stars earned" width="1600" height="900" loading="lazy" decoding="async">
+            </a>
+            <figcaption>Mission select: the third act, with the stars earned</figcaption>
+          </figure>
+          <figure class="shot">
+            <a href="../../../assets/img/screens/space-defense/presentazione.webp" data-lightbox="space-defense" aria-label="Enlarge: Mission 12 briefing: story, objectives, news and a map preview">
+              <img src="../../../assets/img/screens/space-defense/presentazione.webp" alt="Mission 12 briefing: story, objectives, news and a map preview" width="1600" height="900" loading="lazy" decoding="async">
+            </a>
+            <figcaption>Mission 12 briefing: story, objectives, news and a map preview</figcaption>
+          </figure>
+          <figure class="shot">
+            <a href="../../../assets/img/screens/space-defense/dialogo.webp" data-lightbox="space-defense" aria-label="Enlarge: Dialogue at the start of mission 8: Kortha's speech bubble points to the gate of the next wave">
+              <img src="../../../assets/img/screens/space-defense/dialogo.webp" alt="Dialogue at the start of mission 8: Kortha's speech bubble points to the gate of the next wave" width="1600" height="900" loading="lazy" decoding="async">
+            </a>
+            <figcaption>Dialogue at the start of mission 8: Kortha's speech bubble points to the gate of the next wave</figcaption>
+          </figure>
+          <figure class="shot">
+            <a href="../../../assets/img/screens/space-defense/novita.webp" data-lightbox="space-defense" aria-label="Enlarge: The news card of mission 7: the tower specializations">
+              <img src="../../../assets/img/screens/space-defense/novita.webp" alt="The news card of mission 7: the tower specializations" width="1600" height="900" loading="lazy" decoding="async">
+            </a>
+            <figcaption>The news card of mission 7: the tower specializations</figcaption>
+          </figure>
+          <figure class="shot">
+            <a href="../../../assets/img/screens/space-defense/ricerca.webp" data-lightbox="space-defense" aria-label="Enlarge: Research: the six items with the levels bought">
+              <img src="../../../assets/img/screens/space-defense/ricerca.webp" alt="Research: the six items with the levels bought" width="1600" height="900" loading="lazy" decoding="async">
+            </a>
+            <figcaption>Research: the six items with the levels bought</figcaption>
+          </figure>
+          <figure class="shot">
+            <a href="../../../assets/img/screens/space-defense/battaglia.webp" data-lightbox="space-defense" aria-label="Enlarge: Battle: choosing the map, difficulty, waves and research">
+              <img src="../../../assets/img/screens/space-defense/battaglia.webp" alt="Battle: choosing the map, difficulty, waves and research" width="1600" height="900" loading="lazy" decoding="async">
+            </a>
+            <figcaption>Battle: choosing the map, difficulty, waves and research</figcaption>
+          </figure>
+      </div>
+
+      <p class="shots-note reveal">The in-game interface follows the device language (English, Italian, Spanish, French, German or Russian); the screenshots show it in Italian.</p>
+    </div>
+  </section>
+
+  <!-- ================= OTHER PROJECTS ================= -->
+  <section class="section section-alt" id="other-projects">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-tag">Other projects</span>
+        <h2>Keep exploring</h2>
+        <p>The other ideas that took shape, from the same instinct to build.</p>
+      </div>
+
+      <div class="cards cards-links">
+        <a class="link-card reveal" href="https://marcolombardo.gumroad.com/" target="_blank" rel="noopener">
+          <div class="link-card-top">
+            <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5V5a2 2 0 0 1 2-2h14v18H6a2 2 0 0 1-2-2z"/><path d="M8.5 3v18"/></svg></span>
+            <div>
+              <h3>Books</h3>
+            </div>
+            <span class="project-badge">Material</span>
+          </div>
+          <p>My books and digital products: not just technology, but everything I've learned, put into a form other people can use.</p>
+          <span class="go">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+
+        <a class="link-card reveal" href="../repetita/">
+          <div class="link-card-top">
+            <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 1.8 8.1 12 13.2l10.2-5.1z"/><path d="M6.2 10.5V16c0 1.7 2.6 3 5.8 3s5.8-1.3 5.8-3v-5.5"/><path d="M21.4 8.8v5.4"/></svg></span>
+            <div>
+              <h3>Repetita</h3>
+            </div>
+            <span class="project-badge">Startup</span>
+          </div>
+          <p>Personalized study material, mock exams and homework help, powered by multi-model AI that adapts to how you learn.</p>
+          <span class="go">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+
+        <a class="link-card reveal" href="../okkupa/">
+          <div class="link-card-top">
+            <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="3"/><path d="M3 9.6h18M8 2.6v3.8M16 2.6v3.8"/><path d="m8.8 14.6 2.2 2.2 4.2-4.2"/></svg></span>
+            <div>
+              <h3>Okkupa</h3>
+            </div>
+            <span class="project-badge">Startup</span>
+          </div>
+          <p>Booking and managing shared workplace spaces and resources: desks, meeting rooms and assets, with availability rules and usage dashboards.</p>
+          <span class="go">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+
+        <a class="link-card reveal" href="../space-warfront/">
+          <div class="link-card-top">
+            <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/></svg></span>
+            <div>
+              <h3>Space Warfront</h3>
+            </div>
+            <span class="project-badge">Game</span>
+          </div>
+          <p>Real-time space strategy for Android: call your fleet in from hyperspace, mine asteroids for material and lead an armada through 30 levels, in free battles or same-Wi-Fi multiplayer.</p>
+          <span class="go">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+
+        <a class="link-card reveal" href="../space-tactics/">
+          <div class="link-card-top">
+            <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/></svg></span>
+            <div>
+              <h3>Space Tactics</h3>
+            </div>
+            <span class="project-badge">Game</span>
+          </div>
+          <p>Real-time space strategy of base conquest: capture, upgrade and defend bases along hyperspace routes, in 30 missions, free battles or same-Wi-Fi multiplayer.</p>
+          <span class="go">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+
+        <a class="link-card reveal" href="../space-titans/">
+          <div class="link-card-top">
+            <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/></svg></span>
+            <div>
+              <h3>Space Titans</h3>
+            </div>
+            <span class="project-badge">Game</span>
+          </div>
+          <p>Real-time tactical battles between a few enormous ships: command a fleet that is already deployed, up to five ships against five, across 30 missions, free battles or same-Wi-Fi multiplayer.</p>
+          <span class="go">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+
+        <a class="link-card reveal" href="../argus/">
+          <div class="link-card-top">
+            <span class="mark"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2A10 10 0 0 0 8.84 21.5c.5.09.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.94.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85l-.01 2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg></span>
+            <div>
+              <h3>Argus</h3>
+            </div>
+            <span class="project-badge">Tool</span>
+          </div>
+          <p>AI-driven market forecasting for crypto: quantitative prediction, a multi-agent analysis pipeline and built-in backtesting.</p>
+          <span class="go">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+
+        <a class="link-card reveal" href="../orion/">
+          <div class="link-card-top">
+            <span class="mark"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2A10 10 0 0 0 8.84 21.5c.5.09.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.94.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85l-.01 2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg></span>
+            <div>
+              <h3>Orion</h3>
+            </div>
+            <span class="project-badge">Tool</span>
+          </div>
+          <p>An offline desktop PDF editor: reads, edits text and images, annotates and reorganizes pages, then saves a normal PDF. No account, no cloud.</p>
+          <span class="go">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+
+        <a class="link-card reveal" href="../iris/">
+          <div class="link-card-top">
+            <span class="mark"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2A10 10 0 0 0 8.84 21.5c.5.09.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.94.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85l-.01 2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg></span>
+            <div>
+              <h3>Iris</h3>
+            </div>
+            <span class="project-badge">Tool</span>
+          </div>
+          <p>Turns a list of companies and email addresses from a PDF, Excel or CSV file into personalized emails, sent in a single SMTP batch.</p>
+          <span class="go">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+
+        <a class="link-card reveal" href="../proteus/">
+          <div class="link-card-top">
+            <span class="mark"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2A10 10 0 0 0 8.84 21.5c.5.09.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.94.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85l-.01 2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg></span>
+            <div>
+              <h3>Proteus</h3>
+            </div>
+            <span class="project-badge">Tool</span>
+          </div>
+          <p>Bulk-replaces logo and graphic files across an entire folder tree: finds matches, shows a before/after preview, and overwrites with recoverable backups.</p>
+          <span class="go">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+
+        <a class="link-card reveal" href="../p7m-manager/">
+          <div class="link-card-top">
+            <span class="mark"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2A10 10 0 0 0 8.84 21.5c.5.09.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.94.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85l-.01 2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg></span>
+            <div>
+              <h3>P7M Manager</h3>
+            </div>
+            <span class="project-badge">Tool</span>
+          </div>
+          <p>Opens .p7m files: shows what's inside, who signed them and when, and extracts the document. One file or a whole folder, queued — no cloud, no account.</p>
+          <span class="go">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+
+        <a class="link-card reveal" href="../tyche/">
+          <div class="link-card-top">
+            <span class="mark"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2A10 10 0 0 0 8.84 21.5c.5.09.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.94.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85l-.01 2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg></span>
+            <div>
+              <h3>Tyche</h3>
+            </div>
+            <span class="project-badge">Tool</span>
+          </div>
+          <p>Downloads the entire SuperEnalotto (the Italian lottery) draw history, runs it through independence tests and TimesFM 3.0 backtests, and honestly measures what the forecasts are worth — the answer, with the evidence, is none.</p>
+          <span class="go">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+
+        <a class="link-card reveal" href="../studio-urbani/">
+          <div class="link-card-top">
+            <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M9 21v-4h6v4M8 7h1M8 11h1M15 7h1M15 11h1"/></svg></span>
+            <div>
+              <h3>Studio Urbani</h3>
+            </div>
+            <span class="project-badge">Website</span>
+          </div>
+          <p>An institutional website for a firm of accountants and labor consultants in Rome: one bilingual page, no external dependencies, with nightly-refreshed Google reviews.</p>
+          <span class="go">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <img class="logo-img" src="../../../assets/img/logo-ml.png" alt="" aria-hidden="true">
+      <svg class="logo-svg" viewBox="0 0 240 160" aria-hidden="true">
+        <g transform="skewX(-8) translate(10 0)" fill="none" stroke="#e7311e" stroke-width="21" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 132C26 92 40 52 56 52c14 0 10 40 6 80 8-40 22-80 38-80 14 0 8 44 4 80"/>
+          <path d="M104 132c14-36 46-112 72-112 20 0 14 40-14 76-22 28-30 42-16 44 16 2 46-22 68-48"/>
+        </g>
+      </svg>
+      <span>© <span data-year>2026</span> MLDev · <a class="footer-privacy-link" href="../../privacy/">Privacy</a></span>
+    </div>
+
+    <div class="social-row">
+      <a href="https://www.linkedin.com/in/mlombardo/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.75-1.95 4 0 4.4 2.5 4.4 5.75V21h-4v-5.6c0-1.35-.03-3.1-1.9-3.1-1.9 0-2.2 1.48-2.2 3v5.7h-4V9z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/mrram/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://x.com/MrRAM" target="_blank" rel="noopener" aria-label="X">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script src="../../../assets/js/bg-fx.js" defer></script>
+<script src="../../../assets/js/main.js" defer></script>
+</body>
+</html>
