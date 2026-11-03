@@ -1,5 +1,10 @@
+# Crawler di app-ads.txt (AdMob): accesso libero, come raccomandato da Google
+User-agent: Google-adstxt
+Disallow:
+
 User-agent: *
 Allow: /
+Allow: /app-ads.txt
 Disallow: /books.html
 
 Sitemap: https://marcolombardodev.github.io/sitemap.xml
